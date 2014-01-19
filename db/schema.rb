@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117123741) do
+ActiveRecord::Schema.define(version: 20140119160618) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -54,5 +54,15 @@ ActiveRecord::Schema.define(version: 20140117123741) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true
   add_index "users", ["username"], name: "index_users_on_username", unique: true
+
+  create_table "websites", force: true do |t|
+    t.string   "sitenaam"
+    t.string   "url"
+    t.integer  "count"
+    t.integer  "user_id"
+    t.string   "categorie"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
