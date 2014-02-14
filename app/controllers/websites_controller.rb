@@ -1,10 +1,20 @@
 class WebsitesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_website, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /websites
   # GET /websites.json
   def index
-    @websites = Website.all
+    @websites = current_user.websites.search_and_order(params[:search], params[:page])
+    #@aantal_websites = current_user.websites.all.size
+    if params[:teller]
+      @website = Website.find(params[:teller])
+      @website.count += 1
+      @website.laatste_bezoek = Time.now
+      @website.save
+      redirect_to params[:url]
+    end  
+    
   end
 
   # GET /websites/1
@@ -23,12 +33,14 @@ class WebsitesController < ApplicationController
 
   # POST /websites
   # POST /websites.json
-  def create
-    @website = Website.new(website_params)
-
+  def create  
+    @website = current_user.websites.new(website_params)
+    @website.count = 1 # omdat de default moet 0 zijn
+    @website.laatste_bezoek = Time.now # omdat de default moet 0 zijn
+    
     respond_to do |format|
       if @website.save
-        format.html { redirect_to @website, notice: 'Website was successfully created.' }
+        format.html { redirect_to websites_path, notice: 'Website met succes aangemaakt.' }
         format.json { render action: 'show', status: :created, location: @website }
       else
         format.html { render action: 'new' }
@@ -42,7 +54,7 @@ class WebsitesController < ApplicationController
   def update
     respond_to do |format|
       if @website.update(website_params)
-        format.html { redirect_to @website, notice: 'Website was successfully updated.' }
+        format.html { redirect_to websites_path, notice: 'Website met success geüpdate.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +68,7 @@ class WebsitesController < ApplicationController
   def destroy
     @website.destroy
     respond_to do |format|
-      format.html { redirect_to websites_url }
+      format.html { redirect_to websites_url, notice: 'Website : ' + @website.sitenaam.upcase + ', met success verwijderd.' }
       format.json { head :no_content }
     end
   end

@@ -1,37 +1,45 @@
-<%= form_for(@website) do |f| %>
-  <% if @website.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@website.errors.count, "error") %> prohibited this website from being saved:</h2>
-
-      <ul>
-      <% @website.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="row">
+  <div class="col-sm-6">
+    
+    <%= form_for(@website) do |f| %>
+    
+    <div class="form-group">
+      <%= f.label :sitenaam %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :sitenaam, :autofocus => true, class: "form-control" %>  
+        </div>
+      </div>
     </div>
-  <% end %>
+    
+    <div class="form-group">
+      <%= f.label :url %>
+      <div class="row">
+        <div class="col-sm-6">      
+          <%= f.url_field :url, class: "form-control" %>  
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :sitenaam %><br>
-    <%= f.text_field :sitenaam %>
+    <div class="form-group">
+      <%= f.label :categorie %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.select :categorie, Website::CATEGORIES, {:include_blank => true}, { :class => 'form-control' } %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.submit "Update Website", class: "btn btn-danger" %>
+      </div>
+    </div>    
+  
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :count %><br>
-    <%= f.number_field :count %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :categorie %><br>
-    <%= f.text_field :categorie %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+
+
+

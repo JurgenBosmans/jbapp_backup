@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :websites, :dependent => :destroy
+  
   # Use friendly_id on Users
   extend FriendlyId
   friendly_id :friendify, use: :slugged
