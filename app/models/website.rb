@@ -17,7 +17,7 @@ class Website < ActiveRecord::Base
   
   def self.search_and_order(search, page_number)
     if search
-      where("sitenaam LIKE ?", "%#{search.downcase}%").order(
+      where("sitenaam LIKE ?", "%#{search}%").order(
         sitenaam: :asc).page page_number
     else
       order(sitenaam: :asc).page page_number
