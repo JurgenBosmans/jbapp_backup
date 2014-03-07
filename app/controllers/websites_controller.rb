@@ -5,16 +5,22 @@ class WebsitesController < ApplicationController
   # GET /websites
   # GET /websites.json
   def index
-    @websites = current_user.websites.search_and_order(params[:search], params[:page])
     #@aantal_websites = current_user.websites.all.size
-    if params[:teller]
-      @website = Website.find(params[:teller])
-      @website.count += 1
-      @website.laatste_bezoek = Time.now
-      @website.save
-      redirect_to params[:url]
+    if params[:top]
+      @websites = current_user.websites.search_and_order(params[:search], params[:page]).order("count DESC").limit(10)
+    elsif params[:recenste]
+      @websites = current_user.websites.search_and_order(params[:search], params[:page]).order("created_at DESC").limit(5)
+    elsif params[:recent_bezocht]
+      @websites = current_user.websites.search_and_order(params[:search], params[:page]).order("laatste_bezoek DESC").limit(5)
+    elsif params[:teller]
+        @website = Website.find(params[:teller])
+        @website.count += 1
+        @website.laatste_bezoek = Time.now
+        @website.save
+        redirect_to params[:url]  
+    elsif 
+        @websites = current_user.websites.search_and_order(params[:search], params[:page])
     end  
-    
   end
 
   # GET /websites/1
@@ -81,6 +87,6 @@ class WebsitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def website_params
-      params.require(:website).permit(:sitenaam, :url, :count, :user_id, :categorie)
+      params.require(:website).permit(:sitenaam, :url, :count, :user_id, :categorie_id)
     end
 end

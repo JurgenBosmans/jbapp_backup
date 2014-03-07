@@ -1,12 +1,13 @@
 class Website < ActiveRecord::Base
   belongs_to :user
+  belongs_to :categorie
   
-  validates :sitenaam, :categorie, :presence => true
+  validates :sitenaam, :categorie_id, :presence => true
   #validates :url, :presence => {:message => 'URL cannot be blank.'}, format: {with: /\A[www]+[A-Za-z0-9._%+-]+\.[A-Za-z]+\z/, message: 'INCORRECT FORMAT!'}
   validates :url, uniqueness: { message: "URL bestaat reeds" }
   
-  CATEGORIES = [ "Computer", "Reizen", "Purchase order" ] 
-  validates :categorie, inclusion: CATEGORIES
+  # CATEGORIES = [ "Computer", "Reizen", "Purchase order" ] 
+  # validates :categorie, inclusion: CATEGORIES
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

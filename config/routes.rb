@@ -1,4 +1,5 @@
 JbappV2::Application.routes.draw do
+  resources :categories
   resources :websites
 
   root "pages#home"    
