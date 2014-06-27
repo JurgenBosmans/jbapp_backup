@@ -21,8 +21,6 @@
       <th>Categorie</th>
       <th></th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -35,11 +33,7 @@
         <td align=center><%= website.laatste_bezoek.strftime("%d/%m/%Y") %></td>
         <td><%= website.categorie.omschrijving unless website.categorie_id.nil? %></td>
         <td><%= link_to 'Edit', edit_website_path(website), {class: "btn btn-sm btn-link"} %></td>
-        <td><%= button_to 'Verwijder', website, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn btn-default btn-xs" %></td>
-        <td><%= button_to glyph(:"remove-sign"), website, :class => "btn btn-default btn-xs" , method: :delete, data: { confirm: 'Bent u nzeker?' } %></td>     
         <td><%= link_to 'Verwijder', website, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn btn-sm btn-link" %></td>
-        <td><%= link_to glyph(:"remove-sign") + " Verwijder", website, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn btn-sm btn-link" %></td>
-        <td><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-sign"></span></button></td>
       </tr>
     <% end %>
   </tbody>

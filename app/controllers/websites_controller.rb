@@ -7,11 +7,11 @@ class WebsitesController < ApplicationController
   def index
     #@aantal_websites = current_user.websites.all.size
     if params[:top]
-      @websites = current_user.websites.search_and_order(params[:search], params[:page]).order("count DESC").limit(10)
-    elsif params[:recenste]
-      @websites = current_user.websites.search_and_order(params[:search], params[:page]).order("created_at DESC").limit(5)
+      @websites = current_user.websites.order("count DESC").search_and_order(params[:search], params[:page]).limit(10)
     elsif params[:recent_bezocht]
-      @websites = current_user.websites.search_and_order(params[:search], params[:page]).order("laatste_bezoek DESC").limit(5)
+      @websites = current_user.websites.order("laatste_bezoek DESC").search_and_order(params[:search], params[:page]).limit(5)
+    elsif params[:recentste]
+      @websites = current_user.websites.order("created_at DESC").search_and_order(params[:search], params[:page]).limit(5)
     elsif params[:teller]
         @website = Website.find(params[:teller])
         @website.count += 1

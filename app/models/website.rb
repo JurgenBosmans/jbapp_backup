@@ -14,7 +14,12 @@ class Website < ActiveRecord::Base
   devise :database_authenticatable
   
   # Pagination
-  paginates_per 100
+  paginates_per 20
+  
+ # Client.where("orders_count > 10").order(:name).reverse_order
+ # scope :top, -> { where(pay_type: :check) }
+ # scope :published, -> { where(published: true) }
+  scope :recent_aangemaakt, -> { order('created_at DESC') }
   
   def self.search_and_order(search, page_number)
     if search
