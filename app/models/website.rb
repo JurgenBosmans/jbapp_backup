@@ -23,8 +23,12 @@ class Website < ActiveRecord::Base
   
   def self.search_and_order(search, page_number)
     if search
-      where("sitenaam LIKE ?", "%#{search}%").order(
-        sitenaam: :asc).page page_number
+      if Rails.env.development?
+        where("sitenaam LIKE ?", "%#{search}%").order(sitenaam: :asc).page page_number
+      elsif Rails.env.production?
+        where("sitenaam ILIKE ?", "%#{search}%").order(sitenaam: :asc).page page_number
+      end
+      
     else
       order(sitenaam: :asc).page page_number
     end
