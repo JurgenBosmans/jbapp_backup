@@ -1,5 +1,5 @@
 <h1>Users <small>Admin</small></h1>
-<p><%= link_to "Back to Admin", admin_root_path %></p>
+<p><%= link_to "Terug naar Admin", admin_root_path %></p>
 
 <div class="text-center">
   <p><%= page_entries_info @users %></p>
@@ -9,22 +9,22 @@
 <%= form_tag admin_users_path, method: 'get', html: {role: "form"} do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil, class: "btn btn-sm btn-primary" %>
-    <%= link_to "All", admin_users_path, {class: "btn btn-sm btn-link"} %>
+    <%= submit_tag "Zoek", :name => nil, class: "btn btn-sm btn-primary" %>
+    <%= link_to "Alle", admin_users_path, {class: "btn btn-sm btn-link"} %>
   </p>
 <% end %>
 
 <table class="table table-striped">
   <tr>
-    <th>User ID</th>
-    <th>Username</th>
+    <th>Gebruiker ID</th>
+    <th>Gebruikersnaam</th>
     <th>Admin</th>
     <th>Locked</th>
     <th>Email</th>
-    <th>Sign In Count</th>
-    <th>Created At</th>
-    <th>Last Sign In</th>
-    <th>Last Sign In IP</th>
+    <th>Aantal aangemeld</th>
+    <th>Aanmaakdatum</th>
+    <th>Laatste aanmelding</th>
+    <th>IP laatste aanmelding</th>
   </tr>
   
   <% @users.each do |user| %>

@@ -14,9 +14,9 @@
     <% @categories.each do |categorie| %>
       <tr>
         <td><%= categorie.omschrijving %></td>
-        <td><%= link_to 'Show', categorie %></td>
-        <td><%= link_to 'Edit', edit_categorie_path(categorie) %></td>
-        <td><%= link_to 'Destroy', categorie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Toon', categorie %></td>
+        <td><%= link_to 'Wijzig', edit_categorie_path(categorie) %></td>
+        <td><%= link_to 'Verwijder', categorie, method: :delete, data: { confirm: 'Bent u zeker?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Categorie', new_categorie_path %>
+<%= link_to 'Nieuwe Categorie', new_categorie_path %>

@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-sm-6">
     <h1>
-      Edit User <small><%= "#{@user.username.capitalize} - id: #{@user.id}" %></small>
+      Wijzig gebruiker <small><%= "#{@user.username.capitalize} - id: #{@user.id}" %></small>
     </h1>
-    <p><%= link_to "Back to Users", admin_users_path %></p>
+    <p><%= link_to "Terug naar gebruikers", admin_users_path %></p>
 
     <%= form_for [:admin, @user], :html => { :role => "form" } do |f| %>
     
