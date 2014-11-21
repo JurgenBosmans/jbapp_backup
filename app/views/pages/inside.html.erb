@@ -1,5 +1,62 @@
-<h1>Dashboard (protected)</h1>
-<p>Pagina enkel voor ingelogde gebruikers<em>views/pages/inside</em></p>
+<table align="center">
+<tr>
+  <th class="col-md-5"></th>
+  <th class="col-md-2"></th>
+  <th class="col-md-5"></th>
+</tr>
+
+<tr>
+  <td>
+    <div class="alert alert-info" role="alert">
+      Ik heb <b><%= @website_aantal %></b> website(s) toegevoegd aan mijn favorieten.<br><br>
+      Als recentste <b><%= link_to @website.sitenaam, website_path(@website) %></b> en als meest populaire <br>
+      Als recentste <b><%= link_to @website.sitenaam, website_path(@website , :teller => @website.id, :url => @website.url) %></b> en als meest populaire <br>
+      <%  @websites_pop.each do |website| %>
+      <b><%= link_to website.sitenaam, website_path(website) %></b>,
+      <%  end %><br>
+      Voeg <b><%= link_to 'hier' , new_website_path %></b> een nieuwe toe.
+    </div>
+  </td>
+  <td>
+  </td>
+  <td>
+      <div class="alert alert-info" role="alert"></div>
+  </td> 
+</tr>
+
+<tr>
+  <td>
+      <div class="alert alert-info" role="alert"></div>
+  </td>
+    <td>
+  </td>
+  <td>
+      <div class="alert alert-info" role="alert"></div>
+  </td> 
+</tr>
+  
+  <tr>
+  <td>
+      <div class="alert alert-info" role="alert"></div>
+  </td>
+    <td>
+  </td>
+  <td>
+      <div class="alert alert-info" role="alert"></div>
+  </td> 
+</tr>
+  
+  <tr>
+  <td>
+      <div class="alert alert-info" role="alert"></div>
+  </td>
+    <td>
+  </td>
+  <td>
+      <div class="alert alert-info" role="alert"></div>
+  </td> 
+</tr>
+</table>
 <!--
     <p>You can change the page users see after successfully signing in within the method <em>after_sign_in_path_for</em> inside <strong>application_controller.rb</strong></p>
 -->

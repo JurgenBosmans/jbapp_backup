@@ -27,8 +27,7 @@ class Website < ActiveRecord::Base
         where("sitenaam LIKE ?", "%#{search}%").order(sitenaam: :asc).page page_number
       elsif Rails.env.production?
         where("sitenaam ILIKE ?", "%#{search}%").order(sitenaam: :asc).page page_number
-      end
-      
+      end 
     else
       order(sitenaam: :asc).page page_number
     end

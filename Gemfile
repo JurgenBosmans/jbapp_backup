@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
-gem 'rails', '4.0.2'
-gem 'sass-rails', '4.0.1'
+gem 'rails', '4.1.8'
+gem "sass-rails", "~> 4.0.2"
 gem 'uglifier', '2.4.0'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
@@ -29,7 +29,7 @@ end
 gem 'kaminari', '0.15.0'
 
 # Slugs and friendly id's
-gem 'friendly_id', '5.0.2'
+gem 'friendly_id'
 
 # font-awesome
 gem 'font-awesome-sass', '4.0.2'# Devise

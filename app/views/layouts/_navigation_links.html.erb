@@ -2,7 +2,7 @@
 <li><%= link_to "Log in", new_user_session_path %></li>
 <li><%= link_to "Nieuw account", new_user_registration_path %></li>
 <% else %>
-<li><%= link_to "Overzicht", inside_path %></li>
+<li><%= link_to "Console", inside_path %></li>
 <li><%= link_to "Account", edit_user_registration_path %></li>
 <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fav<b class="caret"></b></a>
@@ -15,13 +15,13 @@
             <li><%= link_to "Categorie", categories_path %></li>
           </ul>
 </li>
-<li><%= link_to "Memo", websites_path %></li>
-<li><%= link_to "Medic", websites_path %></li>
-<li><%= link_to "Verbruik", websites_path %></li>
-<li><%= link_to "Koop", websites_path %></li>
-<li><%= link_to "Onderhoud", websites_path %></li>
-<li><%= link_to "Culi", websites_path %></li>
-<li><%= link_to "Kind", websites_path %></li>
+<li><%= link_to "Memo", "" %></li>
+<li><%= link_to "Medic", "" %></li>
+<li><%= link_to "Verbruik", "" %></li>
+<li><%= link_to "Koop", "" %></li>
+<li><%= link_to "Onderhoud", "" %></li>
+<li><%= link_to "Culi", "" %></li>
+<li><%= link_to "Kind", "" %></li>
 <% if current_user.admin? %>
 <li><%= link_to "Admin", admin_root_path %></li>
 <% end %>

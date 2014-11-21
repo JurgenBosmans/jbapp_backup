@@ -5,13 +5,12 @@ class WebsitesController < ApplicationController
   # GET /websites
   # GET /websites.json
   def index
-    #@aantal_websites = current_user.websites.all.size
     if params[:top]
-      @websites = current_user.websites.order("count DESC").search_and_order(params[:search], params[:page]).limit(10)
+      @websites = current_user.websites.order("count DESC").search_and_order(params[:search], params[:page]).per(10)
     elsif params[:recent_bezocht]
-      @websites = current_user.websites.order("laatste_bezoek DESC").search_and_order(params[:search], params[:page]).limit(5)
+      @websites = current_user.websites.order("laatste_bezoek DESC").search_and_order(params[:search], params[:page]).per(5)
     elsif params[:recentste]
-      @websites = current_user.websites.order("created_at DESC").search_and_order(params[:search], params[:page]).limit(5)
+      @websites = current_user.websites.order("created_at DESC").search_and_order(params[:search], params[:page]).per(5)
     elsif params[:teller]
         @website = Website.find(params[:teller])
         @website.count += 1
