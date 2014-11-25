@@ -2,48 +2,52 @@
   <p></p>
 </div>
 <div class="row">
-  <div class="col-md-4   alert alert-info">
-      Ik heb <b><%= @website_aantal %></b> website(s) toegevoegd aan mijn favorieten.<br>
-      Als recentste <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> en met de meeste hits :<br>
+  <div class="col-md-4   alert alert-info" style="background-color:lavender;">
+    <p class="text-right"><span class="label label-warning label-as-badge"><%= @website_aantal %></span></p>
+    <p>Recente toevoeging <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> op <%= @website.created_at.strftime("%d %b %Y") %>.<br> Top sites 
       <%  @websites_pop.each do |website| %>
       <b><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></b>
       <% if website != @websites_pop.last %> ,<% end %>
-      <%  end %>
-      <p align='right'>Voeg <b><%= link_to 'hier' , new_website_path %></b> een nieuwe toe.</p>
+      <%  end %></p><br>
+    <div class="btn-group">
+      <%= link_to new_website_path, :class => "btn-sm btn-primary" do %>
+    <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
+<% end %>
+    </div>
   </div>
   
   <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    ...
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div>
   
   <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    ...
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div> 
 </div>
 <div class="row">
   <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    ...
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div>
   
   <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    ...
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div>
   
   <div class="col-md-4  alert alert-info" style="background-color:yellow;">
-    ...
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div> 
 </div>
 <div class="row">
   <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    ...
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div>
   
   <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    ...
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div>
   
   <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    ...
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div> 
 </div>
 
