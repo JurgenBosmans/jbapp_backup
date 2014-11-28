@@ -23,6 +23,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'unicorn'  # jbo: toegevoegd voor snelheid stond in de railstutorial
 end
 
 # Paging
