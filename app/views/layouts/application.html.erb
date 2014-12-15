@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title><%= @title || "JbappV2" %></title>
+  <title><%= @title || "JbappV2 (beta)" %></title>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -10,9 +10,7 @@
 </head>
 <body>
   <div id="wrap">
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+  <%= render 'layouts/navigation' %>
       
     <div class="container">  
       <div class="row">
@@ -20,6 +18,7 @@
           <%= render 'layouts/messages' %>
         </div>
       </div>
+      
       <div class="row">
         <div class="col-sm-12">
           <%= yield %>

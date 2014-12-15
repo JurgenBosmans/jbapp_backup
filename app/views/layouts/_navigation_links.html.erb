@@ -1,11 +1,14 @@
 <% if !user_signed_in? %>
-<li><%= link_to "Log in", new_user_session_path %></li>
-<li><%= link_to "Nieuw account", new_user_registration_path %></li>
+  <li><%= link_to "Log in", new_user_session_path %></li>
+  <li><%= link_to "Nieuw account", new_user_registration_path %></li>
 <% else %>
-<li><%= link_to "Console", inside_path %></li>
-<li><%= link_to "Account", edit_user_registration_path %></li>
-<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fav<b class="caret"></b></a>
+  <li>        <%= link_to  inside_path, :class => 'navbar-brand' do %>
+        <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+        <% end %></li>
+
+  
+  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Website<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Alle", websites_path %></li>
             <li><%= link_to "Top 10 bezocht", websites_path(:top => "10") %></li>
@@ -14,17 +17,12 @@
             <li class="divider"></li>
             <li><%= link_to "Categorie", categories_path %></li>
           </ul>
-</li>
-<li><%= link_to "Memo", "" %></li>
-<li><%= link_to "Medic", "" %></li>
-<li><%= link_to "Verbruik", "" %></li>
-<li><%= link_to "Koop", "" %></li>
-<li><%= link_to "Onderhoud", "" %></li>
-<li><%= link_to "Culi", "" %></li>
-<li><%= link_to "Kind", "" %></li>
-<% if current_user.admin? %>
-<li><%= link_to "Admin", admin_root_path %></li>
-<% end %>
-
-<li><%= link_to "Log uit", destroy_user_session_path, data:{method: :delete} %></li>
+  </li>
+  <li><%= link_to "Nota", "" %></li>
+  <li><%= link_to "Medish", "" %></li>
+  <li><%= link_to "Verbruik", "" %></li>
+  <li><%= link_to "Aankoop", "" %></li>
+  <li><%= link_to "Onderhoud", "" %></li>
+  <li><%= link_to "Culinair", "" %></li>
+  <li><%= link_to "Kids", "" %></li>
 <% end %>

@@ -1,45 +1,29 @@
-<div class="row">
-  <div class="col-sm-6">
-    
-    <%= form_for(@website) do |f| %>
-    
-    <div class="form-group">
-      <%= f.label :sitenaam %>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.text_field :sitenaam, :autofocus => true, class: "form-control" %>  
-        </div>
-      </div>
+<%= form_for @website ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :sitenaam, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :sitenaam, :autofocus => true, class: "form-control input-sm" %>  
     </div>
-    
-    <div class="form-group">
-      <%= f.label :url %>
-      <div class="row">
-        <div class="col-sm-6">      
-          <%= f.url_field :url, class: "form-control" %>  
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :categorie %>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.collection_select :categorie_id, Categorie.all, :id, :omschrijving, {:include_blank => '...'}, {:class => 'form-control'} %>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-sm-6">
-        <%= f.submit "Update Website", class: "btn btn-danger" %>
-      </div>
-    </div>    
-  
-    <% end %>
   </div>
-</div>
+    
+  <div class="form-group">
+    <%= f.label  :url, "Adres" , class: "col-sm-2 control-label" %>   
+    <div class="col-sm-5">
+      <%= f.url_field :url, class: "form-control input-sm" %>  
+      <span id="helpBlock" class="help-block">Vergeet de 'http://' niet.</span>
+    </div>
+  </div>
 
-
-
-
+  <div class="form-group">
+    <%= f.label :categorie , class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.collection_select :categorie_id, Categorie.all, :id, :omschrijving, {:include_blank => ''}, {:class => 'form-control input-sm'} %>
+    </div>
+  </div>
+    
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Update Website", class: "btn-xs btn-primary" %>
+    </div>
+  </div>  
+<% end %>
