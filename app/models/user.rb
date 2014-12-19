@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :websites, :dependent => :destroy
+    has_many :notities, :dependent => :destroy
   
   # Use friendly_id on Users
   extend FriendlyId

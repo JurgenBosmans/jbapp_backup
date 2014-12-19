@@ -1,0 +1,6 @@
+<h3>Nota's</h3>
+
+<% @notities.each do |notitie| %>
+<%=notitie.notitie %>
+<% end %>
+<%= link_to 'Toevoegen', new_notitie_path, {class: "btn btn-sm btn-primary"} %>

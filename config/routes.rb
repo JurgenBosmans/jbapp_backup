@@ -1,17 +1,17 @@
 JbappV2::Application.routes.draw do
-  resources :categories
-  resources :websites
-
-  root "pages#home"    
-  get "home", to: "pages#home", as: "home"
-  get "inside", to: "pages#inside", as: "inside"
+    resources :categories
+    resources :websites
+    resources :notities
+    
+    root "pages#home"    
+    get "home", to: "pages#home", as: "home"
+    get "inside", to: "pages#inside", as: "inside"
   
     
-  devise_for :users
+    devise_for :users
   
-  namespace :admin do
-    root "base#index"
-    resources :users
-  end
-  
+    namespace :admin do
+        root "base#index"
+        resources :users
+    end
 end
