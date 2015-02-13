@@ -1,6 +1,21 @@
 <h3>Nota's</h3>
 
+<% i = 0 %>
 <% @notities.each do |notitie| %>
-<%=notitie.notitie %>
+<% i += 1 %>
+
+<% if i == 1 %>
+<div class="row">
 <% end %>
+
+    <div class="col-md-4   alert alert-info" style="background-color:lavender;">
+    <p class="text-center"><%=notitie.notitie %></p>
+   </div>
+
+<% if i == 3 %>
+</div>
+<% end %>
+
+<% end %>
+
 <%= link_to 'Toevoegen', new_notitie_path, {class: "btn btn-sm btn-primary"} %>
