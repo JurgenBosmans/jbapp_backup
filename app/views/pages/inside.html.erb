@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-5   alert alert-info" style="background-color:lavender;">
     <p class="text-right"><span class="label label-warning label-as-badge"><%= @website_aantal %></span></p>
-    <p>Recente toevoeging <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> op <%= @website.created_at.strftime("%d %b %Y") %>.<br> Top sites 
+    <p>De laatste toegevoegde website is <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> op <%= @website.created_at.strftime("%d %b %Y") %>.<br> Top sites 
       <%  @websites_pop.each do |website| %>
       <b><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></b>
       <% if website != @websites_pop.last %> ,<% end %>
@@ -17,8 +17,13 @@
   </div>
   
   <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div>
+      <p class="text-right"><span class="label label-warning label-as-badge"><%= @notitie_aantal %></span></p>
+      <p>De laatste toegevoegde notitie is van <%= @notitie.created_at.strftime("%d %b %Y") %>.</p><br><br>
+      <div class="btn-group">
+          <%= link_to new_notitie_path, :class => "btn-sm btn-primary" do %>
+                <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
+            <% end %>
+      </div>
 </div>
 
 <div class="row">

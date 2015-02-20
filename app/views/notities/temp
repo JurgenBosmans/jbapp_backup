@@ -1,0 +1,9 @@
+            <%=# link_to 'Verwijder', notitie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-primary" do %>
+            <%= link_to new_notitie_path, :class => "btn-xs btn-primary" do %>
+            
+                    <div class="btn-group">
+            <%= link_to 'Verwijder', notitie, method: :delete, data: { confirm: 'Bent u zeker?' } %>
+          
+                <span class="glyphicon glyphicon-remove-sign" title="Verwijder deze notitie"></span>
+            <% end %>
+      </div>   
