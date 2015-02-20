@@ -3,7 +3,7 @@
 <div class="row">
 <% @notities.each do |notitie| %>   
     <div class="col-md-5   col-md-offset-1 alert alert-info" style="background-color:lavender;">
-        <p class="text-center"><%=notitie.notitie %></p>
+        <p class="text-center"><%=simple_format(notitie.notitie) %></p>
     </div>
 <% end %>
 </div>
