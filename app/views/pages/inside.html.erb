@@ -2,7 +2,7 @@
   <p></p>
 </div>
 <div class="row">
-  <div class="col-md-4   alert alert-info" style="background-color:lavender;">
+  <div class="col-md-5   alert alert-info" style="background-color:lavender;">
     <p class="text-right"><span class="label label-warning label-as-badge"><%= @website_aantal %></span></p>
     <p>Recente toevoeging <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> op <%= @website.created_at.strftime("%d %b %Y") %>.<br> Top sites 
       <%  @websites_pop.each do |website| %>
@@ -16,41 +16,40 @@
     </div>
   </div>
   
-  <div class="col-md-4  alert alert-info" style="background-color:lavender;">
+  <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
     <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
   </div>
-  
-  <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div> 
-</div>
-<div class="row">
-  <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div>
-  
-  <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div>
-  
-  <div class="col-md-4  alert alert-info" style="background-color:yellow;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div> 
-</div>
-<div class="row">
-  <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div>
-  
-  <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div>
-  
-  <div class="col-md-4  alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div> 
 </div>
 
+<div class="row">
+  <div class="col-md-5   alert alert-info" style="background-color:lavender;">
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
+  </div>
+  
+  <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5  alert alert-info" style="background-color:lavender;">
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
+  </div>
+  
+  <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
+  </div>  
+</div>
+
+<div class="row">
+  <div class="col-md-5  alert alert-info" style="background-color:lavender;">
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
+  </div>
+  
+  <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
+    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
+  </div>  
+</div>
 <!--
     <p>You can change the page users see after successfully signing in within the method <em>after_sign_in_path_for</em> inside <strong>application_controller.rb</strong></p>
 -->
