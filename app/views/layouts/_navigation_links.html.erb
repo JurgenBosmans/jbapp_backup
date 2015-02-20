@@ -23,6 +23,8 @@
           <ul class="dropdown-menu">
               <li><%= link_to "Alle", notities_path %></li>
               <li><%= link_to "Belangrijk", notities_path(:belangrijk => "0") %></li>
+              <li><%= link_to "Belangrijk2", notities_path(:belangrijk2 => "0") %></li>
+              <li><%= link_to "Belangrijk3", notities_path(:belangrijk3 => "0") %></li>
               <li><%= link_to "Laatste 6 toegevoegd", notities_path(:recent => "0") %></li>
           </ul>
   </li>
