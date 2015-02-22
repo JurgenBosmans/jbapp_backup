@@ -4,25 +4,40 @@
   </div>
   <div class="panel-body">
     <div class="row">
-<% @notities.each do |notitie| %>   
-    <div class="col-md-5 col-md-offset-1 alert alert-info" style="background-color:lavender;">
-        <p align=right><%=notitie.created_at.strftime("%d/%m/%Y") %></p>
-        <p class="text-center"> <%=simple_format(notitie.notitie) %>
-            <div class="btn-group">
-                <%= link_to  edit_notitie_path(notitie), :class => "btn-xs btn-primary" do %>
-                    <span class="glyphicon glyphicon-edit" title="Wijzig deze notitie"></span>
-                <% end %>
-            </div>
-            <div class="btn-group">
-                <%= link_to  notitie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-primary" do %>
-                    <span class="glyphicon glyphicon-remove-sign" title="Verwijder deze notitie"></span>
-                <% end %>
-            </div>  
-        </p>
-    </div>
-<% end %>
-</div>
-<%= link_to 'Toevoegen', new_notitie_path, {class: "btn btn-sm btn-info"} %>
+	
+<% i = 0 %>		
+<table>
+	<% @notities.each do |notitie| %>
+		<% if i == 0 %>
+  			<tr>
+		<% end %>
+    	<td>&nbsp&nbsp</td>
+	  	<td><div class="alert alert-warning" role="warning">
+				<p align=right><%=notitie.created_at.strftime("%d/%m/%Y") %></p>
+				<p><%=simple_format(notitie.notitie) %></p>
+				<div class="btn-group">
+                	<%= link_to  edit_notitie_path(notitie), :class => "btn-xs btn-primary" do %>
+                    	<span class="glyphicon glyphicon-edit" title="Wijzig deze notitie"></span>
+                	<% end %>
+            	</div>
+            	<div class="btn-group">
+                	<%= link_to  notitie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-primary" do %>
+                    	<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze notitie"></span>
+                	<% end %>
+            	</div>  
+			</div>
+		</td>
+		<td>&nbsp&nbsp</td>
+		<% if i == 1 %>			
+	  		</tr>
+			<% i = 0 %>
+		<% else %>
+			<% i = 1 %>
+		<% end %>
+	<% end %>
+</table>
+		
+		<p><%= link_to 'Toevoegen', new_notitie_path, {class: "btn btn-sm btn-info"} %></p>
   </div>
 </div>
 
