@@ -15,7 +15,7 @@ class Website < ActiveRecord::Base
   	devise :database_authenticatable
   
   	# Pagination
-  	paginates_per 20
+  	paginates_per 25
   
  	# Client.where("orders_count > 10").order(:name).reverse_order
  	# scope :top, -> { where(pay_type: :check) }
