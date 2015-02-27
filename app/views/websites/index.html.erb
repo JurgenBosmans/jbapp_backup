@@ -1,16 +1,25 @@
-<h3>Favoriete websites</h3>
+<br>
+<div class="panel panel-info">
+  <div class="panel-heading">
+	  <h3 class="panel-title">Websites : <%= @filter %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+		
 <div class="text-center">
    <%#=  page_entries_info @websites %>
   <%= paginate @websites %>
 </div>
+		
 <%= form_tag websites_path, method: 'get', html: {role: "form"} do %>
-  <p>
+  <p align="center">
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Filter", :name => nil, class: "btn btn-sm btn-primary" %>
+    <%= submit_tag "Filter", :name => nil, class: "btn btn-sm btn-info" %>
     <%= link_to "Toon alles", websites_path, {class: "btn btn-sm btn-link"} %>
   </p>
 <% end %>
-<table class="table table-condensed table-striped table-hover">
+		
+<table class="table table-condensed table-hover">
   <thead>
     <tr>
       <th>Site</th>
@@ -23,9 +32,16 @@
   </thead>
 
   <tbody>
-    <% @websites.each do |website| %>
-      <tr>
-        <td><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></td>
+	<% @websites.each do |website| %>
+		<% case  %>
+	  		<% when website.count < 2 %>
+      			<tr class="danger">
+			<% when website.count > 50 %>
+		  		<tr class="success">
+		  	<% else %>
+		  		<tr>
+		<% end %>
+		<td><%= website.count %><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></td>
         <td align=right width=10px><%= website.count %></td>
         <td align=center><%= website.laatste_bezoek.strftime("%d/%m/%Y") %></td>
         <td><%= website.categorie.omschrijving unless website.categorie_id.nil? %></td>
@@ -35,7 +51,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Toevoegen', new_website_path, {class: "btn btn-sm btn-primary"} %>
+		
+		<p align="center"><%= link_to 'Toevoegen', new_website_path, {class: "btn btn-sm btn-info"} %></p>
+</div>

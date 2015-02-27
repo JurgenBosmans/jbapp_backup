@@ -5,6 +5,7 @@ class WebsitesController < ApplicationController
   # GET /websites
   # GET /websites.json
   def index
+	  @filter="Alle"
     if params[:top]
       @websites = current_user.websites.order("count DESC").search_and_order(params[:search], params[:page]).per(10)
     elsif params[:recent_bezocht]
@@ -45,7 +46,7 @@ class WebsitesController < ApplicationController
     
     respond_to do |format|
       if @website.save
-        format.html { redirect_to websites_path, notice: 'Website met succes aangemaakt.' }
+        format.html { redirect_to websites_path, notice: 'Website aangemaakt' }
         format.json { render action: 'show', status: :created, location: @website }
       else
         format.html { render action: 'new' }
@@ -59,7 +60,7 @@ class WebsitesController < ApplicationController
   def update
     respond_to do |format|
       if @website.update(website_params)
-        format.html { redirect_to websites_path, notice: 'Website met success geüpdate.' }
+        format.html { redirect_to websites_path, notice: 'Website geüpdate' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -73,7 +74,7 @@ class WebsitesController < ApplicationController
   def destroy
     @website.destroy
     respond_to do |format|
-      format.html { redirect_to websites_url, notice: 'Website : ' + @website.sitenaam.upcase + ', met success verwijderd.' }
+		format.html { redirect_to websites_url, notice: 'Website ' + @website.sitenaam.upcase + ', werd verwijderd' }
       format.json { head :no_content }
     end
   end
