@@ -22,9 +22,9 @@
 <table class="table table-condensed table-hover">
   <thead>
     <tr>
-      <th>Site</th>
-      <th>Bezoeken</th>
-      <th>Recenste</th>
+      <th>Website</th>
+      <th>Aantal<br>bezoeken</th>
+      <th>Laatst<br>bezocht</th>
       <th>Categorie</th>
       <th></th>
       <th></th>
@@ -41,12 +41,20 @@
 		  	<% else %>
 		  		<tr>
 		<% end %>
-		<td><%= website.count %><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></td>
-        <td align=right width=10px><%= website.count %></td>
-        <td align=center><%= website.laatste_bezoek.strftime("%d/%m/%Y") %></td>
-        <td><%= website.categorie.omschrijving unless website.categorie_id.nil? %></td>
-        <td><%= link_to 'Edit', edit_website_path(website)%></td>
-        <td><%= link_to 'Verwijder', website, method: :delete, data: { confirm: 'Bent u zeker?' } %></td>
+		<td><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></td>
+        <td width=100px><%= website.count %></td>
+        <td width=125px><%= website.laatste_bezoek.strftime("%d/%m/%Y") %></td>
+        <td width=125px><%= website.categorie.omschrijving unless website.categorie_id.nil? %></td>
+		<td width=50px><div class="btn-group">
+			<%= link_to  edit_website_path(website), :class => "btn-xs btn-info" do %>
+            <span class="glyphicon glyphicon-edit" title="Wijzig deze website"></span>
+            <% end %>
+		</div></td>
+        <td width=50px><div class="btn-group">
+			<%= link_to  website, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
+            <span class="glyphicon glyphicon-remove-sign" title="Verwijder deze website"></span>
+            <% end %>
+		</div></td>  		
     </tr>
     <% end %>
   </tbody>

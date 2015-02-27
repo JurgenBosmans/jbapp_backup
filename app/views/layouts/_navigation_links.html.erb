@@ -15,6 +15,8 @@
             <li><%= link_to "Laatste 5 bezocht", websites_path(:recent_bezocht => "5") %></li>
             <li><%= link_to "Laatste 5 toegevoegd", websites_path(:recentste => "5") %></li>
             <li class="divider"></li>
+			  <li><%= link_to 'Toevoegen', new_website_path %></li>
+			<li class="divider"></li>
             <li><%= link_to "Categorie", categories_path %></li>
           </ul>
   </li>

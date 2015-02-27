@@ -1,4 +1,4 @@
-<%= form_for(@categorie) do |f| %>
+<%= form_for @categorie ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
   <% if @categorie.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@categorie.errors.count, "error") %> prohibited this categorie from being saved:</h2>
@@ -11,11 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :omschrijving %><br>
-    <%= f.text_field :omschrijving %>
+  <div class="form-group">
+	  <%= f.label :omschrijving,"Omschrijf hier uw categorie", class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+		<%= f.text_field :omschrijving, :autofocus => true, class: "form-control input-sm" %>  
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit "Bevestig", class: "btn-sm btn-info" %>
+    </div>
+  </div>  
 <% end %>
