@@ -3,16 +3,28 @@ class NotitiesController < ApplicationController
     before_action :set_notitie, only: [:show, :edit, :update, :destroy]
     
     def index
-        case
-            when params[:belangrijk]
-                @notities = current_user.notities.where('belangrijk = ?', true)           
-            when params[:recent]
-                @notities = current_user.notities.order("created_at DESC").limit(6)
-            when params[:alle]
-                @notities = current_user.notities.all.order("id DESC")   
-            else
-                @notities = current_user.notities.all.order("id DESC").limit(6)    
-        end
+		if params[:zoek]
+				@notities = current_user.notities.where("notitie LIKE ?", '%' + params[:zoek] + '%')
+				@filter = "filter"
+		else
+			case params[:filter]
+				when "belangrijk"
+					@notities = current_user.notities.where('belangrijk = ?', true)     
+					@filter = "belangrijk"
+				when "recent"
+					@notities = current_user.notities.order("created_at DESC").limit(4)
+					@filter = "recenste 4"
+				when "alle"
+					@notities = current_user.notities.all.order("id DESC")   
+					@filter = "alle"
+				when "week"
+					@notities = current_user.notities.where(created_at: (Time.now.midnight - 7.day)..Time.now)
+					@filter = "afgelopen week"
+				else
+					@notities = current_user.notities.where(created_at: (Time.now.midnight - 7.day)..Time.now)    
+					@filter = "afgelopen week"
+			end
+		end
     end
     
     def show

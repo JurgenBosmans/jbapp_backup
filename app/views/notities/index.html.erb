@@ -1,10 +1,19 @@
+<br>
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">Notities</h3>
+	  <h3 class="panel-title">Notities : <%= @filter %></h3>
   </div>
   <div class="panel-body">
     <div class="row">
-	
+
+		<%= form_tag @notitie, method: 'get', html: {role: "form"} do %>
+  	<p align="center">
+		<%= text_field_tag :zoek, params[:zoek], :size => 50 %>
+		<%= submit_tag "Filter alle notities", :name => nil, class: "btn btn-sm btn-info" %>
+		</p><br>
+<% end %>		
+		
+		
 <% i = 0 %>		
 <table>
 	<% @notities.each do |notitie| %>
@@ -16,12 +25,12 @@
 				<p align=right><%=notitie.created_at.strftime("%d/%m/%Y") %></p>
 				<p><%=simple_format(notitie.notitie) %></p>
 				<div class="btn-group">
-                	<%= link_to  edit_notitie_path(notitie), :class => "btn-xs btn-primary" do %>
+                	<%= link_to  edit_notitie_path(notitie), :class => "btn-xs btn-info" do %>
                     	<span class="glyphicon glyphicon-edit" title="Wijzig deze notitie"></span>
                 	<% end %>
             	</div>
             	<div class="btn-group">
-                	<%= link_to  notitie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-primary" do %>
+                	<%= link_to  notitie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
                     	<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze notitie"></span>
                 	<% end %>
             	</div>  
@@ -37,7 +46,7 @@
 	<% end %>
 </table>
 		
-		<p><%= link_to 'Toevoegen', new_notitie_path, {class: "btn btn-sm btn-info"} %></p>
+		<p align="center"><%= link_to 'Toevoegen', new_notitie_path, {class: "btn btn-sm btn-info"} %></p>
   </div>
 </div>
 
