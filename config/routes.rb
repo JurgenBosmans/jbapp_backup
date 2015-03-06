@@ -1,7 +1,10 @@
 JbappV2::Application.routes.draw do
+  get 'aankopen/index'
+
     resources :categories
     resources :websites
     resources :notities
+	resources :aankopen
     
     root "pages#home"    
     get "home", to: "pages#home", as: "home"

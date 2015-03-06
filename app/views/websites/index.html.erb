@@ -8,7 +8,9 @@
 		
 <div class="text-center">
    <%#=  page_entries_info @websites %>
-  <%= paginate @websites %>
+  <%= paginate @websites %> &nbsp
+<%= link_to_next_page @websites, 'Volgende pagina' %> &nbsp
+	<%= link_to_previous_page @websites, 'Vorige pagina' %>
 </div>
 		
 <%= form_tag websites_path, method: 'get', html: {role: "form"} do %>

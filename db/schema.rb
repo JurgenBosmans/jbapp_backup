@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219132135) do
+ActiveRecord::Schema.define(version: 20150306112753) do
+
+  create_table "aankopen", force: true do |t|
+    t.integer  "user_id"
+    t.string   "artikel"
+    t.date     "aankoopdatum"
+    t.string   "winkel"
+    t.decimal  "prijs"
+    t.integer  "garantie_maanden"
+    t.string   "soort"
+    t.text     "opmerking"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "omschrijving"

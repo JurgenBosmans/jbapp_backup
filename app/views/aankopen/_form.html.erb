@@ -1,0 +1,56 @@
+<%= form_for @aankoop ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+  <div class="form-group">
+	  <%= f.label :aankoopdatum, class: "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+		<%= f.date_select :aankoopdatum,  class: "date-select" %>  
+    </div>
+  </div>
+
+<div class="form-group">
+	  <%= f.label  :soort , "Categorie" ,class: "col-sm-2 control-label" %>   
+    <div class="col-sm-3">
+		<%= f.text_field :soort, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+	  <%= f.label :winkel , class: "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+		<%= f.text_field :winkel, class: "form-control input-sm" %>  
+    </div>
+  </div>
+    
+  <div class="form-group">
+	  <%= f.label :artikel , class: "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+		<%= f.text_field :artikel, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+	  <%= f.label :prijs , class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+		<%= f.number_field :prijs, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+	  <%= f.label :garantie_maanden ,"Garantie (in maanden)", class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+		<%= f.number_field :garantie_maanden , class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+	  <%= f.label :opmerking, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+		<%= f.text_area :opmerking, size: "24x6", :autofocus => true, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Update aankoop", class: "btn-sm btn-info" %>
+    </div>
+  </div>  
+<% end %>

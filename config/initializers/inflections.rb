@@ -8,7 +8,11 @@
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'person', 'people'
     inflect.irregular 'categorie', 'categories'
-    inflect.irregular 'notitie', 'notities'
+	inflect.irregular 'notitie', 'notities'
+	inflect.irregular 'aankoop', 'aankopen'
+	inflect.irregular 'onderhoud', 'onderhouden'
+	
+	 
 #   inflect.uncountable %w( fish sheep )
  end
 
