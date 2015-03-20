@@ -18,10 +18,10 @@ class AankopenController < ApplicationController
 					@aankopen = current_user.aankopen.all.order("id DESC")   
 					@filter = "alle"
 				when "maand"
-					@aankopen = current_user.aankopen.where(created_at: (Time.now.midnight - 1.month)..Time.now)
+				@aankopen = current_user.aankopen.where(aankoopdatum: (Time.now.midnight - 1.month)..Time.now)
 					@filter = "afgelopen maand"
 				when "jaar"
-					@aankopen = current_user.aankopen.where(created_at: (Time.now.midnight - 1.year)..Time.now)    
+				@aankopen = current_user.aankopen.where(aankoopdatum: (Time.now.midnight - 1.year)..Time.now)    
 					@filter = "afgelopen jaar"
 				else
 					@aankopen = current_user.aankopen.all.order("id DESC")   

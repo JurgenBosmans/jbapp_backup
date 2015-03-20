@@ -2,27 +2,28 @@
   <div class="form-group">
 	  <%= f.label :aankoopdatum, class: "col-sm-2 control-label" %>
     <div class="col-sm-3">
-		<%= f.date_select :aankoopdatum,  class: "date-select" %>  
+		<%= f.date_select(:aankoopdatum, {class: "date-select"}) %>  
     </div>
   </div>
 
 <div class="form-group">
-	  <%= f.label  :soort , "Categorie" ,class: "col-sm-2 control-label" %>   
+	<%= f.label  :soort , "Categorie" ,class: "col-sm-2 control-label" %>   
     <div class="col-sm-3">
-		<%= f.text_field :soort, class: "form-control input-sm" %>  
+		<%= f.select(:soort, Aankoop::CATEGORIE, {:include_blank => true}, {class: "form-control input-sm"}) %>
+
     </div>
   </div>
 
   <div class="form-group">
 	  <%= f.label :winkel , class: "col-sm-2 control-label" %>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
 		<%= f.text_field :winkel, class: "form-control input-sm" %>  
     </div>
   </div>
     
   <div class="form-group">
 	  <%= f.label :artikel , class: "col-sm-2 control-label" %>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
 		<%= f.text_field :artikel, class: "form-control input-sm" %>  
     </div>
   </div>

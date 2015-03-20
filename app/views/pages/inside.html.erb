@@ -24,8 +24,29 @@
                 <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
             <% end %>
       </div>
+	</div>
 </div>
-
+<div class="row">
+  <div class="col-md-5 alert alert-info" style="background-color:lavender;">
+      <p class="text-right"><span class="label label-warning label-as-badge"><%= @aankoop_aantal %></span></p>
+      <p>De laatste toegevoegde aankoop is van <%= @aankoop.created_at.strftime("%d %b %Y") %> en betreft een <b><%= @aankoop.artikel %></b>.</p><br><br>
+      <div class="btn-group">
+          <%= link_to new_aankoop_path, :class => "btn-sm btn-primary" do %>
+                <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
+            <% end %>
+      </div>
+</div>
+	
+  <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
+	  <p class="text-right"><span class="label label-warning label-as-badge"><%= @leeg_aantal %></span></p>
+      <p>De laatste toegevoegde .... is van <%= @notitie.created_at.strftime("%d %b %Y") %>.</p><br><br>
+      <div class="btn-group">
+          <%= link_to new_notitie_path, :class => "btn-sm btn-primary" do %>
+                <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
+            <% end %>
+      </div>
+</div>	
+</div>
 
 <!-- Zo ziet de html er uit voor 2 labels naast elkaar	
 <div class="row">
