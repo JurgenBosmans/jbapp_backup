@@ -23,7 +23,7 @@
       <tr>
 		  <td><%= onderhoud.datum_onderhoud.strftime("%d/%m/%Y") %></td>
 		  <td><%= onderhoud.aankoop.artikel %></td>
-		  <td width=75px align="right"><%= number_to_currency(onderhoud.prijs) %></td>
+		  <td width=100px align="right"><%= number_to_currency(onderhoud.prijs) %></td>
 		  <td><%= onderhoud.volgende_onderhoud.try(:strftime, "%d/%m/%Y") %></td>
 		  <td width=75px align="right"><%= onderhoud.teller %> <%= onderhoud.teller_eh %></td>
 		<td width=50px><div class="btn-group">
