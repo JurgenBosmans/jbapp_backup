@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306112753) do
+ActiveRecord::Schema.define(version: 20150320124658) do
 
   create_table "aankopen", force: true do |t|
     t.integer  "user_id"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 20150306112753) do
     t.integer  "user_id"
     t.string   "notitie"
     t.boolean  "belangrijk"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "onderhouden", force: true do |t|
+    t.integer  "aankoop_id"
+    t.integer  "user_id"
+    t.date     "datum_onderhoud"
+    t.date     "volgende_onderhoud"
+    t.text     "opmerking"
+    t.decimal  "prijs"
+    t.integer  "teller"
+    t.string   "teller_eh"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
