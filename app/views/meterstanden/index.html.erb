@@ -22,16 +22,16 @@
   <tbody>
 	  <% @meterstanden.each do |meterstand| %>
       <tr>
-		  <td><%= meterstand.meter %></td>
-		  <td><%= meterstand.datum.try(:strftime, "%d/%m/%Y") %></td>
-		  <td align="right"><%= meterstand.stand %></td>
-		  <td align="right"><%= meterstand.verbruik %></td>
-		<td width=50px><div class="btn-group">
+		  <td width=50%><%= meterstand.meter %></td>
+		  <td width=10%><%= meterstand.datum.try(:strftime, "%d/%m/%Y") %></td>
+		  <td align="right" width=10%><%= meterstand.stand %></td>
+		  <td align="right" width=10%><%= meterstand.verbruik %></td>
+		<td width=10%><div class="btn-group">
 			<%= link_to  edit_meterstand_path(meterstand), :class => "btn-xs btn-info" do %>
             <span class="glyphicon glyphicon-edit" title="Wijzig deze meterstand"></span>
             <% end %>
 		</div></td>
-        <td width=50px><div class="btn-group">
+        <td width=10%><div class="btn-group">
 			<%= link_to  meterstand, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
             <span class="glyphicon glyphicon-remove-sign" title="Verwijder deze aankoop"></span>
             <% end %>

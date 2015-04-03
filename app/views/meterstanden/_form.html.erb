@@ -1,8 +1,3 @@
-<div class="alert alert-warning" role="alert">
-	De <b>vorige stand</b> op <%= @meterstand_vorig.datum.try(:strftime, "%d/%m/%Y") %> was <b><%= @meterstand_vorig.stand %></b> met een verbruik van <%= @meterstand_vorig.verbruik %>
-</div>
-
-
 <%= form_for @meterstand ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
 
 <div class="form-group">

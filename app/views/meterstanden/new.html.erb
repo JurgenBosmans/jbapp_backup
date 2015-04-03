@@ -1,4 +1,9 @@
 <br>
+<div class="alert alert-warning" role="alert" align="center">
+	De <b>vorige stand</b> op <%= @meterstand_vorig.datum.try(:strftime, "%d/%m/%Y") %> was <b><%= @meterstand_vorig.stand %></b> met een verbruik van <%= @meterstand_vorig.verbruik %>
+</div>
+
+<br>
 <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title">Nieuwe meterstand toevoegen</h3>

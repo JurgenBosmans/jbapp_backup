@@ -21,6 +21,9 @@ class MeterstandenController < ApplicationController
 		
 	end
 	
+	def vergelijk
+	end
+	
   def new
 	  @meterstand = Meterstand.new
 	  @meterstand_vorig = current_user.meterstanden.first # let op met default order

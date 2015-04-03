@@ -3,6 +3,7 @@ JbappV2::Application.routes.draw do
 		#dit is nodig om een extra action toe te voegen
 		collection do
 			get 'winter'
+			get 'vergelijk'
   		end
 	end
 
