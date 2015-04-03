@@ -28,7 +28,7 @@
 		  <td><%= aankoop.soort %></td>
 		  <td><%= aankoop.winkel %></td>
 		  <td><%= aankoop.artikel %></td>
-		  <td align="right"><%= number_to_currency(aankoop.prijs) %></td>
+		  <td align="right"><%= number_to_currency(aankoop.prijs, locale: :nl) %></td>
 		  <td align="right"><%= aankoop.garantie_maanden %></td>
 		<td width=50px><div class="btn-group">
 			<%= link_to  edit_aankoop_path(aankoop), :class => "btn-xs btn-info" do %>

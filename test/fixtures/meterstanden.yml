@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  meter: MyString
+  datum: 2015-04-03
+  stand: 9.99
+  verbruik: 9.99
+
+two:
+  user_id: 1
+  meter: MyString
+  datum: 2015-04-03
+  stand: 9.99
+  verbruik: 9.99

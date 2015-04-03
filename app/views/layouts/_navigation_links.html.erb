@@ -32,7 +32,16 @@
           </ul>
   </li>
 <li><%= link_to "Gezondheid", "" %></li>
-<li><%= link_to "Meterstand", "" %></li>
+  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meterstand<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+			  <li><%= link_to "Alle", meterstanden_path(:filter => "alle") %></li>
+			  <li><%= link_to "Recentste", meterstanden_path(:filter => "recent") %></li>
+			  <li><%= link_to "Verbruik winterperiode", {:controller => "meterstanden", :action => "winter"} %></li>
+			  <li class="divider"></li>
+			  <li><%= link_to 'Toevoegen', new_meterstand_path %></li>
+          </ul>
+  </li>
   <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aankoop<b class="caret"></b></a>
           <ul class="dropdown-menu">
