@@ -8,7 +8,7 @@ class Meterstand < ActiveRecord::Base
 	validates :stand, numericality: true
 	validates :verbruik, numericality: true
 	
-	METER = ["ANDER","GAS","WATER","ELECTRICITEIT"]
+	METER = ["Ander","Gas","Water","Electriciteit"]
 	
   	# Include default devise modules. Others available are:
   	# :confirmable, :lockable, :timeoutable and :omniauthable
