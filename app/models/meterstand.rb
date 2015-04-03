@@ -1,7 +1,7 @@
 class Meterstand < ActiveRecord::Base
 	belongs_to :user
 	
-	default_scope { order('updated_at DESC') } #let op sortering later is niet meer mogelijk
+	default_scope { order('id DESC') } #let op sortering later is niet meer mogelijk
 	
 	validates :meter, :presence => {:message => 'Je moet een meter opgeven'}
 	validates :datum, :presence => {:message => 'Je moet een datum opgeven'}
