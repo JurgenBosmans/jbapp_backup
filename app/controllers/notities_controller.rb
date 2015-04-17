@@ -67,7 +67,7 @@ class NotitiesController < ApplicationController
   def destroy
     @notitie.destroy
     respond_to do |format|
-        format.html { redirect_to notities_url, notice: 'Notitie verwijderd' }
+        format.html { redirect_to notities_path, notice: 'Notitie verwijderd' }
       format.json { head :no_content }
     end
   end

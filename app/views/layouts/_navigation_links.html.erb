@@ -32,7 +32,22 @@
           </ul>
   </li>
 
-<li><%= link_to "Gezondheid", "" %></li>
+  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gezondheid<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+			  <li><%= link_to "Raadplegingen", aankopen_path(:filter => "alle") %></li>
+			  <li><%= link_to "Raadplegingen voorbije maand", aankopen_path(:filter => "euro") %></li>
+			  <li><%= link_to 'Raadpleging toevoegen', new_aankoop_path %></li>
+			  <li><%= link_to 'Niet afgewerkte dossiers', new_aankoop_path %></li>
+			  <li><%= link_to 'Op te volgen dossiers', new_aankoop_path %></li>
+			  <li class="divider"></li>
+			  <li><%= link_to "Patiënten", aankopen_path(:filter => "recent") %></li>
+			  <li><%= link_to "Patiënt toevoegen", aankopen_path(:filter => "maand") %></li>
+			  <li class="divider"></li>
+			  <li><%= link_to "Artsen", aankopen_path(:filter => "maand") %></li>
+			  <li><%= link_to "Arts toevoegen", aankopen_path(:filter => "maand") %></li>
+          </ul>
+  </li>
 
 <li><%= link_to "Sport", "" %></li>
 
@@ -70,6 +85,19 @@
 			  <li><%= link_to 'Toevoegen', new_meterstand_path %></li>
           </ul>
   </li>
-<li><%= link_to "Culinair", "" %></li>
+  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Culinair<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+			  <li><%= link_to "Recepten", meterstanden_path(:filter => "alle") %></li>
+			  <li><%= link_to "Beoordeling", meterstanden_path(:filter => "recent") %></li>
+			  <li><%= link_to "Ingrediëntenlijst", {:controller => "meterstanden", :action => "vergelijk"} %></li>
+			  <li><%= link_to "Culinaire tips", {:controller => "meterstanden", :action => "winter"} %></li>
+			  <li><%= link_to 'Productkennis', new_meterstand_path %></li>
+			  <li class="divider"></li>
+			  <li><%= link_to 'Recept toevoegen', new_meterstand_path %></li>
+			  <li><%= link_to 'Tip toevoegen', new_meterstand_path %></li>
+			  <li><%= link_to 'Productkennis toevoegen', new_meterstand_path %></li>
+          </ul>
+  </li>
 <li><%= link_to "Kind", "" %></li>
 <% end %>

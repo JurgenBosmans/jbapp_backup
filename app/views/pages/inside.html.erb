@@ -33,7 +33,7 @@
 							</div>
 						</td>
 						<td  style="border-top: none;">
-							<p>De recenste notitie is van <%= @notitie.created_at.strftime("%d %b %Y") %> :<br><%=simple_format(@notitie.notitie) %>.</p>
+							<p>De recenste notitie is van <%= @notitie.created_at.strftime("%d %b %Y") %> :<br><%=simple_format(@notitie.notitie) %></p>
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_notitie_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
