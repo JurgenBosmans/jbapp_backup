@@ -6,11 +6,11 @@ class PagesController < ApplicationController
   
   	def inside
     	@website_aantal=current_user.websites.size
-    	@website=current_user.websites.last
+		@website=current_user.websites.reorder("id DESC").first
     	@websites_pop=current_user.websites.last(3)
       
     	@notitie_aantal=current_user.notities.size
-    	@notitie=current_user.notities.last
+    	@notitie=current_user.notities.first
 	  
 	  	@aankoop_aantal=current_user.aankopen.size
 	  	@aankoop=current_user.aankopen.first

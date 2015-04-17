@@ -2,7 +2,7 @@ class Aankoop < ActiveRecord::Base
 	belongs_to :user
 	has_many :onderhouden , :dependent => :destroy
 	
-	default_scope { order('updated_at DESC') } #let op sortering later is niet meer mogelijk
+	default_scope { order('created_at DESC') } #let op sortering later is niet meer mogelijk
 	
 	validates :artikel, :presence => {:message => 'Je moet een artikel opgeven'}
 	validates :soort, :presence => {:message => 'Je moet een categorie opgeven'}
