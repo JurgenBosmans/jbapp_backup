@@ -1,7 +1,7 @@
 <br>
 <div class="panel panel-info">
 	<div class="panel-heading">
-		<h3 class="panel-title">Item-overzicht</h3>
+		<h3 class="panel-title"></h3>
   	</div>
   	<div class="panel-body">
     	<div class="row">
@@ -33,7 +33,7 @@
 							</div>
 						</td>
 						<td  style="border-top: none;">
-							<p>De recenste notitie is van <%= @notitie.created_at.strftime("%d %b %Y") %> :<br><%= @notitie.notitie %>.</p>
+							<p>De recenste notitie is van <%= @notitie.created_at.strftime("%d %b %Y") %> :<br><%=simple_format(@notitie.notitie) %>.</p>
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_notitie_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
@@ -47,7 +47,7 @@
 							</div>
 						</td>
 						<td  style="border-top: none;">
-							<p>De recenste aankoop is van <%= @aankoop.created_at.strftime("%d %b %Y") %> en betreft een <b><%= @aankoop.artikel %></b> met een prijs van <%=  number_to_currency(@aankoop.prijs, locale: :nl) %></b>.</p>
+							<p>De recenste aankoop is van <%= @aankoop.created_at.strftime("%d %b %Y") %> en betreft een <b><%= @aankoop.artikel %></b> met een prijs van <b><%=  number_to_currency(@aankoop.prijs, locale: :nl) %></b>.</p>
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_aankoop_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
@@ -61,7 +61,7 @@
 							</div>
 						</td>
 						<td  style="border-top: none;">
-							<p>Het recenste onderhoud is van <%= @onderhoud.created_at.strftime("%d %b %Y") %> op artikel <b><%= @onderhoud.aankoop.artikel %></b> met een kost van <%=  number_to_currency(@onderhoud.prijs, locale: :nl) %>.</p>
+							<p>Het recenste onderhoud is van <%= @onderhoud.created_at.strftime("%d %b %Y") %> op artikel <b><%= @onderhoud.aankoop.artikel %></b> met een kost van <b><%=  number_to_currency(@onderhoud.prijs, locale: :nl) %></b>.</p>
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_onderhoud_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
@@ -75,7 +75,7 @@
 							</div>
 						</td>
 						<td  style="border-top: none;">
-							<p>De recentste <b><%= @meterstand.meter %></b>-meterstand was op <%= @meterstand.created_at.strftime("%d %b %Y") %> met een stand van <%= @meterstand.stand %> en een verbruik van <%= @meterstand.verbruik %>.</p>
+							<p>De recentste <b><%= @meterstand.meter %></b>-meterstand was op <%= @meterstand.created_at.strftime("%d %b %Y") %> met een stand van <%= @meterstand.stand %> en een verbruik van <b><%= @meterstand.verbruik %></b>.</p>
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_meterstand_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
