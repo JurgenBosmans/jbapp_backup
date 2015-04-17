@@ -1,65 +1,98 @@
-<div class="row">
-  <p></p>
-</div>
-<div class="row">
-  <div class="col-md-5   alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-warning label-as-badge"><%= @website_aantal %></span></p>
-    <p>De laatste toegevoegde website is <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> op <%= @website.created_at.strftime("%d %b %Y") %>.<br> Top sites 
-      <%  @websites_pop.each do |website| %>
-      <b><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></b>
-      <% if website != @websites_pop.last %> ,<% end %>
-      <%  end %></p><br>
-    <div class="btn-group">
-      <%= link_to new_website_path, :class => "btn-sm btn-primary" do %>
-    <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
-<% end %>
-    </div>
-  </div>
-  
-  <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
-      <p class="text-right"><span class="label label-warning label-as-badge"><%= @notitie_aantal %></span></p>
-      <p>De laatste toegevoegde notitie is van <%= @notitie.created_at.strftime("%d %b %Y") %>.</p><br><br>
-      <div class="btn-group">
-          <%= link_to new_notitie_path, :class => "btn-sm btn-primary" do %>
-                <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
-            <% end %>
-      </div>
+<br>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">Item-overzicht</h3>
+  	</div>
+  	<div class="panel-body">
+    	<div class="row">
+			<table class="table table-condensed table-hover">
+  				<tbody>
+      				<tr>
+		  				<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @website_aantal %> websites</span>
+							</div>
+						</td>
+		  				<td  style="border-top: none;">
+							<p>De recenste website is <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> van <%= 								@website.created_at.strftime("%d %b %Y") %>.<br>De meest bezochte zijn 
+      						<%  @websites_pop.each do |website| %>
+      						<b><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></b>
+      						<% if website != @websites_pop.last %> ,<% end %>
+      						<%  end %>
+							</p>
+						</td>
+		  				<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_website_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+    						</div>
+						</td>		
+    				</tr>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @notitie_aantal %> notities</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>De recenste notitie is van <%= @notitie.created_at.strftime("%d %b %Y") %> :<br><%= @notitie.notitie %>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_notitie_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @aankoop_aantal %> aankopen</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>De recenste aankoop is van <%= @aankoop.created_at.strftime("%d %b %Y") %> en betreft een <b><%= @aankoop.artikel %></b> met een prijs van <%=  number_to_currency(@aankoop.prijs, locale: :nl) %></b>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_aankoop_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @onderhoud_aantal %> onderhouden</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>Het recenste onderhoud is van <%= @onderhoud.created_at.strftime("%d %b %Y") %> op artikel <b><%= @onderhoud.aankoop.artikel %></b> met een kost van <%=  number_to_currency(@onderhoud.prijs, locale: :nl) %>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_onderhoud_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>					
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @meterstand_aantal %> meterstanden</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>De recentste <b><%= @meterstand.meter %></b>-meterstand was op <%= @meterstand.created_at.strftime("%d %b %Y") %> met een stand van <%= @meterstand.stand %> en een verbruik van <%= @meterstand.verbruik %>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_meterstand_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<tr>
+						<td  style="border-top: none;">
+						</td>
+						<td  style="border-top: none;">
+						</td>
+						<td  style="border-top: none;">
+						</td>
+					</tr>				
+  				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
-<div class="row">
-  <div class="col-md-5 alert alert-info" style="background-color:lavender;">
-      <p class="text-right"><span class="label label-warning label-as-badge"><%= @aankoop_aantal %></span></p>
-      <p>De laatste toegevoegde aankoop is van <%= @aankoop.created_at.strftime("%d %b %Y") %> en betreft een <b><%= @aankoop.artikel %></b>.</p><br><br>
-      <div class="btn-group">
-          <%= link_to new_aankoop_path, :class => "btn-sm btn-primary" do %>
-                <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
-            <% end %>
-      </div>
-</div>
-	
-  <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
-	  <p class="text-right"><span class="label label-warning label-as-badge"><%= @leeg_aantal %></span></p>
-      <p>De laatste toegevoegde .... is van <%= @notitie.created_at.strftime("%d %b %Y") %>.</p><br><br>
-      <div class="btn-group">
-          <%= link_to new_notitie_path, :class => "btn-sm btn-primary" do %>
-                <span class="glyphicon glyphicon-plus-sign"></span> voeg toe
-            <% end %>
-      </div>
-</div>	
-</div>
 
-<!-- Zo ziet de html er uit voor 2 labels naast elkaar	
-<div class="row">
-  <div class="col-md-5  alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div>
-  
-  <div class="col-md-5  col-md-offset-1 alert alert-info" style="background-color:lavender;">
-    <p class="text-right"><span class="label label-primary label-as-badge">0</span></p>Wacht op info...
-  </div>  
-</div>
--->
-	
-<!--
-    <p>You can change the page users see after successfully signing in within the method <em>after_sign_in_path_for</em> inside <strong>application_controller.rb</strong></p>
--->

@@ -14,6 +14,12 @@ class PagesController < ApplicationController
 	  
 	  	@aankoop_aantal=current_user.aankopen.size
 	  	@aankoop=current_user.aankopen.first
+
+		@meterstand_aantal=current_user.meterstanden.size
+		@meterstand=current_user.meterstanden.first
+		
+		@onderhoud_aantal=current_user.onderhouden.size
+		@onderhoud=current_user.onderhouden.first
 		
 		@leeg_aantal=0
 		@leeg="?"
