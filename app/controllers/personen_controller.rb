@@ -1,8 +1,9 @@
 class PersonenController < ApplicationController
+	before_filter :authenticate_user!
 	before_action :set_persoon, only: [:show, :edit, :update, :destroy]
 
   def index
-	  @personen = Persoon.all
+	  @personen = current_user.personen.all
   end
 
   def show
@@ -16,7 +17,7 @@ class PersonenController < ApplicationController
   end
 
   def create
-	  @persoon = Persoon.new(persoon_params)
+	  @persoon = current_user.personen.new(persoon_params)
 
     respond_to do |format|
 		if @persoon.save

@@ -1,8 +1,9 @@
 class ArtsenController < ApplicationController
+	before_filter :authenticate_user!
 	before_action :set_arts, only: [:show, :edit, :update, :destroy]
 
   def index
-	  @artsen = Arts.all
+	  @artsen = current_user.artsen.all
   end
 
   def show
@@ -16,7 +17,7 @@ class ArtsenController < ApplicationController
   end
 
   def create
-	  @arts = Arts.new(arts_params)
+	  @arts = current_user.artsen.new(arts_params)
 
     respond_to do |format|
 		if @arts.save

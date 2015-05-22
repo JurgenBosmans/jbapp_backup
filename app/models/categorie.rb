@@ -1,4 +1,5 @@
 class Categorie < ActiveRecord::Base
+	belongs_to :user
 	has_many :websites #, dependent: :destroy
 	
 	default_scope { order('omschrijving ASC') } 

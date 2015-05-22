@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   	has_many :websites, :dependent => :destroy
+	has_many :categories, :dependent => :destroy
     has_many :notities, :dependent => :destroy
 	has_many :aankopen, :dependent => :destroy
 	has_many :onderhouden, :dependent => :destroy
