@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  naam: MyString
+  voornaam: MyString
+  geboortedatum: 2015-04-24
+  soort: MyString
+
+two:
+  user_id: 1
+  naam: MyString
+  voornaam: MyString
+  geboortedatum: 2015-04-24
+  soort: MyString

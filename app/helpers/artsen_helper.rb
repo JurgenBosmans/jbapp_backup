@@ -1,0 +1,2 @@
+module ArtsenHelper
+end

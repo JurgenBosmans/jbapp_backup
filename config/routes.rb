@@ -1,4 +1,13 @@
 JbappV2::Application.routes.draw do
+  
+	resources :dossiers do
+		resources :personen
+	end
+	
+	resources :personen
+	
+	resources :artsen
+	
 	resources :meterstanden do
 		#dit is nodig om een extra action toe te voegen
 		collection do

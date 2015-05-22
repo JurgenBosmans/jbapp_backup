@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
 	has_many :aankopen, :dependent => :destroy
 	has_many :onderhouden, :dependent => :destroy
 	has_many :meterstanden, :dependent => :destroy
-  
+	has_many :personen, :dependent => :destroy
+	has_many :artsen, :dependent => :destroy
+	has_many :dossiers, :dependent => :destroy
+	
   # Use friendly_id on Users
   extend FriendlyId
   friendly_id :friendify, use: :slugged

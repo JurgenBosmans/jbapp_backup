@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  naam: MyString
+  specialiteit: MyString
+  beschrijving: MyText
+  telefoon: MyString
+  website: MyString
+
+two:
+  user_id: 1
+  naam: MyString
+  specialiteit: MyString
+  beschrijving: MyText
+  telefoon: MyString
+  website: MyString

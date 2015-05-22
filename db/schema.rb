@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403092548) do
+ActiveRecord::Schema.define(version: 20150515094338) do
 
   create_table "aankopen", force: true do |t|
     t.integer  "user_id"
@@ -26,8 +26,43 @@ ActiveRecord::Schema.define(version: 20150403092548) do
     t.datetime "updated_at"
   end
 
+  create_table "artsen", force: true do |t|
+    t.integer  "user_id"
+    t.string   "naam"
+    t.string   "specialiteit"
+    t.text     "beschrijving"
+    t.string   "telefoon"
+    t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categories", force: true do |t|
     t.string   "omschrijving"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dossiers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "persoon_id"
+    t.integer  "arts_id"
+    t.string   "instelling"
+    t.string   "soort_opname"
+    t.date     "datum_onderzoek"
+    t.date     "datum_document"
+    t.string   "soort_document"
+    t.string   "eigen_referentie"
+    t.decimal  "te_betalen"
+    t.string   "betaald",                  default: "Nee"
+    t.string   "ziekenkas_verzonden",      default: "Nee"
+    t.decimal  "ziekenkas_terug_bedrag"
+    t.string   "verzekering_verzonden",    default: "Nee"
+    t.decimal  "verzekering_terug_bedrag"
+    t.text     "beschrijving"
+    t.string   "afgehandeld",              default: "Nee"
+    t.text     "resultaat"
+    t.string   "medicatie"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,6 +107,16 @@ ActiveRecord::Schema.define(version: 20150403092548) do
     t.decimal  "prijs"
     t.integer  "teller"
     t.string   "teller_eh"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "personen", force: true do |t|
+    t.integer  "user_id"
+    t.string   "naam"
+    t.string   "voornaam"
+    t.date     "geboortedatum"
+    t.string   "soort"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

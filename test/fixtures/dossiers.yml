@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  persoon_id: 1
+  arts_id: 1
+  instelling: MyString
+  soort_opname: MyString
+  datum_onderzoek: 2015-05-15
+  datum_document: 2015-05-15
+  soort_document: MyString
+  eigen_referentie_string: MyString
+  te_betalen: 9.99
+  betaald: MyString
+  ziekenkas_verzonden: MyString
+  ziekenkas_terug_bedrag: 9.99
+  verzekering_verzonden: MyString
+  verzekering_terug_bedrag: 9.99
+  beschrijving: MyText
+  afgehandeld: MyString
+  resultaat: MyText
+  medicatie: MyString
+
+two:
+  persoon_id: 1
+  arts_id: 1
+  instelling: MyString
+  soort_opname: MyString
+  datum_onderzoek: 2015-05-15
+  datum_document: 2015-05-15
+  soort_document: MyString
+  eigen_referentie_string: MyString
+  te_betalen: 9.99
+  betaald: MyString
+  ziekenkas_verzonden: MyString
+  ziekenkas_terug_bedrag: 9.99
+  verzekering_verzonden: MyString
+  verzekering_terug_bedrag: 9.99
+  beschrijving: MyText
+  afgehandeld: MyString
+  resultaat: MyText
+  medicatie: MyString

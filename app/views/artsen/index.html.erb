@@ -1,0 +1,50 @@
+<br>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Artsen</h3>
+  </div>
+  <div class="panel-body">
+    
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      	<th>Naam</th>
+		<th>Specialiteit</th>
+		<th>Telefoon</th>
+		<th>Website</th>
+		<th>Beschrijving</th>
+      	<th></th>
+      	<th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	  <% @artsen.each do |arts| %>
+      <tr>
+		  <td width="10%"><%= arts.naam %></td>
+		  <td width="10%"><%= arts.specialiteit %></td>
+		  <td width="10%"><%= arts.telefoon %></td>
+		  <td width="10%"><%= arts.website %></td>
+		  <td width="40%"><%= arts.beschrijving %></td>
+		  <td width="5%"><div class="btn-group">
+			  <%= link_to  edit_arts_path(arts), :class => "btn-xs btn-info" do %>
+                    	<span class="glyphicon glyphicon-edit" title="Wijzig deze arts"></span>
+                	<% end %>
+            	</div></td>
+            	<td width="5%"><div class="btn-group">
+					<%= link_to  arts, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
+                    	<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze arts"></span>
+                	<% end %>
+            	</div></td> 
+      </tr>
+	  
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+	  <p align="center"><%= link_to 'Toevoegen', new_arts_path, {class: "btn btn-sm btn-info"} %></p>
+  </div>
+</div>
+
