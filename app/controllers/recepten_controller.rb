@@ -4,7 +4,7 @@ class ReceptenController < ApplicationController
     
     def index
 		if params[:zoek]
-			@recepten = current_user.recepten.where("naam LIKE ?", '%' + params[:zoek] + '%')
+			@recepten = current_user.recepten.where("naam ILIKE ?", '%' + params[:zoek] + '%')
 				@filter = "filter"
 		else
 			case params[:filter]

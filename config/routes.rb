@@ -1,5 +1,6 @@
 JbappV2::Application.routes.draw do
   
+	resources :tips
 	resources :recepten
 	
 	resources :dossiers do
