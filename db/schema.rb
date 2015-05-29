@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522130421) do
+ActiveRecord::Schema.define(version: 20150529090819) do
 
   create_table "aankopen", force: true do |t|
     t.integer  "user_id"
@@ -118,6 +118,20 @@ ActiveRecord::Schema.define(version: 20150522130421) do
     t.string   "voornaam"
     t.date     "geboortedatum"
     t.string   "soort"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recepten", force: true do |t|
+    t.integer  "user_id"
+    t.string   "naam"
+    t.string   "bron"
+    t.string   "soort"
+    t.integer  "bereidingstijd"
+    t.integer  "moeilijkheidsgraad"
+    t.integer  "personen"
+    t.text     "werkwijze"
+    t.text     "ingredient"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

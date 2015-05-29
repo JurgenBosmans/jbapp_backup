@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  naam: MyString
+  bron: MyString
+  soort: MyString
+  bereidingstijd: 1
+  moeilijkheidsgraad: 1
+  personen: 1
+  werkwijze: MyText
+  ingredient: MyText
+
+two:
+  user_id: 1
+  naam: MyString
+  bron: MyString
+  soort: MyString
+  bereidingstijd: 1
+  moeilijkheidsgraad: 1
+  personen: 1
+  werkwijze: MyText
+  ingredient: MyText

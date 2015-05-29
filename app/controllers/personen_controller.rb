@@ -3,7 +3,13 @@ class PersonenController < ApplicationController
 	before_action :set_persoon, only: [:show, :edit, :update, :destroy]
 
   def index
-	  @personen = current_user.personen.all
+	  case params[:filter]
+		  when "kind"
+			@personen = current_user.personen.where("soort LIKE 'Kind'")
+			@filter = "filter"
+		else
+	  		@personen = current_user.personen.all
+		end
   end
 
   def show

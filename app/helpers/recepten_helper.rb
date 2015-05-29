@@ -1,0 +1,2 @@
+module ReceptenHelper
+end

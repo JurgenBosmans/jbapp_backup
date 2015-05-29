@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	has_many :personen, :dependent => :destroy
 	has_many :artsen, :dependent => :destroy
 	has_many :dossiers, :dependent => :destroy
+	has_many :recepten, :dependent => :destroy
 	
   # Use friendly_id on Users
   extend FriendlyId

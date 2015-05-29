@@ -15,6 +15,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'arts', 'artsen'
 	inflect.irregular 'persoon', 'personen'
 	inflect.irregular 'dossier', 'dossiers'
+	inflect.irregular 'recept', 'recepten'
 	
 	
 	 

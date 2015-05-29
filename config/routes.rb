@@ -1,5 +1,7 @@
 JbappV2::Application.routes.draw do
   
+	resources :recepten
+	
 	resources :dossiers do
 		resources :personen
 	end
