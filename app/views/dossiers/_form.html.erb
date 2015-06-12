@@ -10,14 +10,14 @@
 	<div class="form-group">
 		<%= f.label :persoon_id, 'Persoon' , class: "col-sm-3 control-label" %>
     <div class="col-sm-3">
-		<%= f.collection_select(:persoon_id, Persoon.reorder("naam ASC"), :id, :voornaam, {:include_blank => true}, { class: "form-control input-sm"}) %>
+		<%= f.collection_select(:persoon_id, current_user.personen.reorder("naam ASC"), :id, :voornaam, {:include_blank => true}, { class: "form-control input-sm"}) %>
     </div>
   </div>
 
   <div class="form-group">
 	  <%= f.label :arts_id ,'Geneesheer' , class: "col-sm-3 control-label" %>
     <div class="col-sm-3">
-		<%= f.collection_select(:arts_id, Arts.reorder("naam ASC"), :id, :naam, {:include_blank => true}, { class: "form-control input-sm"}) %>
+		<%= f.collection_select(:arts_id, current_user.artsen.reorder("naam ASC"), :id, :naam, {:include_blank => true}, { class: "form-control input-sm"}) %>
     </div>
   </div>
 
