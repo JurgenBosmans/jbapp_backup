@@ -7,6 +7,7 @@
     	<div class="row">
 			<table class="table table-condensed table-hover">
   				<tbody>
+					<% if not @website.nil? %>
       				<tr>
 		  				<td  style="border-top: none;">
 							<div style="height: 75px; overflow:auto;">
@@ -26,6 +27,8 @@
     						</div>
 						</td>		
     				</tr>
+					<% end %>
+					<% if not @notitie.nil? %>
 					<tr>
 						<td  style="border-top: none;">
 							<div style="height: 75px; overflow:auto;">
@@ -40,6 +43,8 @@
       						</div>
 						</td>
 					</tr>
+					<% end %>
+					<% if not @aankoop.nil? %>
 					<tr>
 						<td  style="border-top: none;">
 							<div style="height: 75px; overflow:auto;">
@@ -54,6 +59,8 @@
       						</div>
 						</td>
 					</tr>
+					<% end %>
+					<% if not @onderhoud.nil? %>
 					<tr>
 						<td  style="border-top: none;">
 							<div style="height: 75px; overflow:auto;">
@@ -67,7 +74,9 @@
 							<div class="btn-group"><%= link_to new_onderhoud_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
       						</div>
 						</td>
-					</tr>					
+					</tr>		
+					<% end %>
+					<% if not @meterstand.nil? %>
 					<tr>
 						<td  style="border-top: none;">
 							<div style="height: 75px; overflow:auto;">
@@ -82,6 +91,7 @@
       						</div>
 						</td>
 					</tr>
+					<% end %>
 					<tr>
 						<td  style="border-top: none;">
 						</td>
