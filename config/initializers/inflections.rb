@@ -17,9 +17,9 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'dossier', 'dossiers'
 	inflect.irregular 'recept', 'recepten'
 	inflect.irregular 'tip', 'tips'
-	
-	
-	 
+	inflect.irregular 'bereiding', 'bereidingen'
+	inflect.irregular 'product', 'producten'
+		 
 #   inflect.uncountable %w( fish sheep )
  end
 

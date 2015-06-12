@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  datum: 2015-06-05 09:35:52
+  opmerking: MyText
+  score: 1
+  user_id: 1
+  recept_id: 1
+
+two:
+  datum: 2015-06-05 09:35:52
+  opmerking: MyText
+  score: 1
+  user_id: 1
+  recept_id: 1

@@ -1,7 +1,10 @@
 JbappV2::Application.routes.draw do
-  
+	resources :producten
 	resources :tips
-	resources :recepten
+	resources :recepten do
+		resources :bereidingen
+	end
+	resources :bereidingen
 	
 	resources :dossiers do
 		resources :personen
