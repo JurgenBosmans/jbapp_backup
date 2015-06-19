@@ -21,6 +21,9 @@ class PagesController < ApplicationController
 		@onderhoud_aantal=current_user.onderhouden.size
 		@onderhoud=current_user.onderhouden.first
 		
+		@dossier_aantal=current_user.dossiers.size
+		@onderhoud=current_user.dossiers.first
+		
 		@leeg_aantal=0
 		@leeg="?"
   	end 
