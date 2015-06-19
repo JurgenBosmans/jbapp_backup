@@ -100,7 +100,7 @@
 							</div>
 						</td>
 						<td  style="border-top: none;">
-							<p>Het recentste dossier is van <b><%= @dosser.created_at.strftime("%d %b %Y") %></b> bij <%= @dossier.arts.naam %> en gaat over <%= @dossier.persoon.naam %> : <b><%= @dossier.beschrijving %></b>.</p>
+							<p>Het recentste dossier is van <b><%= @dossier.created_at.strftime("%d %b %Y") %></b> bij <%= @dossier.arts.naam %> en gaat over <%= @dossier.persoon.naam %> : <b><%= @dossier.beschrijving %></b>.</p>
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_dossier_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
