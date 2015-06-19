@@ -4,24 +4,57 @@ class WebsitesController < ApplicationController
   
   # GET /websites
   # GET /websites.json
-  def index
-	  @filter="Alle"
-    if params[:top]
-      @websites = current_user.websites.order("count DESC").search_and_order(params[:search], params[:page]).per(10)
-    elsif params[:recent_bezocht]
-      @websites = current_user.websites.order("laatste_bezoek DESC").search_and_order(params[:search], params[:page]).per(5)
-    elsif params[:recentste]
-      @websites = current_user.websites.order("created_at DESC").search_and_order(params[:search], params[:page]).per(5)
-    elsif params[:teller]
-        @website = Website.find(params[:teller])
-        @website.count += 1
-        @website.laatste_bezoek = Time.now
-        @website.save
-        redirect_to params[:url]  
-    elsif 
-        @websites = current_user.websites.search_and_order(params[:search], params[:page])
-    end  
-  end
+	    def index
+			if params[:zoek]
+				@websites = current_user.websites.where("sitenaam LIKE ?", '%' + params[:zoek] + '%')
+				@filter = "filter"
+			elsif params[:teller]
+				@website = Website.find(params[:teller])
+				@website.count += 1
+				@website.laatste_bezoek = Time.now
+				@website.save
+				redirect_to params[:url]  
+			else
+				case params[:filter]
+					when "top"
+						@websites = current_user.websites.order("count DESC")     
+						@filter = "Top sites"
+					when "recent"
+						@websites = current_user.websites.order("laatste_bezoek DESC").limit(5)
+						@filter = "Recent bezocht"
+					when "toegevoegd"
+						@websites = current_user.websites.order("created_at DESC").limit(5)
+						@filter = "Recent toegevoegd"
+					when "alle"
+						@websites = current_user.websites.all
+						@filter = "Alle"
+					when "maand"
+						@websites = current_user.websites.where(created_at: (Time.now.midnight - 31.day)..Time.now)
+						@filter = "Afgelopen maand"
+					else
+						@websites = current_user.websites.all
+						@filter = "Alle"
+				end
+			end
+    	end
+#   def index
+# 	  @filter="Alle"
+#     if params[:top]
+#       @websites = current_user.websites.order("count DESC").search_and_order(params[:search], params[:page]).per(10)
+#     elsif params[:recent_bezocht]
+#       @websites = current_user.websites.order("laatste_bezoek DESC").search_and_order(params[:search], params[:page]).per(5)
+#     elsif params[:recentste]
+#       @websites = current_user.websites.order("created_at DESC").search_and_order(params[:search], params[:page]).per(5)
+#     elsif params[:teller]
+#         @website = Website.find(params[:teller])
+#         @website.count += 1
+#         @website.laatste_bezoek = Time.now
+#         @website.save
+#         redirect_to params[:url]  
+#     elsif 
+#         @websites = current_user.websites.search_and_order(params[:search], params[:page])
+#     end  
+#   end
 
   # GET /websites/1
   # GET /websites/1.json

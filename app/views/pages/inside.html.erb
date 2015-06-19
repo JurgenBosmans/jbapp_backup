@@ -15,7 +15,7 @@
 							</div>
 						</td>
 		  				<td  style="border-top: none;">
-							<p>De recenste website is <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> van <%= 								@website.created_at.strftime("%d %b %Y") %>.<br>De meest bezochte zijn 
+							<p>De recenste toegevoegde website is <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> van <%= 								@website.created_at.strftime("%d %b %Y") %>.<br>De meest populaire zijn 
       						<%  @websites_pop.each do |website| %>
       						<b><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></b>
       						<% if website != @websites_pop.last %> ,<% end %>

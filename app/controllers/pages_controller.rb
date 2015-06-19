@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   	def inside
     	@website_aantal=current_user.websites.size
 		@website=current_user.websites.reorder("id DESC").first
-    	@websites_pop=current_user.websites.last(3)
+		@websites_pop=current_user.websites.reorder("count DESC").limit(4)
       
     	@notitie_aantal=current_user.notities.size
     	@notitie=current_user.notities.first

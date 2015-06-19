@@ -5,21 +5,14 @@
   </div>
   <div class="panel-body">
     <div class="row">
-		
-<div class="text-center">
-   <%#=  page_entries_info @websites %>
-  <%= paginate @websites %> &nbsp
-<%= link_to_next_page @websites, 'Volgende pagina' %> &nbsp
-	<%= link_to_previous_page @websites, 'Vorige pagina' %>
-</div>
-		
-<%= form_tag websites_path, method: 'get', html: {role: "form"} do %>
-  <p align="center">
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Filter", :name => nil, class: "btn btn-sm btn-info" %>
-    <%= link_to "Toon alles", websites_path, {class: "btn btn-sm btn-link"} %>
-  </p>
-<% end %>
+
+		<%= form_tag @website, method: 'get', html: {role: "form"} do %>
+  	<p align="center">
+		<%= text_field_tag :zoek, params[:zoek], :size => 50 %>
+		<%= submit_tag "Filter websites", :name => nil, class: "btn btn-sm btn-info" %>
+		<%= link_to "Toon alles", websites_path, {class: "btn btn-sm btn-link"} %>
+		</p><br>
+<% end %>			
 		
 <table class="table table-condensed table-hover">
   <thead>
