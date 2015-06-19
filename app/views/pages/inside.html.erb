@@ -19,7 +19,7 @@
       						<%  @websites_pop.each do |website| %>
       						<b><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></b>
       						<% if website != @websites_pop.last %> ,<% end %>
-      						<%  end %>
+      						<%  end %>.
 							</p>
 						</td>
 		  				<td  style="border-top: none;">

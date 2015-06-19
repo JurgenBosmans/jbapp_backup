@@ -6,7 +6,7 @@ class WebsitesController < ApplicationController
   # GET /websites.json
 	    def index
 			if params[:zoek]
-				@websites = current_user.websites.where("sitenaam LIKE ?", '%' + params[:zoek] + '%')
+				@websites = current_user.websites.where("sitenaam ILIKE ?", '%' + params[:zoek] + '%')
 				@filter = "filter"
 			elsif params[:teller]
 				@website = Website.find(params[:teller])
@@ -17,13 +17,13 @@ class WebsitesController < ApplicationController
 			else
 				case params[:filter]
 					when "top"
-						@websites = current_user.websites.order("count DESC")     
+						@websites = current_user.websites.reorder("count DESC").limit(10)     
 						@filter = "Top sites"
 					when "recent"
-						@websites = current_user.websites.order("laatste_bezoek DESC").limit(5)
+						@websites = current_user.websites.reorder("laatste_bezoek DESC").limit(5)
 						@filter = "Recent bezocht"
 					when "toegevoegd"
-						@websites = current_user.websites.order("created_at DESC").limit(5)
+						@websites = current_user.websites.reorder("created_at DESC").limit(5)
 						@filter = "Recent toegevoegd"
 					when "alle"
 						@websites = current_user.websites.all
