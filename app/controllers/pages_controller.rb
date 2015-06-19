@@ -23,6 +23,9 @@ class PagesController < ApplicationController
 		
 		@dossier_aantal=current_user.dossiers.size
 		@dossier=current_user.dossiers.first
+
+		@recept_aantal=current_user.recepten.size
+		@recept=current_user.recepten.first
 		
 		@leeg_aantal=0
 		@leeg="?"
