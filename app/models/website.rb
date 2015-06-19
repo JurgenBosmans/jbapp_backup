@@ -5,7 +5,8 @@ class Website < ActiveRecord::Base
 	default_scope { order('sitenaam ASC') } 
 	
   	validates :sitenaam, :categorie_id, :presence => true
-  	validates :url, uniqueness: { message: "URL bestaat reeds" }
+  	# validates :url, uniqueness: { message: "URL bestaat reeds" }
+	validates :url, :uniqueness => {:scope => :user_id}
   
   	# CATEGORIES = [ "Computer", "Reizen", "Purchase order" ] 
   	# validates :categorie, inclusion: CATEGORIES

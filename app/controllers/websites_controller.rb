@@ -32,11 +32,11 @@ class WebsitesController < ApplicationController
 						@websites = current_user.websites.where(created_at: (Time.now.midnight - 31.day)..Time.now)
 						@filter = "Afgelopen maand"
 					when "categorie"
-						@websites = current_user.websites.reorder("categorie_id ASC").limit(5)
+						@websites = current_user.websites.reorder("categorie_id ASC")
 						@filter = "Alle met sortering op categorie"			
 					when "laatste_bezoek_sorteer"
 						@websites = current_user.websites.reorder("laatste_bezoek DESC")
-						@filter = "Alle met sortering op categorie"							
+						@filter = "Alle met sortering op laatste bezoek"							
 					else
 						@websites = current_user.websites.all
 						@filter = "Alle"
