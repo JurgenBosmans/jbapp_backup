@@ -4,23 +4,19 @@
     <h3 class="panel-title">Overzicht verbruik winterperiode maand oktober tem maart</h3>
   </div>
   <div class="panel-body">
-	  <%= @waarde_jaar %><br>
-	  <%= @waarde_jaar1 %><br>
-	  <%= @waarde_jaar2 %><br>
-	  <%= @waarde_jaar3 %><br>
-	  <%= Time.new(@jaar1,10,1).strftime("%d/%m/%Y") %><br>
-	  <%= Time.new(@jaar,4,1).strftime("%d/%m/%Y") %><br>
-	  Max : <%= @max %><br>
-	  Einde
-	  <% if @max == 0 then %><br>
-	  <p>Geen gegevens beschikbaar.</p>
-	  <% else %>
-    <table>
-		<tr><td><b>Periode <%= @jaar1.to_s + "/" + @jaar.to_s %></b></td><td><%= @waarde_jaar.round %></td><td><mark><%= "#" * @grafiek_jaar %></mark></td></tr>
-		<tr></tr>
-		<tr></tr>
-		<tr></tr>
-	  </table>
-	  <% end %>
+	  <%= @grafiek_jaar %><br>
+	  <%= @grafiek_jaar1 %><br>
+	  <%= @grafiek_jaar2 %><br>
+	  <%= @grafiek_jaar3 %><br>
+	  	<% if @max == 0 then %>
+	  		<p>Geen gegevens beschikbaar.</p>
+	  	<% else %>
+    		<table>
+				<tr><td><b>Periode <%= @jaar1.to_s + "/" + @jaar.to_s %></b></td><td><mark><%= "#" * @grafiek_jaar %></mark></td><td><%= @waarde_jaar.round %></td></tr>
+				<tr><td><b>Periode <%= @jaar2.to_s + "/" + @jaar1.to_s %></b></td><td><mark><%= "#" * @grafiek_jaar1 %></mark></td><td><%= @waarde_jaar1.round %></td></tr>
+				<tr><td><b>Periode <%= @jaar3.to_s + "/" + @jaar2.to_s %></b></td><td><mark><%= "#" * @grafiek_jaar2 %></mark></td><td><%= @waarde_jaar2.round %></td></tr>
+				<tr><td><b>Periode <%= @jaar4.to_s + "/" + @jaar3.to_s %></b></td><td><mark><%= "#" * @grafiek_jaar3 %></mark></td><td><%= @waarde_jaar3.round %></td></tr>
+	  		</table>
+	  	<% end %>
   </div>
 </div>
