@@ -23,10 +23,10 @@ class MeterstandenController < ApplicationController
 		@jaar2 = @jaar - 2
 		@jaar3 = @jaar - 3
 		@jaar4 = @jaar - 3
-		@waarde_jaar = Meterstand.where(created_at: Time.new(@jaar1,10,1)..Time.new(@jaar,4,1)).sum.("verbruik")
-		@waarde_jaar1 = Meterstand.where(created_at: Time.new(@jaar2,10,1)..Time.new(@jaar1,4,1)).sum.("verbruik")
-		@waarde_jaar2 = Meterstand.where(created_at: Time.new(@jaar3,10,1)..Time.new(@jaar2,4,1)).sum.("verbruik")
-		@waarde_jaar3= Meterstand.where(created_at: Time.new(@jaar4,10,1)..Time.new(@jaar3,4,1)).sum.("verbruik")
+		@waarde_jaar = Meterstand.where(created_at: Time.new(@jaar1,10,1)..Time.new(@jaar,4,1)).sum("verbruik")
+		@waarde_jaar1 = Meterstand.where(created_at: Time.new(@jaar2,10,1)..Time.new(@jaar1,4,1)).sum("verbruik")
+		@waarde_jaar2 = Meterstand.where(created_at: Time.new(@jaar3,10,1)..Time.new(@jaar2,4,1)).sum("verbruik")
+		@waarde_jaar3= Meterstand.where(created_at: Time.new(@jaar4,10,1)..Time.new(@jaar3,4,1)).sum("verbruik")
 		a = [@waarde_jaar , @waarde_jaar1 , @waarde_jaar2 , @waarde_jaar3]
 		@max = a.max
 		if @max = 0
