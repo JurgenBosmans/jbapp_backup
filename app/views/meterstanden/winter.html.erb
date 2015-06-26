@@ -4,11 +4,11 @@
     <h3 class="panel-title">Overzicht verbruik winterperiodes</h3>
   </div>
   <div class="panel-body">
-	  @waarde_jaar = Meterstand.where(created_at: Time.new(@jaar1,10,1)..Time.new(@jaar,4,1)).count
-	  <%= @waarde_jaar %>
-	  <%= Time.new(@jaar1,10,1) %>
-	  <%= Time.new(@jaar,4,1) %>
-	  <% if @max = 0 then %>
+	  <%= @waarde_jaar %><br>
+	  <%= Time.new(@jaar1,10,1) %><br>
+	  <%= Time.new(@jaar,4,1) %><br>
+	  <% if @max = 0 then %><br>
+	  einde
 	  <p>Geen gegevens beschikbaar.</p>
 	  <% else %>
     <table>
