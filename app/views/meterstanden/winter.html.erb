@@ -12,10 +12,10 @@
 	  		<p>Geen gegevens beschikbaar.</p>
 	  	<% else %>
     		<table>
-				<tr><td><b>Periode <%= @jaar1.to_s + "/" + @jaar.to_s %></b></td><td><mark><%= "#" * @grafiek_jaar %></mark></td><td><%= @waarde_jaar.round %></td></tr>
-				<tr><td><b>Periode <%= @jaar2.to_s + "/" + @jaar1.to_s %></b></td><td><mark><%= "#" * @grafiek_jaar1 %></mark></td><td><%= @waarde_jaar1.round %></td></tr>
-				<tr><td><b>Periode <%= @jaar3.to_s + "/" + @jaar2.to_s %></b></td><td><mark><%= "#" * @grafiek_jaar2 %></mark></td><td><%= @waarde_jaar2.round %></td></tr>
-				<tr><td><b>Periode <%= @jaar4.to_s + "/" + @jaar3.to_s %></b></td><td><mark><%= "#" * @grafiek_jaar3 %></mark></td><td><%= @waarde_jaar3.round %></td></tr>
+				<tr><td><b>Periode <%= @jaar1.to_s + " / " + @jaar.to_s %></b></td><td> : </td><td><%= @waarde_jaar.round %></td><td><mark><%= "#" * @grafiek_jaar %></mark></td></tr>
+				<tr><td><b>Periode <%= @jaar2.to_s + " / " + @jaar1.to_s %></b></td><td> : </td><td><%= @waarde_jaar1.round %></td><td><mark><%= "#" * @grafiek_jaar1 %></mark></td></tr>
+				<tr><td><b>Periode <%= @jaar3.to_s + " / " + @jaar2.to_s %></b></td><td> : </td><td><%= @waarde_jaar2.round %></td><td><mark><%= "#" * @grafiek_jaar2 %></mark></td></tr>
+				<tr><td><b>Periode <%= @jaar4.to_s + " / " + @jaar3.to_s %></b></td><td> : </td><td><%= @waarde_jaar3.round %></td><td><mark><%= "#" * @grafiek_jaar3 %></mark></td></tr>
 	  		</table>
 	  	<% end %>
   </div>
