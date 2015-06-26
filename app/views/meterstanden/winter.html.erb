@@ -16,7 +16,7 @@
 	  <p>Geen gegevens beschikbaar.</p>
 	  <% else %>
     <table>
-		<tr><td>Winterperiode <%= @jaar1 + "/" + @jaar %></td><td><%= @waarde_jaar %></td><td><mark><%= "#" * @grafiek_jaar %></mark></td></tr>
+		<tr><td>Winterperiode <%= @jaar1.to_s + "/" + @jaar.to_s %></td><td><%= @waarde_jaar %></td><td><mark><%= "#" * @grafiek_jaar %></mark></td></tr>
 		<tr></tr>
 		<tr></tr>
 		<tr></tr>
