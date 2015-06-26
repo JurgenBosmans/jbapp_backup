@@ -23,7 +23,7 @@ class ReceptenController < ApplicationController
     
 	def ingredient
 		@filter = 'Ingrediëntenlijst'
-		@recepten = current_user.recepten.order("naam ASC")	
+		@recepten = current_user.recepten.reorder("naam ASC")	
 	end
 	
     def show
