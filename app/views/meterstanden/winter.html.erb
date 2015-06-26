@@ -12,7 +12,7 @@
 	  <%= Time.new(@jaar,4,1).strftime("%d/%m/%Y") %><br>
 	  Max : <%= @max %><br>
 	  Einde
-	  <% if @max = 0 then %><br>
+	  <% if @max == 0 then %><br>
 	  <p>Geen gegevens beschikbaar.</p>
 	  <% else %>
     <table>
