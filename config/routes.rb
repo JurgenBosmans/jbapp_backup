@@ -3,7 +3,11 @@ JbappV2::Application.routes.draw do
 	resources :tips
 	resources :recepten do
 		resources :bereidingen
+		collection do
+			get 'ingredient'
+		end
 	end
+
 	resources :bereidingen
 	
 	resources :dossiers do
