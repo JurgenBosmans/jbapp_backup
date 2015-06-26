@@ -28,8 +28,8 @@ class MeterstandenController < ApplicationController
 		@waarde_jaar2 = Meterstand.where(created_at: Time.new(@jaar3,11,1)..Time.new(@jaar2,4,1)).sum("verbruik")
 		@waarde_jaar3= Meterstand.where(created_at: Time.new(@jaar4,11,1)..Time.new(@jaar3,4,1)).sum("verbruik")
 		a = [@waarde_jaar , @waarde_jaar1 , @waarde_jaar2 , @waarde_jaar3]
-		@max == a.max
-		if @max = 0
+		@max = a.max
+		if @max == 0
 			@grafiek_jaar = 0
 			@grafiek_jaar1 = 0
 			@grafiek_jaar2 = 0
