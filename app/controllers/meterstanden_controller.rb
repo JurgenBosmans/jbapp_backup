@@ -22,7 +22,7 @@ class MeterstandenController < ApplicationController
 		@jaar1 = @jaar - 1
 		@jaar2 = @jaar - 2
 		@jaar3 = @jaar - 3
-		@jaar4 = @jaar - 3
+		@jaar4 = @jaar - 4
 		@waarde_jaar = Meterstand.where(created_at: Time.new(@jaar1,11,1)..Time.new(@jaar,4,1)).sum("verbruik")
 		@waarde_jaar1 = Meterstand.where(created_at: Time.new(@jaar2,11,1)..Time.new(@jaar1,4,1)).sum("verbruik")
 		@waarde_jaar2 = Meterstand.where(created_at: Time.new(@jaar3,11,1)..Time.new(@jaar2,4,1)).sum("verbruik")
