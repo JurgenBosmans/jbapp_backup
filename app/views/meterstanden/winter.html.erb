@@ -10,8 +10,9 @@
 	  <%= @waarde_jaar3 %><br>
 	  <%= Time.new(@jaar1,10,1).strftime("%d/%m/%Y") %><br>
 	  <%= Time.new(@jaar,4,1).strftime("%d/%m/%Y") %><br>
+	  Max : <%= @max %><br>
+	  Einde
 	  <% if @max = 0 then %><br>
-	  einde
 	  <p>Geen gegevens beschikbaar.</p>
 	  <% else %>
     <table>
