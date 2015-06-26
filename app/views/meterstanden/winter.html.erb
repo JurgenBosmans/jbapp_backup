@@ -4,6 +4,15 @@
     <h3 class="panel-title">Overzicht verbruik winterperiodes</h3>
   </div>
   <div class="panel-body">
-    ...
+	  <% if @max = 0 then %>
+	  <p>Geen gegevens beschikbaar.</p>
+	  <% else %>
+    <table>
+		<tr><td>Winterperiode <%= @jaar %></td><td><mark><%= "#" * @grafiek_jaar %></mark></td></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+	  </table>
+	  <% end %>
   </div>
 </div>

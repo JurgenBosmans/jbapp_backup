@@ -4,7 +4,7 @@ class NotitiesController < ApplicationController
     
     def index
 		if params[:zoek]
-				@notities = current_user.notities.where("notitie LIKE ?", '%' + params[:zoek] + '%')
+				@notities = current_user.notities.where("notitie ILIKE ?", '%' + params[:zoek] + '%')
 				@filter = "filter"
 		else
 			case params[:filter]
