@@ -7,6 +7,6 @@
     <div class="row">
 		<% @recepten.each do |recept| %>
 		<b><%= recept.naam.upcase %></b><br>
-			<%= recept.ingredient %><hr>
+		<%= simple_format(recept.ingredient) %>
 		<% end %>
 </div>
