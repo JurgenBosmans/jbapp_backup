@@ -1,7 +1,7 @@
 <br>
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">Overzicht verbruik winterperiodes</h3>
+    <h3 class="panel-title">Overzicht verbruik winterperiode maand oktober tem maart</h3>
   </div>
   <div class="panel-body">
 	  <%= @waarde_jaar %><br>
@@ -16,7 +16,7 @@
 	  <p>Geen gegevens beschikbaar.</p>
 	  <% else %>
     <table>
-		<tr><td>Winterperiode <%= @jaar1.to_s + "/" + @jaar.to_s %></td><td><%= @waarde_jaar %></td><td><mark><%= "#" * @grafiek_jaar %></mark></td></tr>
+		<tr><td><b>Periode <%= @jaar1.to_s + "/" + @jaar.to_s %></b></td><td><%= @waarde_jaar.round %></td><td><mark><%= "#" * @grafiek_jaar %></mark></td></tr>
 		<tr></tr>
 		<tr></tr>
 		<tr></tr>
