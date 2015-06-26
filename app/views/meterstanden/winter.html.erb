@@ -4,6 +4,7 @@
     <h3 class="panel-title">Overzicht verbruik winterperiode OKTOBER tem MAART (6 maanden)</h3>
   </div>
   <div class="panel-body">
+	  <h3>Vergelijk winterperiode</h3>
 	  	<% if @max == 0 then %>
 	  		<p>Geen gegevens beschikbaar.</p>
 	  	<% else %>
@@ -14,5 +15,6 @@
 	<tr><td><b>Periode <%= @jaar4.to_s + "-" + @jaar3.to_s %></b></td><td>: </td><td><%= @waarde_jaar3.round %></td><td><mark><%= "#" * @grafiek_jaar3 %></mark></td></tr>
 	  		</table>
 	  	<% end %>
+	  <h3>Vergelijk per jaar</h3>
   </div>
 </div>

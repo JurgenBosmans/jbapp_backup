@@ -44,6 +44,22 @@
 						</td>
 					</tr>
 					<% end %>
+					<% if not @dossier.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%=@dossier_aantal %> medische dossiers</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>Het recentste dossier is van <b><%= @dossier.created_at.strftime("%d/%m/%Y") %></b> bij <%= @dossier.arts.naam %> en gaat over <b><%= @dossier.persoon.voornaam %></b> : <b><%= @dossier.beschrijving %></b>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_dossier_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<% end %>					
 					<% if not @aankoop.nil? %>
 					<tr>
 						<td  style="border-top: none;">
@@ -88,22 +104,6 @@
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_meterstand_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
-      						</div>
-						</td>
-					</tr>
-					<% end %>
-					<% if not @dossier.nil? %>
-					<tr>
-						<td  style="border-top: none;">
-							<div style="height: 75px; overflow:auto;">
-								<span class="label label-warning label-as-badge"><%=@dossier_aantal %> medische dossiers</span>
-							</div>
-						</td>
-						<td  style="border-top: none;">
-							<p>Het recentste dossier is van <b><%= @dossier.created_at.strftime("%d/%m/%Y") %></b> bij <%= @dossier.arts.naam %> en gaat over <b><%= @dossier.persoon.voornaam %></b> : <b><%= @dossier.beschrijving %></b>.</p>
-						</td>
-						<td  style="border-top: none;">
-							<div class="btn-group"><%= link_to new_dossier_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
       						</div>
 						</td>
 					</tr>
