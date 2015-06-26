@@ -43,10 +43,11 @@ class MeterstandenController < ApplicationController
 			@procent_jaar2 = 100 - (@waarde_jaar3 * 100 / @waarde_jaar2)
 			@grafiek_jaar3 = @waarde_jaar3 * 100 / @max			
 		end
-		@waarde_jaar = Meterstand.where(created_at: Time.new(@jaar,1,1)..Time.new(@jaar,12,31)).sum("verbruik")
-		@waarde_jaar1 = Meterstand.where(created_at: Time.new(@jaar1,1,1)..Time.new(@jaar1,12,31)).sum("verbruik")
-		@waarde_jaar2 = Meterstand.where(created_at: Time.new(@jaar2,1,1)..Time.new(@jaar2,12,31)).sum("verbruik")
-		@waarde_jaar3 = Meterstand.where(created_at: Time.new(@jaar3,1,1)..Time.new(@jaar3,12,31)).sum("verbruik")
+		
+		@waarde_jaar = Meterstand.where(datum: Time.new(@jaar,1,1)..Time.new(@jaar,12,31)).sum("verbruik")
+		@waarde_jaar1 = Meterstand.where(datum: Time.new(@jaar1,1,1)..Time.new(@jaar1,12,31)).sum("verbruik")
+		@waarde_jaar2 = Meterstand.where(datum: Time.new(@jaar2,1,1)..Time.new(@jaar2,12,31)).sum("verbruik")
+		@waarde_jaar3 = Meterstand.where(datum: Time.new(@jaar3,1,1)..Time.new(@jaar3,12,31)).sum("verbruik")
 	end
 	
 	def vergelijk
