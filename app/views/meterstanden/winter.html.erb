@@ -5,8 +5,8 @@
   </div>
   <div class="panel-body">
 	  <%= @waarde_jaar %><br>
-	  <%= Time.new(@jaar1,10,1) %><br>
-	  <%= Time.new(@jaar,4,1) %><br>
+	  <%= Time.new(@jaar1,10,1).strftime("%d/%m/%Y") %><br>
+	  <%= Time.new(@jaar,4,1).strftime("%d/%m/%Y") %><br>
 	  <% if @max = 0 then %><br>
 	  einde
 	  <p>Geen gegevens beschikbaar.</p>
