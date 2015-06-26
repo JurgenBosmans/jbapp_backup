@@ -36,6 +36,7 @@ class MeterstandenController < ApplicationController
 			@grafiek_jaar3 = 0
 		else
 			@grafiek_jaar = @waarde_jaar * 100 / @max
+			@procent_jaar = 100 - (@waarde_jaar1 * 100 / @waarde_jaar)
 			@grafiek_jaar1 = @waarde_jaar1 * 100 / @max
 			@grafiek_jaar2 = @waarde_jaar2 * 100 / @max
 			@grafiek_jaar3 = @waarde_jaar3 * 100 / @max			

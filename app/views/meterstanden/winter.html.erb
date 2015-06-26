@@ -1,14 +1,14 @@
 <br>
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h3 class="panel-title">Overzicht verbruik winterperiode maand oktober tem maart</h3>
+    <h3 class="panel-title">Overzicht verbruik winterperiode OKTOBER tem MAART (6 maanden)</h3>
   </div>
   <div class="panel-body">
 	  	<% if @max == 0 then %>
 	  		<p>Geen gegevens beschikbaar.</p>
 	  	<% else %>
     		<table>
-				<tr><td><b>Periode <%= @jaar1.to_s + " / " + @jaar.to_s %></b></td><td> : </td><td><%= @waarde_jaar.round %></td><td><mark><%= "#" * @grafiek_jaar %></mark></td></tr>
+				<tr><td><b>Periode <%= @jaar1.to_s + " / " + @jaar.to_s %></b></td><td> : </td><td><%= @waarde_jaar.round %></td><td><mark><%= "#" * @grafiek_jaar %>&nbsp&nbsp<%= @procent_jaar %></mark></td></tr>
 				<tr><td><b>Periode <%= @jaar2.to_s + " / " + @jaar1.to_s %></b></td><td> : </td><td><%= @waarde_jaar1.round %></td><td><mark><%= "#" * @grafiek_jaar1 %></mark></td></tr>
 				<tr><td><b>Periode <%= @jaar3.to_s + " / " + @jaar2.to_s %></b></td><td> : </td><td><%= @waarde_jaar2.round %></td><td><mark><%= "#" * @grafiek_jaar2 %></mark></td></tr>
 				<tr><td><b>Periode <%= @jaar4.to_s + " / " + @jaar3.to_s %></b></td><td> : </td><td><%= @waarde_jaar3.round %></td><td><mark><%= "#" * @grafiek_jaar3 %></mark></td></tr>
