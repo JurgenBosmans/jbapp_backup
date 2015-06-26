@@ -117,6 +117,8 @@
 						</td>
 						<td  style="border-top: none;">
 							<p>Het recentste recept is van <b><%= @recept.created_at.strftime("%d/%m/%Y") %></b> en gaat over <b><%= @recept.naam %></b>.</p>
+							<div class="btn-group"><%= link_to new_recept_path, :class => "btn-sm btn-primary" do %>Ingrediëntenlijst&nbsp&nbsp<span class="glyphicon glyphicon-cutlery"></span><% end %>
+      						</div>
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_recept_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
