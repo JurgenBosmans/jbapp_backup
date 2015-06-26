@@ -54,8 +54,6 @@
           </ul>
   </li>
 
-<li><%= link_to "Sport", "" %></li>
-
 
   <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Aankoop<b class="caret"></b></a>
@@ -105,9 +103,15 @@
           </ul>
   </li>
   <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kind<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Prestatie<b class="caret"></b></a>
           <ul class="dropdown-menu">
-			  <li><%= link_to "Prestatie", "" %></li>
+			  <li><%= link_to "Alle", aankopen_path(:filter => "alle") %></li>
+			  <li><%= link_to "Afgelopen maand", aankopen_path(:filter => "maand") %></li>
+			  <li><%= link_to "Afgelopen jaar", aankopen_path(:filter => "jaar") %></li>
+			  <li><%= link_to "Schoolprestaties per kind", aankopen_path(:filter => "jaar") %></li>
+			  <li><%= link_to "Sportprestaties per persoon", aankopen_path(:filter => "jaar") %></li>
+			  <li class="divider"></li>
+			  <li><%= link_to 'Toevoegen', new_meterstand_path %></li>
 			  <li class="divider"></li>
 			  <li><%= link_to "Kinderen", personen_path(:filter => "kind") %></li>
 			  <li><%= link_to "Kind toevoegen", new_persoon_path %></li>
