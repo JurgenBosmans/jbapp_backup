@@ -9,7 +9,7 @@ class PrestatiesController < ApplicationController
 					@filter = "Afgelopen maand"
 				when "jaar"
 					@prestaties = current_user.prestaties.where(datum: (Time.now.midnight - 1.year)..Time.now)
-					@filter = "Afgelopen maand"
+					@filter = "Afgelopen jaar"
 				when "school"
 					@prestaties = current_user.prestaties.all
 					@filter = "Schoolprestaties"

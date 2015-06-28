@@ -26,7 +26,7 @@
 	  <% @prestaties.each do |prestatie| %>
       <tr>
 		  <td><%= prestatie.datum.strftime("%d/%m/%Y") %></td>
-		  <td><%= prestatie.persoon.naam %></td>
+		  <td><%= prestatie.persoon.voornaam %></td>
 		  <td><%= prestatie.soort_prestatie.soort %></td>
 		  <td><%= prestatie.soort_prestatie.soort_detail %></td>
 		  <td><%= prestatie.prestatie %></td>
