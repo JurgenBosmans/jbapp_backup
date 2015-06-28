@@ -1,0 +1,41 @@
+<br>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Soort prestaties</h3>
+  </div>
+  <div class="panel-body">
+    
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      	<th>Soort</th>
+		<th>Extra onderverdeling</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	  <% @soort_prestatie.each do |soort_prestatie| %>
+      <tr>
+		  <td width="20%"><%= soort_prestatie.soort %></td>
+		  <td width="20%"><%= soort_prestatie.soort_detail %></td>
+		  <td width="5%"><div class="btn-group">
+			  <%= link_to  edit_soort_prestatie_path(soort_prestatie), :class => "btn-xs btn-info" do %>
+                    	<span class="glyphicon glyphicon-edit" title="Wijzig soort prestatie"></span>
+                	<% end %>
+            	</div></td>
+            	<td width="5%"><div class="btn-group">
+					<%= link_to  soort_prestatie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
+                    	<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze soort prestatie"></span>
+                	<% end %>
+            	</div></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+	  <p align="center"><%= link_to 'Toevoegen', new_soort_prestatie_path, {class: "btn btn-sm btn-info"} %></p>
+  </div>
+</div>

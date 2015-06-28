@@ -1,4 +1,12 @@
 JbappV2::Application.routes.draw do
+  
+	resources :soort_prestaties
+	
+	resources :prestaties do
+		resources :personen
+		resources :soort_prestaties
+	end
+		
 	resources :producten
 	resources :tips
 	resources :recepten do

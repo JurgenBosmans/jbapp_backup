@@ -1,0 +1,70 @@
+<%= form_for @prestatie ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+  <div class="form-group">
+	  <%= f.label :datum, class: "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+		<%= f.date_select(:datum, {class: "date-select"}) %>  
+    </div>
+  </div>
+
+<div class="form-group">
+	<%= f.label  :persoon_id , "Persoon" ,class: "col-sm-2 control-label" %>   
+    <div class="col-sm-2">
+		<%= f.collection_select(:persoon_id, current_user.personen.reorder("naam ASC"), :id, :voornaam, {:include_blank => true}, { class: "form-control input-sm"}) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+	  <%= f.label :soort_prestatie_id, "Soort" , class: "col-sm-2 control-label" %>
+    <div class="col-sm-3">
+		<%= f.collection_select(:soort_prestatie_id, current_user.soort_prestaties.reorder("soort ASC"), :id, :soort_en_detail , {:include_blank => true}, { class: "form-control input-sm"}) %>
+		    </div>
+  </div>
+    
+  <div class="form-group">
+	  <%= f.label :prestaite, "Prestatie of uitdaging" , class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+		<%= f.text_field :prestatie, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+	  <%= f.label :resultaat , class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+		<%= f.text_field :resultaat, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+<div class="form-group">
+		<%= f.label :tijd, "Tijd (optioneel)" , class: "col-sm-2 control-label" %>
+    <div class="col-sm-1">
+		<%= f.text_field :tijd, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+<div class="form-group">
+	  <%= f.label :hr_avg, "Hartslag (optioneel)" , class: "col-sm-2 control-label" %>
+    <div class="col-sm-1">
+		<%= f.number_field :hr_avg, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+<div class="form-group">
+	<%= f.label :hr, "Hartslag maximum (optioneel)" , class: "col-sm-2 control-label" %>
+    <div class="col-sm-1">
+		<%= f.number_field :hr, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+	  <%= f.label :opmerking, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+		<%= f.text_area :opmerking, size: "24x6", :autofocus => true, class: "form-control input-sm" %>  
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+		<%= f.submit "Bevestig", class: "btn-sm btn-info" %>
+    </div>
+  </div>  
+<% end %>

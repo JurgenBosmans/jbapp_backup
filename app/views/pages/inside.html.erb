@@ -100,7 +100,7 @@
 							</div>
 						</td>
 						<td  style="border-top: none;">
-							<p>De recentste <b><%= @meterstand.meter %></b>-meterstand was op <b><%= @meterstand.created_at.strftime("%d/%m/%Y") %></b> met een stand van <b><%= @meterstand.stand %></b> en een verbruik van <b><%= @meterstand.verbruik %></b>.</p>
+							<p>De recentste <b><%= @meterstand.meter %></b>-meterstand was op <b><%= @meterstand.created_at.strftime("%d/%m/%Y") %></b> met een stand van <b><%= @meterstand.stand.round %></b> en een verbruik van <b><%= @meterstand.verbruik.round %></b>.</p>
 						</td>
 						<td  style="border-top: none;">
 							<div class="btn-group"><%= link_to new_meterstand_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>

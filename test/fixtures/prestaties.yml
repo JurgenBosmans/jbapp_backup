@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  datum: 2015-06-28
+  persoon_id: 1
+  prestatie: MyString
+  opmerking: MyText
+  soort_prestatie_id: 1
+  resultaat: MyString
+  tijd: 2015-06-28 08:31:26
+  hr: 1
+
+two:
+  user_id: 1
+  datum: 2015-06-28
+  persoon_id: 1
+  prestatie: MyString
+  opmerking: MyText
+  soort_prestatie_id: 1
+  resultaat: MyString
+  tijd: 2015-06-28 08:31:26
+  hr: 1
