@@ -125,6 +125,22 @@
       						</div>
 						</td>
 					</tr>
+					<% end %>		
+					<% if not @prestatie.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%=@prestatie_aantal %> prestaties</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>De recentste prestatie was op <b><%= @prestatie.datum.strftime("%d/%m/%Y") %></b> door <b><%= @prestatie.persoon.voornaam %></b> met als doel <b><%= @prestatie.prestatie %></b>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_prestatie_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
 					<% end %>					
 					<tr>
 						<td  style="border-top: none;">

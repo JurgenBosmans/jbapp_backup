@@ -27,6 +27,9 @@ class PagesController < ApplicationController
 		@recept_aantal=current_user.recepten.size
 		@recept=current_user.recepten.first
 		
+		@prestatie_aantal=current_user.prestaties.size
+		@prestatie=current_user.prestaties.first
+		
 		@leeg_aantal=0
 		@leeg="?"
   	end 
