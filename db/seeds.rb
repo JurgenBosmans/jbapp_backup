@@ -3,8 +3,8 @@
 
 # Temporary admin account
 u = User.new(
-	username: "Christel",
-	email: "christel@2004.be",
+  username: "Demo",
+  email: "demo@2004.be",
   	password: "1234",
   	password_confirmation: "1234",
 	admin: false
