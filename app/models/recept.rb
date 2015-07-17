@@ -7,8 +7,8 @@ class Recept < ActiveRecord::Base
 	validates :naam, :presence => {:message => 'Naam van het gerecht moet aanwezig zijn'}
 	validates :moeilijkheidsgraad, :personen, :bereidingstijd, numericality: true
 	
-	BRON = ["ANDER","DAGELIJKSE KOST","WEBSITE","BOEK","MAGAZINE","INTERNET","CURSUS","TV"]
-	SOORT = ["ANDER","DRANK","SOEP","VOORGERECHT","HOOFDSCHOTEL","DESSERT","BIJGERECHT","GEBAK"]
+	BRON = ["ANDER","DAGELIJKSE KOST","WEBSITE","BOEK","MAGAZINE","INTERNET","CURSUS","TV","BOEK BIB"]
+	SOORT = ["ANDER","DRANK","SOEP","VOORGERECHT","HOOFDSCHOTEL","DESSERT","BIJGERECHT","GEBAK","AMUSE"]
 	
   	# Include default devise modules. Others available are:
   	# :confirmable, :lockable, :timeoutable and :omniauthable

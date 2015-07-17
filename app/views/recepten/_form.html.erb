@@ -1,49 +1,49 @@
 <%= form_for @recept ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
   
 <div class="form-group">
-	  <%= f.label :naam, class: "col-sm-2 control-label" %>
+  <%= f.label :naam, "Naam recept", class: "col-sm-2 control-label" %>
     <div class="col-sm-6">
 		<%= f.text_field :naam, class: "form-control input-sm" %>  
     </div>
   </div>
 
 <div class="form-group">
-	<%= f.label  :bron , "Categorie" ,class: "col-sm-2 control-label" %>   
+	<%= f.label  :bron, "Bron" ,class: "col-sm-2 control-label" %>   
     <div class="col-sm-2">
-		<%= f.select(:bron, Recept::BRON, {:include_blank => true}, {class: "form-control input-sm"}) %>
+      <%= f.select(:bron, Recept::BRON.sort!, {:include_blank => true}, {class: "form-control input-sm"}) %>
     </div>
   </div>
 
 <div class="form-group">
-	<%= f.label  :soort  ,class: "col-sm-2 control-label" %>   
+  <%= f.label  :soort, "Soort gerecht"  ,class: "col-sm-2 control-label" %>   
     <div class="col-sm-2">
-		<%= f.select(:soort, Recept::SOORT, {:include_blank => true}, {class: "form-control input-sm"}) %>
+		<%= f.select(:soort, Recept::SOORT.sort!, {:include_blank => true}, {class: "form-control input-sm"}) %>
     </div>
   </div>
 
   <div class="form-group">
-	  <%= f.label :bereidingstijd , class: "col-sm-2 control-label" %>
+    <%= f.label :bereidingstijd, "Bereidingstijd (min)" , class: "col-sm-2 control-label" %>
     <div class="col-sm-1">
 		<%= f.number_field :bereidingstijd, class: "form-control input-sm" %>  
     </div>
   </div>
 
   <div class="form-group">
-	  <%= f.label :moeilijkheidsgraad , class: "col-sm-2 control-label" %>
+    <%= f.label :moeilijkheidsgraad, "Moeilijkheid 1-10" , class: "col-sm-2 control-label" %>
     <div class="col-sm-1">
 		<%= f.number_field :moeilijkheidsgraad, class: "form-control input-sm" %>  
     </div>
   </div>
 
   <div class="form-group">
-	  <%= f.label :personen , class: "col-sm-2 control-label" %>
+    <%= f.label :personen, "Aantal personen" , class: "col-sm-2 control-label" %>
     <div class="col-sm-1">
 		<%= f.number_field :personen, class: "form-control input-sm" %>  
     </div>
   </div>
 
   <div class="form-group">
-	  <%= f.label :ingredient, class: "col-sm-2 control-label" %>
+    <%= f.label :ingredient, "Ingrediëntenlijst", class: "col-sm-2 control-label" %>
     <div class="col-sm-3">
 		<%= f.text_area :ingredient, size: "24x18", :autofocus => true, class: "form-control input-sm" %>  
     </div>
