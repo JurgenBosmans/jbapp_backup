@@ -5,7 +5,7 @@ class BereidingenController < ApplicationController
     def index
       if params[:recept_id]
         @recept = Recept.find(params[:recept_id])
-        @bereidingen = current_user.bereidingen.where("recept_id LIKE ?", @recept)  
+        @bereidingen = current_user.bereidingen.where("recept_id = ?", @recept)  
       else
         case params[:filter]
 	    		when "alle"
@@ -18,7 +18,6 @@ class BereidingenController < ApplicationController
       end
 	  end
 
-    
     def show
     end
 
