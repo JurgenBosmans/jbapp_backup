@@ -2,7 +2,7 @@
   <div class="form-group">
 	  <%= f.label :recept_id, "Recept" , class: "col-sm-2 control-label" %>
     <div class="col-sm-8">
-		<%= f.collection_select(:recept_id, Recept.reorder("naam ASC"), :id, :naam, {:include_blank => true}, { class: "form-control input-sm"}) %>
+      <%= f.collection_select(:recept_id, current_user.recepten.reorder("naam ASC"), :id, :naam, {:include_blank => true}, { class: "form-control input-sm"}) %>
     </div>
   </div>
 

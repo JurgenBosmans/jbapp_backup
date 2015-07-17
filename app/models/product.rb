@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
 	validates :score, :inclusion => { :in => 1..10, :message => "score van 1 tot 10" }
 	
 	
-	SOORT = ["VLEES","GROENTE","FRUIT","GEBAK","ANDER","KRUID","BIER","WIJN","ALCOHOL"]
+	SOORT = ["VLEES","GROENTE","FRUIT","GEBAK","ANDER","KRUID","BIER","WIJN","ALCOHOL","KAAS"]
 	EH = ["STUK","KG","GRAM","CL","DL","ANDER"]
 	
   	# Include default devise modules. Others available are:
