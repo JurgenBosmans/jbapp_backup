@@ -15,7 +15,7 @@ class AankopenController < ApplicationController
 					@aankopen = current_user.aankopen.order("created_at DESC").limit(2)
 					@filter = "recenste 2"
 				when "alle"
-          @aankopen = current_user.aankopen.all.reorder("id DESC")   
+        @aankopen = current_user.aankopen.all.order("aankoopdatum DESC")   
 					@filter = "alle"
 				when "maand"
 					@aankopen = current_user.aankopen.where(aankoopdatum: (Time.now.midnight - 1.month)..Time.now)
