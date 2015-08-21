@@ -9,7 +9,7 @@ class AankopenController < ApplicationController
 		else
 			case params[:filter]
 				when "euro"
-					@aankopen = current_user.aankopen.where('prijs > 1000')     
+					@aankopen = current_user.aankopen.where('prijs > 1000').reorder("aankoopdatum DESC")      
 					@filter = "aankoopbedrag > 1000 €"
 				when "recent"
         @aankopen = current_user.aankopen.reorder("aankoopdatum DESC").limit(2)
