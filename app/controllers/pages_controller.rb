@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 		@websites_pop=current_user.websites.reorder("count DESC").limit(4)
       
     	@notitie_aantal=current_user.notities.size
-    	@notitie=current_user.notities.first
+      @notitie=current_user.notities.reorder("id DESC").first
 	  
 	  	@aankoop_aantal=current_user.aankopen.size
 	  	@aankoop=current_user.aankopen.first
