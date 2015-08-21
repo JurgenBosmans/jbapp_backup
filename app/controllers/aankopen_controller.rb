@@ -12,19 +12,19 @@ class AankopenController < ApplicationController
 					@aankopen = current_user.aankopen.where('prijs > 1000')     
 					@filter = "aankoopbedrag > 1000 €"
 				when "recent"
-					@aankopen = current_user.aankopen.order("created_at DESC").limit(2)
+        @aankopen = current_user.aankopen.reorder("aankoopdatum DESC").limit(2)
 					@filter = "recenste 2"
 				when "alle"
         @aankopen = current_user.aankopen.all.reorder("aankoopdatum DESC")   
 					@filter = "alle"
 				when "maand"
-					@aankopen = current_user.aankopen.where(aankoopdatum: (Time.now.midnight - 1.month)..Time.now)
+					@aankopen = current_user.aankopen.where(aankoopdatum: (Time.now.midnight - 1.month)..Time.now).reorder("aankoopdatum DESC") 
 					@filter = "afgelopen maand"
 				when "jaar"
-					@aankopen = current_user.aankopen.where(aankoopdatum: (Time.now.midnight - 1.year)..Time.now)    
+					@aankopen = current_user.aankopen.where(aankoopdatum: (Time.now.midnight - 1.year)..Time.now).reorder("aankoopdatum DESC")     
 					@filter = "afgelopen jaar"
 				else
-					@aankopen = current_user.aankopen.all.order("id DESC")   
+        @aankopen = current_user.aankopen.all.reorder("id DESC")   
 					@filter = "alle"				
 			end
 		end
