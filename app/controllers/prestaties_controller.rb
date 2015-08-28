@@ -73,6 +73,6 @@ class PrestatiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
 	def prestatie_params
-		params.require(:prestatie).permit(:user_id, :datum, :persoon_id, :prestatie, :opmerking, :soort_prestatie_id, :resultaat, :tijd, :hr , :hr_avg)
+		params.require(:prestatie).permit(:user_id, :datum, :persoon_id, :prestatie, :opmerking, :soort_prestatie_id, :resultaat, :tijd, :hr , :hr_avg, :cal, :best_lap, :avg_lap, :meettoestel, :gewicht, :afstand)
     end   
 end

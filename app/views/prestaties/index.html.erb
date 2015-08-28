@@ -13,10 +13,14 @@
       <th>Datum</th>
       <th>Persoon</th>
       <th>Soort</th>
-      <th></th>	
-      <th>Prestatie</th>
-      <th>Resultaat</th>		
       <th>Tijd</th>		
+      <th>Afstand</th>		
+      <th>AVG LAP</th>		
+      <th>BEST LAP</th>
+      <th>HR AVG</th>
+      <th>HR MAX</th>
+      <th>CAL</th>		
+      <th>KG</th>		
       <th></th>
       <th></th>
     </tr>
@@ -28,10 +32,14 @@
 		  <td><%= prestatie.datum.strftime("%d/%m/%Y") %></td>
 		  <td><%= prestatie.persoon.voornaam %></td>
 		  <td><%= prestatie.soort_prestatie.soort %></td>
-		  <td><%= prestatie.soort_prestatie.soort_detail %></td>
-		  <td><%= prestatie.prestatie %></td>
-		  <td><%= prestatie.resultaat %></td>
-		  <td><%= prestatie.tijd %></td>
+      <td><%= prestatie.tijd %></td>
+      <td><%= prestatie.afstand %></td>
+		  <td><%= prestatie.avg_lap %></td>
+        <td><%= prestatie.best_lap %></td>
+        <td><%= prestatie.hr_avg %></td>
+        <td><%= prestatie.hr %></td>
+        <td><%= prestatie.cal %></td> 
+        <td><%= prestatie.gewicht %></td> 
 		<td width=50px><div class="btn-group">
 			<%= link_to  edit_prestatie_path(prestatie), :class => "btn-xs btn-info" do %>
             <span class="glyphicon glyphicon-edit" title="Wijzig deze prestatie"></span>
