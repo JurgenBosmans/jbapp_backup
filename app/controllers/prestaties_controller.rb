@@ -17,7 +17,7 @@ class PrestatiesController < ApplicationController
 					@prestaties = current_user.prestaties.all
 					@filter = "Sportprestaties"
 				else
-					@prestaties = current_user.prestaties.all.order("id DESC")   
+        @prestaties = current_user.prestaties.all.reorder("id DESC")   
 					@filter = "alle"				
 			end
     end
