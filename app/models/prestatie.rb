@@ -5,7 +5,7 @@ class Prestatie < ActiveRecord::Base
 	
 	# has_many :onderhouden , :dependent => :destroy
 	
-  default_scope { order('id DESC') } #let op sortering later is niet meer mogelijk
+  default_scope { order('datum DESC') } #let op sortering later is niet meer mogelijk
 	
 	validates :persoon_id, :presence => {:message => 'Je moet een persoon opgeven'}
 	validates :soort_prestatie_id, :presence => {:message => 'Je moet de soort van de prestatie opgeven'}
