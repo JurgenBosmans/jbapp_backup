@@ -13,6 +13,7 @@
       <th>Datum</th>
       <th>Persoon</th>
       <th>Soort</th>
+      <th></th>
       <th>Tijd</th>		
       <th>Afstand</th>		
       <th>AVG LAP</th>		
@@ -31,7 +32,8 @@
       <tr>
 		  <td><%= prestatie.datum.strftime("%d/%m/%Y") %></td>
 		  <td><%= prestatie.persoon.voornaam %></td>
-		  <td><%= prestatie.soort_prestatie.soort %></td>
+        <td><%= prestatie.soort_prestatie.soort %></td>
+        <td><%= prestatie.soort_prestatie.soort_detail %></td>
       <td><%= prestatie.tijd %></td>
       <td><%= prestatie.afstand %></td>
 		  <td><%= prestatie.avg_lap %></td>
