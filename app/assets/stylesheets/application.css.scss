@@ -13,3 +13,7 @@ mark {
   	background-color: green;
 	color: green;
 }
+
+.panel-body {
+     word-wrap: break-word; //* om in de notitie woorden te breken als de notities buiten de panel komen, werkt niet
+}
