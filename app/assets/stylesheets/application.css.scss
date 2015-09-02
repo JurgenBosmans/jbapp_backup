@@ -15,5 +15,7 @@ mark {
 }
 
 .panel-body {
+ //*    text-overflow: ellipsis;
+ //*   overflow: hidden;
      word-wrap: break-word; //* om in de notitie woorden te breken als de notities buiten de panel komen, werkt niet
 }
