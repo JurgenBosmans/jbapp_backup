@@ -3,7 +3,10 @@
  *
  *= require_self
  */
+
 @import "framework_and_overrides";
+@import "font-awesome-sprockets.css";
+@import "font-awesome.css";
 
 .navbar{
   min-height:1px; //* or whatever height you require / WERKT maar kan de hoogte alleen maar groter maken

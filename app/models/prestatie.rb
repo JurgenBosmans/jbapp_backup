@@ -11,6 +11,8 @@ class Prestatie < ActiveRecord::Base
 	validates :soort_prestatie_id, :presence => {:message => 'Je moet de soort van de prestatie opgeven'}
 	validates :datum, :presence => {:message => 'Je moet een datum opgeven'}
 	
+  validates :hr_avg, :cal, :hr, numericality: { only_integer: true }
+
   	# Include default devise modules. Others available are:
   	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable

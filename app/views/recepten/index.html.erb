@@ -23,10 +23,11 @@
       <th>Datum</th>
       <th></th>
       <th></th>
-	  <th></th>
+	    <th></th>
+      <th></th>
     </tr>
   </thead>
-
+  
   <tbody>
 	  <% @recepten.each do |recept| %>
       <tr>
@@ -46,9 +47,10 @@
 		</div></td>  
         <td width=50px><div class="btn-group">
           <%= link_to  recept_bereidingen_path(recept), method: :get, :class => "btn-xs btn-info" do %>
-            <span class="glyphicon glyphicon-thumbs-up" title="Beoordelingen"></span>
+            <span class="glyphicon glyphicon-comment" title="Beoordelingen"></span>
             <% end %>
-		</div></td>  		  
+		</div></td>  		
+        <td><i class="fa fa-thumbs-o-up"></i></td>
     </tr>
     <% end %>
   </tbody>

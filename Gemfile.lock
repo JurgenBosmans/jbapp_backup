@@ -147,7 +147,7 @@ DEPENDENCIES
   coffee-rails (= 4.0.1)
   devise (= 3.2.2)
   figaro (= 0.7.0)
-  font-awesome-sass (= 4.0.2)
+  font-awesome-sass
   friendly_id
   jbuilder (= 1.5.3)
   jquery-rails (= 3.0.4)

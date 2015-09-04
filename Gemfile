@@ -33,7 +33,7 @@ gem 'kaminari', '0.15.0'
 gem 'friendly_id'
 
 # font-awesome
-gem 'font-awesome-sass', '4.0.2'# Devise
+gem 'font-awesome-sass' # Devise
 gem 'devise', '3.2.2'
 
 # Bootstrap 3
