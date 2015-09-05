@@ -3,7 +3,7 @@ class Meterstand < ActiveRecord::Base
 	
 	default_scope { order('id DESC') } #let op sortering later is niet meer mogelijk
 	
-  after_initialize :defaults
+  # after_initialize :defaults
   
 	validates :meter, :presence => {:message => 'Je moet een meter opgeven'}
 	validates :datum, :presence => {:message => 'Je moet een datum opgeven'}
@@ -17,8 +17,8 @@ class Meterstand < ActiveRecord::Base
   	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable
   
-  def defaults
-    self.stand = "0"
-    self.verbruik = "0"
-  end
+  #def defaults
+   # self.stand = "0"
+    #self.verbruik = "0"
+  #end
 end
