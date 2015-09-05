@@ -4,7 +4,7 @@ class Dossier < ActiveRecord::Base
 	belongs_to :persoon
 	belongs_to :arts
 	
-  after_initialize :defaults
+  #after_initialize :defaults
  
 	default_scope { order('created_at DESC') } #let op sortering later is niet meer mogelijk
 	
@@ -26,9 +26,9 @@ class Dossier < ActiveRecord::Base
   	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable
   
- def defaults
-    self.te_betalen = "0"
-    self.ziekenkas_terug_bedrag = "0"
-    self.verzekering_terug_bedrag="0"
- end
+ #def defaults
+  #  self.te_betalen = "0"
+   # self.ziekenkas_terug_bedrag = "0"
+    #self.verzekering_terug_bedrag="0"
+ #end
 end

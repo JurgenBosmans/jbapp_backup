@@ -4,7 +4,7 @@ class Onderhoud < ActiveRecord::Base
 	
 	default_scope { order('created_at DESC') } 
 	
-  after_initialize :defaults
+  #after_initialize :defaults
   
 	validates :aankoop_id, :presence => {:message => 'Je moet een artikel opgeven'}
 	validates :datum_onderhoud, :presence => {:message => 'Je moet een datum opgeven'}
@@ -16,8 +16,8 @@ class Onderhoud < ActiveRecord::Base
   	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable
   
-  def defaults
-    self.prijs = "0"
-    self.teller = "0"
-  end
+  #def defaults
+   # self.prijs = "0"
+    #self.teller = "0"
+  #end
 end

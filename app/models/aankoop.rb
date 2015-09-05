@@ -4,7 +4,7 @@ class Aankoop < ActiveRecord::Base
 	
   before_save { self.winkel = winkel.upcase }
   
-  after_initialize :defaults
+  #after_initialize :defaults
   
 	default_scope { order('created_at DESC') } #let op sortering later is niet meer mogelijk
 	
@@ -20,8 +20,8 @@ class Aankoop < ActiveRecord::Base
   	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable
   
-  def defaults
-    self.prijs = "0"
-    self.garantie_maanden = "0"
-  end
+ # def defaults
+  #  self.prijs = "0"
+   # self.garantie_maanden = "0"
+  #end
 end
