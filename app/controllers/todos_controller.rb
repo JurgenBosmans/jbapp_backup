@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo, only: [:show, :edit, :update, :destroy, :kopieer]
 
   def index
     @todos = current_user.todos.all
@@ -49,6 +49,27 @@ before_action :set_todo, only: [:show, :edit, :update, :destroy]
     end
   end
 
+  def kopieer
+    @nieuwe_todo = Todo.new
+    @nieuwe_todo.user_id=@todo.user_id
+    @nieuwe_todo.naam = "(een copy van) " + @todo.naam
+    @nieuwe_todo.beschrijving = @todo.beschrijving
+    
+    if @nieuwe_todo.save
+      @todo.todo_items.each do |todo|
+        @nieuwe_todo_item = TodoItem.new
+        @nieuwe_todo_item.todo_id = @nieuwe_todo.id
+        @nieuwe_todo_item.item = todo.item
+        @nieuwe_todo_item.save
+      end
+    end
+    
+    
+      redirect_to todo_path(@nieuwe_todo), notice: "Copy gemaakt van de lijst '" + @todo.naam.upcase + "', pas de omschrijving aan." 
+    
+    
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo

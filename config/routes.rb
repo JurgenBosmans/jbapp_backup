@@ -6,6 +6,10 @@ JbappV2::Application.routes.draw do
         patch :afgewerkt
     	end
     end
+    
+    member do
+      patch :kopieer
+    end
   end
   
   

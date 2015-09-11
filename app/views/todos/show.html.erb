@@ -10,7 +10,7 @@
 
 <div class="links">
 	<%= link_to 'Wijzig', edit_todo_path(@todo) %> |
-  <%= link_to 'Verwijder', todo_path(@todo), method: :delete, data: { confirm: "Zeker?" }
- %> |
-  <%= link_to 'Terug', todos_path %>
+  <%= link_to 'Verwijder', todo_path(@todo), method: :delete, data: { confirm: "Zeker?" } %> |
+  <%= link_to 'Terug', todos_path %> |
+  <%= link_to 'Kopieer lijst', kopieer_todo_path(@todo), method: :patch %>
 </div>
