@@ -122,13 +122,12 @@
           </ul>
   </li>
   <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ToDo<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Todo<b class="caret"></b></a>
           <ul class="dropdown-menu">
-        <li><%= link_to "Reeds gemaakte lijstjes", prestaties_path(:filter => "alle") %></li>
-        <li><%= link_to "Start een nieuw lijstje", prestaties_path(:filter => "maand") %></li>
-        <li><%= link_to "Overzicht reeds afgewerkte lijstjes", prestaties_path(:filter => "jaar") %></li>
-			  <li class="divider"></li>
-            <li><%= link_to 'Een nieuwe lijst aanmaken', new_prestatie_path %></li>
+              <li><%= link_to "Todo's", todos_path %></li>
+              <li><%= link_to "Overzicht reeds afgewerkte lijstjes", todos_path %></li>
+			        <li class="divider"></li>
+              <li><%= link_to 'Een nieuwe todo aanmaken', new_todo_path %></li>
           </ul>
   </li>
 <% end %>

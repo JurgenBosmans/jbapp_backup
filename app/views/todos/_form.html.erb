@@ -1,0 +1,25 @@
+<%= form_for(@todo) do |f| %>
+  <% if @todo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@todo.errors.count, "error") %> waardoor Todo niet kan weggeschreven worden:</h2>
+
+      <ul>
+      <% @todo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :naam %><br>
+    <%= f.text_field :naam %>
+  </div>
+  <div class="field">
+    <%= f.label :beschrijving %><br>
+    <%= f.text_area :beschrijving %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Bevestig" %>
+  </div>
+<% end %>

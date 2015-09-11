@@ -1,0 +1,16 @@
+<h2 class="todo_list_title"><%= @todo.naam %></h2>
+<p class="todo_list_sub_title"><%= @todo.beschrijving %></p>
+
+<div id="todo_items_wrapper">
+	<%= render @todo.todo_items %>
+	<div id="form">
+		<%= render "todo_items/form" %>
+	</div>
+</div>
+
+<div class="links">
+	<%= link_to 'Wijzig', edit_todo_path(@todo) %> |
+  <%= link_to 'Verwijder', todo_path(@todo), method: :delete, data: { confirm: "Zeker?" }
+ %> |
+  <%= link_to 'Terug', todos_path %>
+</div>

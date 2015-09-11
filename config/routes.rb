@@ -1,5 +1,14 @@
 JbappV2::Application.routes.draw do
   
+  resources :todos do
+    resources :todo_items do
+    	member do
+        patch :afgewerkt
+    	end
+    end
+  end
+  
+  
 	resources :soort_prestaties
 	
 	resources :prestaties do

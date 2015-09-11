@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  naam: MyString
+  beschrijving: MyText
+  start_datum: 2015-09-11 09:22:30
+  stop_datum: 2015-09-11 09:22:30
+  user_id: 1
+
+two:
+  naam: MyString
+  beschrijving: MyText
+  start_datum: 2015-09-11 09:22:30
+  stop_datum: 2015-09-11 09:22:30
+  user_id: 1

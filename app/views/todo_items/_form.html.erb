@@ -1,0 +1,4 @@
+<%= form_for([@todo, @todo.todo_items.build]) do |f| %>
+<%= f.text_field :item, placeholder: "Nieuw item" %>
+  <%= f.submit "Bevestig"%>
+<% end %>
