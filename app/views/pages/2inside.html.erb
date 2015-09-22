@@ -1,0 +1,158 @@
+<br>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title"></h3>
+  	</div>
+  	<div class="panel-body">
+    	<div class="row">
+			<table class="table table-condensed table-hover">
+  				<tbody>
+					<% if not @website.nil? %>
+      				<tr>
+		  				<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @website_aantal %> websites</span>
+							</div>
+						</td>
+		  				<td  style="border-top: none;">
+							<p>Laatste toegevoegde website is <b><%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %></b> van <b><%= 								@website.created_at.strftime("%d/%m/%Y") %></b>.<br>De meest populaire zijn 
+      						<%  @websites_pop.each do |website| %>
+      						<b><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></b>
+      						<% if website != @websites_pop.last %> ,<% end %>
+      						<%  end %>.
+							</p>
+						</td>
+		  				<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_website_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+    						</div>
+						</td>		
+    				</tr>
+					<% end %>
+					<% if not @notitie.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @notitie_aantal %> notities</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>De recenste notitie is van <b><%= @notitie.created_at.strftime("%d/%m/%Y") %></b> :<br><%=simple_format(@notitie.notitie) %></p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_notitie_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<% end %>
+					<% if not @dossier.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%=@dossier_aantal %> medische dossiers</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>Het recentste dossier is van <b><%= @dossier.created_at.strftime("%d/%m/%Y") %></b> bij <%= @dossier.arts.naam %> en gaat over <b><%= @dossier.persoon.voornaam %></b> : <b><%= @dossier.beschrijving %></b>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_dossier_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<% end %>					
+					<% if not @aankoop.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @aankoop_aantal %> aankopen</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>De recenste aankoop is van <b><%= @aankoop.created_at.strftime("%d/%m/%Y") %></b> en betreft een <b><%= @aankoop.artikel %></b> met een prijs van <b><%=  number_to_currency(@aankoop.prijs, locale: :nl) %></b>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_aankoop_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<% end %>
+					<% if not @onderhoud.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%= @onderhoud_aantal %> onderhouden</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>Het recenste onderhoud is van <b><%= @onderhoud.created_at.strftime("%d/%m/%Y") %></b> op artikel <b><%= @onderhoud.aankoop.artikel %></b> met een kost van <b><%=  number_to_currency(@onderhoud.prijs, locale: :nl) %></b>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_onderhoud_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>		
+					<% end %>
+					<% if not @meterstand.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%=@meterstand_aantal %> meterstanden</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>De recentste <b><%= @meterstand.meter %></b>-meterstand was op <b><%= @meterstand.created_at.strftime("%d/%m/%Y") %></b> met een stand van <b><%= @meterstand.stand.round %></b> en een verbruik van <b><%= @meterstand.verbruik.round %></b>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_meterstand_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<% end %>
+					<% if not @recept.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%=@recept_aantal %> recepten</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>Het recentste recept is van <b><%= @recept.created_at.strftime("%d/%m/%Y") %></b> en gaat over <b><%= @recept.naam %></b>.</p>
+							<div class="btn-group"><%= link_to ingredient_recepten_path, :class => "btn-sm btn-primary" do %>Ingrediëntenlijst&nbsp&nbsp<span class="glyphicon glyphicon-cutlery"></span><% end %>
+      						</div>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_recept_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<% end %>		
+					<% if not @prestatie.nil? %>
+					<tr>
+						<td  style="border-top: none;">
+							<div style="height: 75px; overflow:auto;">
+								<span class="label label-warning label-as-badge"><%=@prestatie_aantal %> prestaties</span>
+							</div>
+						</td>
+						<td  style="border-top: none;">
+							<p>De recentste prestatie was op <b><%= @prestatie.datum.strftime("%d/%m/%Y") %></b> door <b><%= @prestatie.persoon.voornaam %></b> met als doel <b><%= @prestatie.prestatie %></b>.</p>
+						</td>
+						<td  style="border-top: none;">
+							<div class="btn-group"><%= link_to new_prestatie_path, :class => "btn-sm btn-primary" do %><span class="glyphicon glyphicon-plus-sign"></span><% end %>
+      						</div>
+						</td>
+					</tr>
+					<% end %>					
+					<tr>
+						<td  style="border-top: none;">
+						</td>
+						<td  style="border-top: none;">
+						</td>
+						<td  style="border-top: none;">
+						</td>
+					</tr>				
+  				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

@@ -33,6 +33,42 @@ mark {
 }
 
 
-/*
-vanaf hier styles ivm TODO : probleem gebruikt over heel de site
-*/
+//* deze lijnen werden toegevoegd om beter op de HOME page css af te stemmen
+html,
+body {
+	height: 100%;
+  	background-color: #333;
+		  color: #fff;
+}
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+table {
+  	background-color: #333;
+}
+
+.tr-warning {
+  	color: red;
+}
+.tr-success {
+  	color: green;
+}
+
+thead {
+	text-decoration: none;
+}
+
+.invulformulier{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.zoekformulier {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}

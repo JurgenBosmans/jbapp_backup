@@ -1,64 +1,75 @@
-<%= form_for @recept ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
-  
-<div class="form-group">
-  <%= f.label :naam, "Naam recept", class: "col-sm-2 control-label" %>
-    <div class="col-sm-6">
-		<%= f.text_field :naam, class: "form-control input-sm" %>  
-    </div>
-  </div>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<% if params[:action] == "new" then %>
+				<h3 class="masthead-brand">Recepten.&nbsp&nbsp <small>Maak een nieuwe recept aan.</small></h3>
+			<% else %>
+				<h3 class="masthead-brand">Recepten.&nbsp&nbsp <small>Wijzig een bestaand recept.</small></h3>
+			<% end %>
+			<div class="row">
+				<div class="invulformulier">
+					<%= form_for @recept ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+						<div class="form-group">
+					  		<%= f.label :naam, "Naam recept", class: "col-sm-2 control-label" %>
+							<div class="col-sm-7">
+								<%= f.text_field :naam, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+							<%= f.label  :bron, "Bron" ,class: "col-sm-2 control-label" %>
+							<div class="col-sm-3">
+						  		<%= f.select(:bron, Recept::BRON.sort!, {:include_blank => true}, {class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+						<div class="form-group">
+						  	<%= f.label  :soort, "Soort gerecht"  ,class: "col-sm-2 control-label" %>
+							<div class="col-sm-3">
+								<%= f.select(:soort, Recept::SOORT.sort!, {:include_blank => true}, {class: "form-control input-sm"}) %>
+							</div>
+					    </div>
+					  	<div class="form-group">
+							<%= f.label :bereidingstijd, "Bereidingstijd (min)" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :bereidingstijd, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :moeilijkheidsgraad, "Moeilijkheid 1-10" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+								<%= f.text_field :moeilijkheidsgraad, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :personen, "Aantal personen" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :personen, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :ingredient, "Ingrediëntenlijst", class: "col-sm-2 control-label" %>
+							<div class="col-sm-4">
+								<%= f.text_area :ingredient, size: "24x18", :autofocus => true, class: "form-control input-sm" %>
+							</div>
+						</div>
+					  	<div class="form-group">
+							<%= f.label :werkwijze, class: "col-sm-2 control-label" %>
+							<div class="col-sm-9">
+								<%= f.text_area :werkwijze, size: "48x16", :autofocus => true, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<%= f.submit "Bevestig", class: "btn btn-primary" %>
+							</div>
+					  	</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<%= render 'recepten/menu' %>
+	</div>
+</div>
 
-<div class="form-group">
-	<%= f.label  :bron, "Bron" ,class: "col-sm-2 control-label" %>   
-    <div class="col-sm-2">
-      <%= f.select(:bron, Recept::BRON.sort!, {:include_blank => true}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
-
-<div class="form-group">
-  <%= f.label  :soort, "Soort gerecht"  ,class: "col-sm-2 control-label" %>   
-    <div class="col-sm-2">
-		<%= f.select(:soort, Recept::SOORT.sort!, {:include_blank => true}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :bereidingstijd, "Bereidingstijd (min)" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :bereidingstijd, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :moeilijkheidsgraad, "Moeilijkheid 1-10" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :moeilijkheidsgraad, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :personen, "Aantal personen" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :personen, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :ingredient, "Ingrediëntenlijst", class: "col-sm-2 control-label" %>
-    <div class="col-sm-3">
-		<%= f.text_area :ingredient, size: "24x18", :autofocus => true, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label :werkwijze, class: "col-sm-2 control-label" %>
-    <div class="col-sm-8">
-		<%= f.text_area :werkwijze, size: "48x16", :autofocus => true, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-		<%= f.submit "Bevestig", class: "btn-sm btn-info" %>
-    </div>
-  </div>  
-<% end %>

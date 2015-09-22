@@ -4,13 +4,18 @@ class PagesController < ApplicationController
   	def home
   	end
   
+    def about
+    end
+  
   	def inside
-    	@website_aantal=current_user.websites.size
-		@website=current_user.websites.reorder("id DESC").first
-		@websites_pop=current_user.websites.reorder("count DESC").limit(4)
-      
+		if  Website.exists? then
+			@website=current_user.websites.reorder("id DESC").first
+    		@website_aantal=current_user.websites.size
+			@websites_pop=current_user.websites.reorder("count DESC").limit(4)
+		end
+			
     	@notitie_aantal=current_user.notities.size
-      @notitie=current_user.notities.reorder("id DESC").first
+      	@notitie=current_user.notities.reorder("id DESC").first
 	  
 	  	@aankoop_aantal=current_user.aankopen.size
 	  	@aankoop=current_user.aankopen.first
@@ -29,7 +34,10 @@ class PagesController < ApplicationController
 		
 		@prestatie_aantal=current_user.prestaties.size
 		@prestatie=current_user.prestaties.first
-		
+			
+		@todo_aantal=current_user.todos.size
+		@todo=current_user.todos.first		
+			
 		@leeg_aantal=0
 		@leeg="?"
   	end 

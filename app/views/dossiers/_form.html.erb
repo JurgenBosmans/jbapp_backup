@@ -1,136 +1,144 @@
-<%= form_for @dossier ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
-  
-<div class="form-group">
-	  <%= f.label :datum_onderzoek, class: "col-sm-3 control-label" %>
-    <div class="col-sm-3">
-		<%= f.date_select(:datum_onderzoek, {class: "date-select"}) %>  
-    </div>
-  </div>
+<div class="container">  
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<% if params[:action] == "new" then %>  
+				<h3 class="masthead-brand">Raadplegingen.&nbsp&nbsp <small>Maak een nieuwe raadpleging aan.</small></h3>
+			<% else %>
+				<h3 class="masthead-brand">Websites.&nbsp&nbsp <small>Wijzig een bestaande raadpleging.</small></h3>
+			<% end %>
+			<div class="row">
+				<div class="invulformulier">
+					<%= form_for @dossier ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+						<div class="form-group">
+							<%= f.label :datum_onderzoek, class: "col-sm-3 control-label" %>
+							<div class="col-sm-4">
+								<%= f.date_select(:datum_onderzoek, {class: "date-select"}) %>  
+							</div>
+					  	</div>
+						<div class="form-group">
+							<%= f.label :persoon_id, 'Persoon' , class: "col-sm-3 control-label" %>
+							<div class="col-sm-3">
+								<%= f.collection_select(:persoon_id, current_user.personen.reorder("naam ASC"), :id, :voornaam, {:include_blank => true}, { class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							  <%= f.label :arts_id ,'Geneesheer' , class: "col-sm-3 control-label" %>
+							<div class="col-sm-3">
+								<%= f.collection_select(:arts_id, current_user.artsen.reorder("naam ASC"), :id, :naam, {:include_blank => true}, { class: "form-control input-sm"}) %>
+							</div>
+						</div>
+					  	<div class="form-group">
+							<%= f.label :instelling, class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+								<%= f.select(:instelling, Dossier::INSTELLING, {:include_blank => true}, {class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :soort_opname, class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+								<%= f.select(:soort_opname, Dossier::OPNAME, {:include_blank => true}, {class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label 'Korte beschrijving van de klacht', class: "col-sm-3 control-label" %>
+							<div class="col-sm-8">
+								<%= f.text_area :beschrijving, :autofocus => true, class: "form-control input-sm" %>  
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label 'Eigen referentie' , class: "col-sm-3 control-label" %>
+							<div class="col-sm-4">
+								<%= f.text_field :eigen_referentie, class: "form-control input-sm" %>  
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label 'Diagnose', class: "col-sm-3 control-label" %>
+							<div class="col-sm-8">
+								<%= f.text_area :resultaat,:autofocus => true, class: "form-control input-sm" %>  
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label 'Medicatie' , class: "col-sm-3 control-label" %>
+							<div class="col-sm-4">
+								<%= f.text_field :medicatie, class: "form-control input-sm" %>  
+							</div>
+					  	</div>
+						<hr>
+						<div class="form-group">
+							<%= f.label 'Afrekening', class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+								<%= f.select(:soort_document, Dossier::FACT, {:include_blank => false}, {class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+						<div class="form-group">
+							<%= f.label 'Datum document', class: "col-sm-3 control-label" %>
+							<div class="col-sm-4">
+								<%= f.date_select(:datum_document, {class: "date-select"}) %>  
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label 'Bedrag' , class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :te_betalen, :placeholder => "0", class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label 'Betaald', class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+								<%= f.select(:betaald, Dossier::JANEE, {:include_blank => false}, {class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+						<hr>
+						<div class="form-group">
+							<%= f.label 'Verzonden naar de mutualiteit', class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+								<%= f.select(:ziekenkas_verzonden, Dossier::JANEE, {:include_blank => false}, {class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label 'Terugbetaling' , class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :ziekenkas_terug_bedrag, :placeholder => "0", class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<hr>
+					  	<div class="form-group">
+							<%= f.label 'Verzonden naar de verzekering', class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+								<%= f.select(:verzekering_verzonden, Dossier::VERZEKERING, {:include_blank => false}, {class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label 'Terugbetaling' , class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :verzekering_terug_bedrag, :placeholder => "0", class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<hr>
+					  	<div class="form-group">
+							<%= f.label 'Dossier afgesloten', class: "col-sm-3 control-label" %>
+							<div class="col-sm-2">
+								<%= f.select(:afgehandeld, Dossier::JANEE, {:include_blank => false}, {class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+						<hr>
+					  	<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-10">
+								<%= f.submit "Bevestig dit dossier", class: "btn btn-primary" %>
+							</div>
+					  	</div>  
+					<% end %>
+				</div>
+			</div>
+		</div>     
+		<%= render 'dossiers/menu' %> 
+	</div>  
+</div>
 
-	<div class="form-group">
-		<%= f.label :persoon_id, 'Persoon' , class: "col-sm-3 control-label" %>
-    <div class="col-sm-3">
-		<%= f.collection_select(:persoon_id, current_user.personen.reorder("naam ASC"), :id, :voornaam, {:include_blank => true}, { class: "form-control input-sm"}) %>
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label :arts_id ,'Geneesheer' , class: "col-sm-3 control-label" %>
-    <div class="col-sm-3">
-		<%= f.collection_select(:arts_id, current_user.artsen.reorder("naam ASC"), :id, :naam, {:include_blank => true}, { class: "form-control input-sm"}) %>
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label :instelling, class: "col-sm-3 control-label" %>
-    <div class="col-sm-2">
-		<%= f.select(:instelling, Dossier::INSTELLING, {:include_blank => true}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label :soort_opname, class: "col-sm-3 control-label" %>
-    <div class="col-sm-2">
-		<%= f.select(:soort_opname, Dossier::OPNAME, {:include_blank => true}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label 'Korte beschrijving van de klacht', class: "col-sm-3 control-label" %>
-    <div class="col-sm-5">
-		<%= f.text_area :beschrijving, size: "24x6", :autofocus => true, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label 'Eigen referentie' , class: "col-sm-3 control-label" %>
-    <div class="col-sm-4">
-		<%= f.text_field :eigen_referentie, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label 'Diagnose', class: "col-sm-3 control-label" %>
-    <div class="col-sm-5">
-		<%= f.text_area :resultaat, size: "24x6", :autofocus => true, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label 'Medicatie' , class: "col-sm-3 control-label" %>
-    <div class="col-sm-4">
-		<%= f.text_field :medicatie, class: "form-control input-sm" %>  
-    </div>
-  </div>
-<hr>
-  <div class="form-group">
-	  <%= f.label 'Afrekening', class: "col-sm-3 control-label" %>
-    <div class="col-sm-2">
-		<%= f.select(:soort_document, Dossier::FACT, {:include_blank => false}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
-
-<div class="form-group">
-	<%= f.label 'Datum document', class: "col-sm-3 control-label" %>
-    <div class="col-sm-3">
-		<%= f.date_select(:datum_document, {class: "date-select"}) %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label 'Bedrag' , class: "col-sm-3 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :te_betalen, :placeholder => "0", class: "form-control input-sm" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label 'Betaald', class: "col-sm-3 control-label" %>
-    <div class="col-sm-1">
-		<%= f.select(:betaald, Dossier::JANEE, {:include_blank => false}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
-<hr>
-  <div class="form-group">
-	  <%= f.label 'Verzonden naar de mutualiteit', class: "col-sm-3 control-label" %>
-    <div class="col-sm-1">
-		<%= f.select(:ziekenkas_verzonden, Dossier::JANEE, {:include_blank => false}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
-  <div class="form-group">
-	  <%= f.label 'Terugbetaling' , class: "col-sm-3 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :ziekenkas_terug_bedrag, :placeholder => "0", class: "form-control input-sm" %>
-    </div>
-  </div>
-<hr>
-  <div class="form-group">
-	  <%= f.label 'Verzonden naar de verzekering', class: "col-sm-3 control-label" %>
-    <div class="col-sm-1">
-		<%= f.select(:verzekering_verzonden, Dossier::VERZEKERING, {:include_blank => false}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
-  <div class="form-group">
-	  <%= f.label 'Terugbetaling' , class: "col-sm-3 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :verzekering_terug_bedrag, :placeholder => "0", class: "form-control input-sm" %>
-    </div>
-  </div>
-<hr>
-  <div class="form-group">
-	  <%= f.label 'Dossier afgesloten', class: "col-sm-3 control-label" %>
-    <div class="col-sm-1">
-		<%= f.select(:afgehandeld, Dossier::JANEE, {:include_blank => false}, {class: "form-control input-sm"}) %>
-    </div>
-  </div>
 
 
-  <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-10">
-		<%= f.submit "Bevestig dit dossier", class: "btn-sm btn-info" %>
-    </div>
-  </div>  
-
-<% end %>
 
 

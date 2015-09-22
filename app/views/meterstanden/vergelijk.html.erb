@@ -1,9 +1,18 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">Vergelijk recenste meterstand met vorige jaren</h3>
-  </div>
-  <div class="panel-body">
-    ...
-  </div>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Meterstanden.&nbsp&nbsp <small>Vergelijk recenste meterstand met vorige jaren.</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+				<table class="table">
+
+			</table>
+			</div>
+		</div>
+		<%= render 'meterstanden/menu' %>
+	</div>
 </div>
+

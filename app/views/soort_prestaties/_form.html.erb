@@ -1,34 +1,42 @@
-<%= form_for @soort_prestatie ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
-<% if @soort_prestatie.errors.any? %>
-    <div id="error_explanation">
-		<h2><%= pluralize(@soort_prestatie.errors.count, "error") %> waardoor het item niet kan aangemaakt worden:</h2>
-      <ul>
-		  <% @soort_prestatie.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<% if params[:action] == "new" then %>
+				<h3 class="masthead-brand">Soort prestaties.&nbsp&nbsp <small>Maak een soort prestatie aan.</small></h3>
+			<% else %>
+				<h3 class="masthead-brand">Soort prestatie.&nbsp&nbsp <small>Wijzig een bestaande soort prestatie.</small></h3>
+			<% end %>
+			<div class="row">
+				<div class="invulformulier">
+					<%= form_for @soort_prestatie ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+						<div class="form-group">
+							<%= f.label :soort, class: "col-sm-2 control-label" %>
+							<div class="col-sm-5">
+								<%= f.text_field :soort, :autofocus => true, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :soort_detail, "Onderverdeling" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-5">
+								<%= f.text_field :soort_detail, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<%= f.submit "Bevestig", class: "btn btn-primary" %>
+							</div>
+					  	</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<%= render 'prestaties/menu' %>
+	</div>
+</div>
 
-  <div class="form-group">
-	  <%= f.label :soort, class: "col-sm-2 control-label" %>
-    <div class="col-sm-5">
-		<%= f.text_field :soort, :autofocus => true, class: "form-control input-sm" %>  
-    </div>
-  </div>
 
-  <div class="form-group">
-	  <%= f.label :soort_detail, "Onderverdeling" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-5">
-		<%= f.text_field :soort_detail, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit "Bevestig", class: "btn-sm btn-info" %>
-    </div>
-  </div>  
-<% end %>
 
 

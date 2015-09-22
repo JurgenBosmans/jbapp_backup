@@ -1,119 +1,118 @@
-<%= form_for @prestatie ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
-<h3>Algemene gegevens<small></small></h3>
-
-<div class="form-group">
-	  <%= f.label :datum, class: "col-sm-2 control-label" %>
-    <div class="col-sm-3">
-		<%= f.date_select(:datum, {class: "date-select"}) %>  
-    </div>
-  </div>
-
-<div class="form-group">
-	<%= f.label  :persoon_id , "Persoon" ,class: "col-sm-2 control-label" %>   
-    <div class="col-sm-2">
-		<%= f.collection_select(:persoon_id, current_user.personen.reorder("naam ASC"), :id, :voornaam, {:include_blank => true}, { class: "form-control input-sm"}) %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :soort_prestatie_id, "Welke prestatie" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-3">
-		<%= f.collection_select(:soort_prestatie_id, current_user.soort_prestaties.reorder("soort ASC"), :id, :soort_en_detail , {:include_blank => true}, { class: "form-control input-sm"}) %>
-		    </div>
-  </div>
-    
-  <div class="form-group">
-    <%= f.label :prestaite, "Doel of uitdaging" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-5">
-		<%= f.text_field :prestatie, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label :resultaat , class: "col-sm-2 control-label" %>
-    <div class="col-sm-5">
-		<%= f.text_field :resultaat, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-  <div class="form-group">
-	  <%= f.label :opmerking, class: "col-sm-2 control-label" %>
-    <div class="col-sm-5">
-		<%= f.text_area :opmerking, size: "24x10", :autofocus => true, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-
-<h3>Sportgegevens<small> (optioneel aan te vullen)</small></h3>
-
-<div class="form-group">
-  <%= f.label :tijd, "Totale tijd prestatie" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :tijd, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-<div class="form-group">
-  <%= f.label :avg_lap, "Gemiddelde rondetijd" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :avg_lap, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-<div class="form-group">
-  <%= f.label :best_lap, "Beste rondetijd" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :best_lap, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-<div class="form-group">
-	  <%= f.label :hr_avg, "Hartslag AVG" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :hr_avg, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-<div class="form-group">
-	<%= f.label :hr, "Hartslag MAX" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :hr, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-<div class="form-group">
-  <%= f.label :cal, "Calorieën" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-1">
-      <%= f.text_field :cal, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-<div class="form-group">
-  <%= f.label :meettoestel, "Meettoestel" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-2">
-      <%= f.text_field :meettoestel, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-<div class="form-group">
-  <%= f.label :afstand, "Afstand" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-2">
-      <%= f.text_field :afstand, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-<div class="form-group">
-  <%= f.label :gewicht, "Gewicht" , class: "col-sm-2 control-label" %>
-    <div class="col-sm-2">
-      <%= f.text_field :gewicht, class: "form-control input-sm" %>  
-    </div>
-  </div>
-
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-		<%= f.submit "Bevestig", class: "btn-sm btn-info" %>
-    </div>
-  </div>  
-
-<% end %>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<% if params[:action] == "new" then %>
+				<h3 class="masthead-brand">Prestaties.&nbsp&nbsp <small>Geef een nieuwe prestatie in.</small></h3>
+			<% else %>
+				<h3 class="masthead-brand">Prestaties.&nbsp&nbsp <small>Wijzig een bestaande prestatie.</small></h3>
+			<% end %>
+			<div class="row">
+				<div class="invulformulier">
+					<%= form_for @prestatie ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+						<h4>Algemene gegevens<small></small></h4>
+						<div class="form-group">
+							<%= f.label :datum, class: "col-sm-2 control-label" %>
+							<div class="col-sm-4">
+								<%= f.date_select(:datum, {class: "date-select"}) %>
+							</div>
+					  	</div>
+						<div class="form-group">
+							<%= f.label  :persoon_id , "Persoon" ,class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+								<%= f.collection_select(:persoon_id, current_user.personen.reorder("naam ASC"), :id, :voornaam, {:include_blank => true}, { class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :soort_prestatie_id, "Welke prestatie" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-3">
+								<%= f.collection_select(:soort_prestatie_id, current_user.soort_prestaties.reorder("soort ASC"), :id, :soort_en_detail , {:include_blank => true}, { class: "form-control input-sm"}) %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :prestaite, "Doel of uitdaging" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-5">
+								<%= f.text_field :prestatie, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :resultaat , class: "col-sm-2 control-label" %>
+							<div class="col-sm-5">
+								<%= f.text_field :resultaat, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<%= f.label :opmerking, class: "col-sm-2 control-label" %>
+							<div class="col-sm-6">
+								<%= f.text_area :opmerking,  :autofocus => true, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<h4>Sportgegevens<small> (optioneel aan te vullen)</small></h4>
+						<div class="form-group">
+					  		<%= f.label :tijd, "Totale tijd prestatie" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :tijd, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+					  	<%= f.label :avg_lap, "Gemiddelde rondetijd" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :avg_lap, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+					  		<%= f.label :best_lap, "Beste rondetijd" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :best_lap, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+							<%= f.label :hr_avg, "Hartslag AVG" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :hr_avg, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+							<%= f.label :hr, "Hartslag MAX" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :hr, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+					  		<%= f.label :cal, "Calorieën" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :cal, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+					  		<%= f.label :meettoestel, "Meettoestel" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :meettoestel, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+					  		<%= f.label :afstand, "Afstand" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :afstand, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+						<div class="form-group">
+					  	<%= f.label :gewicht, "Gewicht" , class: "col-sm-2 control-label" %>
+							<div class="col-sm-2">
+						  		<%= f.text_field :gewicht, class: "form-control input-sm" %>
+							</div>
+					  	</div>
+					  	<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<%= f.submit "Bevestig", class: "btn btn-primary" %>
+							</div>
+					  	</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<%= render 'prestaties/menu' %>
+	</div>
+</div>

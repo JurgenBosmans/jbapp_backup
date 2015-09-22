@@ -1,28 +1,32 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">Overzicht verbruik winterperiode OKTOBER tem MAART (6 maanden)</h3>
-  </div>
-  <div class="panel-body">
-	  <h4>Vergelijk winterperiode</h4>
-	  	<% if @max == 0 then %>
-	  		<p>Geen gegevens beschikbaar.</p>
-	  	<% else %>
-    		<table>
-				<tr><td><b>Periode <%= @jaar1.to_s + "-" + @jaar.to_s %></b></td><td>: </td><td><%= @waarde_jaar.round %></td><td><mark><%= "#" * @grafiek_jaar %></mark>&nbsp<%= @procent_jaar.round %>%</td></tr>
-				<tr><td><b>Periode <%= @jaar2.to_s + "-" + @jaar1.to_s %></b></td><td>: </td><td><%= @waarde_jaar1.round %></td><td><mark><%= "#" * @grafiek_jaar1 %></mark>&nbsp<%= @procent_jaar1.round %>%</td></tr>
-				<tr><td><b>Periode <%= @jaar3.to_s + "-" + @jaar2.to_s %></b></td><td>: </td><td><%= @waarde_jaar2.round %></td><td><mark><%= "#" * @grafiek_jaar2 %></mark>&nbsp<%= @procent_jaar2.round %>%</td></tr>
-				<tr><td><b>Periode <%= @jaar4.to_s + "-" + @jaar3.to_s %></b></td><td>: </td><td><%= @waarde_jaar3.round %></td><td><mark><%= "#" * @grafiek_jaar3 %></mark></td></tr>
-	  		</table>
-	  	  	<br><br><br>
-	  		<h4>Vergelijk per jaar</h4>
-			<table>
-				<tr><td><b><%= @jaar %></b></td><td><%= @waarde_tot_jaar.round %></td><td>(niet volledig)</td></tr>
-				<tr><td><b><%= @jaar1 %></b></td><td><%= @waarde_tot_jaar1.round %></td><td></td></tr>
-				<tr><td><b><%= @jaar2 %></b></td><td><%= @waarde_tot_jaar2.round %></td><td></td></tr>
-				<tr><td><b><%= @jaar3 %></b></td><td><%= @waarde_tot_jaar3.round %></td><td></td></tr>
-			</table>
-
-	  	<% end %>
-  </div>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Meterstanden.&nbsp&nbsp <small>Overzicht verbruik winterperiode OKTOBER tem MAART (6 maanden).</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+					<% if @max == 0 then %>
+						<p>Geen gegevens beschikbaar.</p>
+					<% else %>
+						<table class="table">
+							<tr><td><b>Periode <%= @jaar1.to_s + "-" + @jaar.to_s %></b></td><td>: </td><td><%= @waarde_jaar.round %></td><td><mark><%= "#" * @grafiek_jaar %></mark>&nbsp<%= @procent_jaar.round %>%</td></tr>
+							<tr><td><b>Periode <%= @jaar2.to_s + "-" + @jaar1.to_s %></b></td><td>: </td><td><%= @waarde_jaar1.round %></td><td><mark><%= "#" * @grafiek_jaar1 %></mark>&nbsp<%= @procent_jaar1.round %>%</td></tr>
+							<tr><td><b>Periode <%= @jaar3.to_s + "-" + @jaar2.to_s %></b></td><td>: </td><td><%= @waarde_jaar2.round %></td><td><mark><%= "#" * @grafiek_jaar2 %></mark>&nbsp<%= @procent_jaar2.round %>%</td></tr>
+							<tr><td><b>Periode <%= @jaar4.to_s + "-" + @jaar3.to_s %></b></td><td>: </td><td><%= @waarde_jaar3.round %></td><td><mark><%= "#" * @grafiek_jaar3 %></mark></td></tr>
+						</table>
+						<br><br><br>
+						<h4>Vergelijk per jaar</h4>
+						<table>
+							<tr><td><b><%= @jaar %></b></td><td><%= @waarde_tot_jaar.round %></td><td>(niet volledig)</td></tr>
+							<tr><td><b><%= @jaar1 %></b></td><td><%= @waarde_tot_jaar1.round %></td><td></td></tr>
+							<tr><td><b><%= @jaar2 %></b></td><td><%= @waarde_tot_jaar2.round %></td><td></td></tr>
+							<tr><td><b><%= @jaar3 %></b></td><td><%= @waarde_tot_jaar3.round %></td><td></td></tr>
+						</table>
+					<% end %>
+			</div>
+		</div>
+		<%= render 'meterstanden/menu' %>
+	</div>
 </div>

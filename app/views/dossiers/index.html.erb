@@ -1,58 +1,64 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-	  <h3 class="panel-title">Dossier : <%= @filter %></h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-		</div>
-<%= form_tag dossiers_path, method: 'get', html: {role: "form"} do %>
-  <p align="center">
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Filter", :name => nil, class: "btn btn-sm btn-info" %>
-	  <%= link_to "Toon alles", dossiers_path, {class: "btn btn-sm btn-link"} %>
-  </p>
-<% end %>
-		
-<table class="table table-condensed table-hover">
-  <thead>
-    <tr>
-	  <th>Afgehandeld</th>
-      <th>Datum</th>
-      <th>Patiënt</th>
-      <th>Arts</th>
-      <th>Specialiteit</th>
-	  <th>Mutualiteit</th>
-	  <th>Verzekering</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-	  <% @dossiers.each do |dossier| %>
-      <tr>
-		  <td><%= dossier.afgehandeld %></td>
-		  <td><%= dossier.datum_onderzoek.strftime("%d/%m/%Y") %></td>
-		  <td><%= dossier.persoon.voornaam %></td>
-		  <td><%= dossier.arts.naam %></td>
-		  <td><%= dossier.arts.specialiteit %></td>
-		  <td><%= dossier.ziekenkas_verzonden %></td>
-		  <td><%= dossier.verzekering_verzonden %></td>
-		<td width=50px><div class="btn-group">
-			<%= link_to  edit_dossier_path(dossier), :class => "btn-xs btn-info" do %>
-            <span class="glyphicon glyphicon-edit" title="Wijzig dit dossier"></span>
-            <% end %>
-		</div></td>
-        <td width=50px><div class="btn-group">
-			<%= link_to  dossier, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
-            <span class="glyphicon glyphicon-remove-sign" title="Verwijder dit dossier"></span>
-            <% end %>
-		</div></td>  		
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-		
-		<p align="center"><%= link_to 'Toevoegen', new_dossier_path, {class: "btn btn-sm btn-info"} %></p>
+<div class="container">  
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Raadplegingen.&nbsp&nbsp <small>Beheer hier uw medisch dossier.</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %> 
+				<div class="zoekformulier">
+					Zoek naar een raadpleging<br>				
+					<%= form_tag dossiers_path, method: 'get', html: {role: "form"} do %>
+    					<%= text_field_tag :search, params[:search], :size => 30 %>&nbsp&nbsp
+						<%= submit_tag "Zoek", :name => nil, class: "btn btn-sm btn-primary" %>
+	  					<%= link_to "Toon alles", dossiers_path, {class: "btn btn-sm btn-link"} %>
+					<% end %>
+				</div>			
+				<table class="table">
+  				<thead>
+					<tr>
+	  					<th>Afgehandeld</th>
+      					<th>Datum</th>
+      					<th>Patiënt</th>
+      					<th>Arts</th>
+      					<th>Specialiteit</th>
+	  					<th>Mutualiteit</th>
+	  					<th>Verzekering</th>
+      					<th></th>
+      					<th></th>
+    				</tr>
+  				</thead>
+  				<tbody>
+				  	<% @dossiers.each do |dossier| %>
+				  	<tr>
+						<td><%= dossier.afgehandeld %></td>
+						<td><%= dossier.datum_onderzoek.strftime("%d/%m/%Y") %></td>
+						<td><%= dossier.persoon.voornaam %></td>
+						<td><%= dossier.arts.naam %></td>
+						<td><%= dossier.arts.specialiteit %></td>
+						<td><%= dossier.ziekenkas_verzonden %></td>
+						<td><%= dossier.verzekering_verzonden %></td>
+						<td width=50px>
+							<div class="btn-group">
+								<%= link_to  edit_dossier_path(dossier), :class => "btn-sm btn-primary" do %>
+									<span class="glyphicon glyphicon-edit" title="Wijzig dit dossier"></span>
+								<% end %>
+							</div>
+						</td>
+						<td width=50px>
+							<div class="btn-group">
+								<%= link_to  dossier, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
+									<span class="glyphicon glyphicon-remove-sign" title="Verwijder dit dossier"></span>
+								<% end %>
+							</div>
+						</td>  		
+					</tr>
+					<% end %>
+  				</tbody>
+			</table>
+			</div>
+		</div>     
+		<%= render 'dossiers/menu' %> 
+	</div>  
 </div>

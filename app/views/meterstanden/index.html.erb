@@ -1,47 +1,50 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-	  <h3 class="panel-title">Meterstand : <%= @filter %></h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-	</div>	
-		
-<table class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      <th>Meter</th>
-      <th>Datum</th>
-      <th>Meterstand</th>
-      <th>Verbruik</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-	  <% @meterstanden.each do |meterstand| %>
-      <tr>
-		  <td width=50%><%= meterstand.meter %></td>
-		  <td width=10%><%= meterstand.datum.try(:strftime, "%d/%m/%Y") %></td>
-		  <td align="right" width=10%><%= meterstand.stand %></td>
-		  <td align="right" width=10%><%= meterstand.verbruik %></td>
-		<td width=10% align="center"><div class="btn-group">
-			<%= link_to  edit_meterstand_path(meterstand), :class => "btn-xs btn-info" do %>
-            <span class="glyphicon glyphicon-edit" title="Wijzig deze meterstand"></span>
-            <% end %>
-		</div></td>
-        <td width=10%><div class="btn-group">
-			<%= link_to  meterstand, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
-            <span class="glyphicon glyphicon-remove-sign" title="Verwijder deze aankoop"></span>
-            <% end %>
-		</div></td>  		
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-		
-		<p align="center"><%= link_to 'Toevoegen', new_meterstand_path, {class: "btn btn-sm btn-info"} %></p>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Meterstanden.&nbsp&nbsp <small>Beheer hier je meterstand.</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Meter</th>
+						  	<th>Datum</th>
+						  	<th>Meterstand</th>
+						  	<th>Verbruik</th>
+						  	<th></th>
+						  	<th></th>
+						</tr>
+					</thead>
+					<tbody>
+					<% @meterstanden.each do |meterstand| %>
+						<tr>
+							<td width=50%><%= meterstand.meter %></td>
+							<td width=10%><%= meterstand.datum.try(:strftime, "%d/%m/%Y") %></td>
+							<td align="right" width=10%><%= meterstand.stand %></td>
+							<td align="right" width=10%><%= meterstand.verbruik %></td>
+							<td width=10% align="center">
+								<div class="btn-group">
+									<%= link_to  edit_meterstand_path(meterstand), :class => "btn-sm btn-primary" do %>
+										<span class="glyphicon glyphicon-edit" title="Wijzig deze meterstand"></span>
+									<% end %>
+								</div>
+							</td>
+							<td width=10%>
+								<div class="btn-group">
+									<%= link_to  meterstand, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
+										<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze aankoop"></span>
+									<% end %>
+								</div>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			</div>
+		</div>
+		<%= render 'meterstanden/menu' %>
+	</div>
 </div>
-
-

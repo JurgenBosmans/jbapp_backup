@@ -1,47 +1,55 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-	  <h3 class="panel-title">Onderhoud : <%= @filter %></h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      </div>
-		<table class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      <th>Datum</th>
-      <th>Artikel</th>
-		<th>Prijs</th>
-      <th>Datum<br>volgende</th>
-	  <th>Huidige<br>tellerstand</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-	  <% @onderhouden.each do |onderhoud| %>
-      <tr>
-		  <td><%= onderhoud.datum_onderhoud.strftime("%d/%m/%Y") %></td>
-		  <td><%= onderhoud.aankoop.artikel %></td>
-		  <td width=100px align="right"><%= number_to_currency(onderhoud.prijs) %></td>
-		  <td><%= onderhoud.volgende_onderhoud.try(:strftime, "%d/%m/%Y") %></td>
-		  <td width=75px align="right"><%= onderhoud.teller %> <%= onderhoud.teller_eh %></td>
-		<td width=50px><div class="btn-group">
-			<%= link_to  edit_onderhoud_path(onderhoud), :class => "btn-xs btn-info" do %>
-            <span class="glyphicon glyphicon-edit" title="Wijzig dit onderhoud"></span>
-            <% end %>
-		</div></td>
-        <td width=50px><div class="btn-group">
-			<%= link_to  onderhoud, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
-            <span class="glyphicon glyphicon-remove-sign" title="Verwijder dit onderhoud"></span>
-            <% end %>
-		</div></td>  		
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-		<p align="center"><%= link_to 'Toevoegen', new_onderhoud_path, {class: "btn btn-sm btn-info"} %></p>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Onderhoud.&nbsp&nbsp <small>Beheer je onderhoud.</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+				<table class="table">
+					<thead>
+						<tr>
+					  		<th>Datum</th>
+					  		<th>Artikel</th>
+							<th>Prijs</th>
+					  		<th>Datum<br>volgende</th>
+					  		<th>Huidige<br>tellerstand</th>
+					  		<th></th>
+					  		<th></th>
+						</tr>
+				  	</thead>
+				  	<tbody>
+						<% @onderhouden.each do |onderhoud| %>
+					  		<tr>
+						  		<td><%= onderhoud.datum_onderhoud.strftime("%d/%m/%Y") %></td>
+						  		<td><%= onderhoud.aankoop.artikel %></td>
+						  		<td width=100px align="right"><%= number_to_currency(onderhoud.prijs) %></td>
+						  		<td><%= onderhoud.volgende_onderhoud.try(:strftime, "%d/%m/%Y") %></td>
+						  		<td width=75px align="right"><%= onderhoud.teller %> <%= onderhoud.teller_eh %></td>
+								<td width=50px>
+									<div class="btn-group">
+										<%= link_to  edit_onderhoud_path(onderhoud), :class => "btn-sm btn-primary" do %>
+											<span class="glyphicon glyphicon-edit" title="Wijzig dit onderhoud"></span>
+										<% end %>
+									</div>
+								</td>
+								<td width=50px>
+									<div class="btn-group">
+										<%= link_to  onderhoud, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
+											<span class="glyphicon glyphicon-remove-sign" title="Verwijder dit onderhoud"></span>
+										<% end %>
+									</div>
+								</td>
+							</tr>
+						<% end %>
+				  	</tbody>
+				</table>
+			</div>
+		</div>
+		<%= render 'onderhouden/menu' %>
+	</div>
 </div>
+
 
 

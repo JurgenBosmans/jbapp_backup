@@ -14,24 +14,7 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
    
-<body>
-  <div id="wrap">
-  <%= render 'layouts/navigation' %>
-      
-    <div class="container">  
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 text-center">
-          <%= render 'layouts/messages' %>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-sm-12">
-          <%= yield %>
-        </div>     
-      </div>  
-    </div>
-  </div>
-  <%= render 'layouts/footer' %>    
+<body>  
+      <%= yield %>
 </body>
 </html>

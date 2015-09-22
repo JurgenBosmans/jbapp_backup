@@ -1,14 +1,14 @@
-<% title("Home") %>
+<% title("About") %>
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
           <div class="masthead clearfix">
             <div class="inner">
               <h3 class="masthead-brand">JBapp</h3>
-              <nav>
+				<nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><%= link_to "About", about_path %></li>
+                  <li><%= link_to "Home", home_path %></li>
+                  <li class="active"><a href="#">About</a></li>
                   <% if !user_signed_in? %>
                     <li><%= link_to "Log in", new_user_session_path %></li>
                   <% else %>
@@ -24,19 +24,31 @@
 					<% end %>
                   <% end %>
                 </ul>
-              </nav>
+              	</nav>
             </div>
           </div>
-          <%= render 'layouts/messages' %>
           <div class="inner cover">
-            <div align="center">
-              <img src="pro.jpg" alt="ronde afbeelding" class="img-circle">
-            </div>
-            <h1 class="cover-heading">Snips in de cloud.</h1>
-            <p class="lead">Heb je ook wel eens het probleem om die kleine dingen bij te houden of zijn ze soms zoek.  Wel op deze website kan je ze bewaren en heb je ze altijd bij de hand.  Nooit meer zoeken in je apps op je smartphone of op je pc.</p>
-            <p class="lead">
-              <%= link_to "Registreer", new_user_registration_path, :class => "btn btn-lg btn-default" %>
+            <h1 class="cover-heading">Snips die reeds beschikbaar zijn</h1>
+            <p>Website => al je favorieten bij de hand, laatst toegevoegd, aantal keer gebruikt, ...
+              <br>Notitie => kleine notities, belangrijke notities, ...
+              <br>Gezondheid => volg je raadplegingen op, artsen, geneesheren, afhandeling ziekenkas, verzekering, ...
+              <br>Aankoop => al je aankopen op een rijtje, garanties, ...
+              <br>Onderhoud => onderhoud op aankopen, volgende onderhoud, ...
+              <br>Culinair => al je recepten, ingrediënten, beoordelingen, ervaringen, tips, ...
+              <br>Verbruik => hou je verbruiken bij van water, gas, electriciteit, grafieken van jaarlijks verbruik, ...
+              <br><br>
+              <span class="label label-info">Nieuw</span>
+              <br>Prestatie => alle sport en andere prestaties op een rijtje, ...
+              <br><br>
+              <span class="label label-warning">Verwacht</span>
+              <br>Todo => lijstjes om af te vinken, lijstjes copiëren,...
             </p>
+            <br>
+            <p class="lead">Gezondheid & Prestaties van andere personen opgeven is ook mogelijk.</p>
+            <br>
+            <p class="lead">...en dit alles met een dashboard overzicht zodat je een samenvatting in één oogopslag hebt</p>
+            <br><br><br><br><br>
+            <p class="lead">Deze applicatie...</p>
           </div>
           <div class="mastfoot">
             <div class="inner">
@@ -54,4 +66,5 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 
