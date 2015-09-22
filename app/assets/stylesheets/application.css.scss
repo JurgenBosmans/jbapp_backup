@@ -72,3 +72,10 @@ thead {
   margin-top: 30px;
   margin-bottom: 20px;
 }
+
+//* deze lijnen werden toegevoegd omdat de container anders te smal was maar werkt het nu nog mobiel
+@media (min-width: 1200px) {
+  .container {
+    width: 1600px;
+  }
+}
