@@ -1,43 +1,50 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-	  <h3 class="panel-title">Beoordeling recept : <%= @filter %></h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      </div>
-		<table class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      	<th>Datum</th>
-      	<th>Recept</th>
-		<th>Score</th>
-      	<th>Opmerking</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-	  <% @bereidingen.each do |bereiding| %>
-      <tr>
-		  	<td><%= bereiding.datum.strftime("%d/%m/%Y") %></td>
-		  	<td><%= bereiding.recept.naam %></td>
-		  	<td width=50px align="right"><%= bereiding.score %></td>
-		  	<td><%= bereiding.opmerking %></td>
-			<td width=50px><div class="btn-group">
-				<%= link_to  edit_bereiding_path(bereiding), :class => "btn-xs btn-info" do %>
-            	<span class="glyphicon glyphicon-edit" title="Wijzig deze bereiding"></span>
-            	<% end %>
-			</div></td>
-        	<td width=50px><div class="btn-group">
-				<%= link_to  bereiding, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
-            	<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze bereiding"></span>
-            	<% end %>
-			</div></td>  		
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-		<p align="center"><%= link_to 'Toevoegen', new_bereiding_path, {class: "btn btn-sm btn-info"} %></p>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Beoordelingen.&nbsp&nbsp <small>Ziehier de beoordeling over je recepten.</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Datum</th>
+							<th>Recept</th>
+							<th>Score</th>
+							<th>Opmerking</th>
+						  	<th></th>
+							<th></th>
+						</tr>
+					</thead>
+				  	<tbody>
+						<% @bereidingen.each do |bereiding| %>
+					  		<tr>
+								<td><%= bereiding.datum.strftime("%d/%m/%Y") %></td>
+								<td><%= bereiding.recept.naam %></td>
+								<td width=50px align="right"><%= bereiding.score %></td>
+								<td><%= bereiding.opmerking %></td>
+								<td width=50px>
+									<div class="btn-group">
+										<%= link_to  edit_bereiding_path(bereiding), :class => "btn-sm btn-primary" do %>
+											<span class="glyphicon glyphicon-edit" title="Wijzig deze bereiding"></span>
+										<% end %>
+									</div>
+								</td>
+								<td width=50px>
+									<div class="btn-group">
+										<%= link_to  bereiding, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
+											<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze bereiding"></span>
+										<% end %>
+									</div>
+								</td>
+							</tr>
+						<% end %>
+				  	</tbody>
+				</table>
+			</div>
+		</div>
+		<%= render 'recepten/menu' %>
+	</div>
 </div>

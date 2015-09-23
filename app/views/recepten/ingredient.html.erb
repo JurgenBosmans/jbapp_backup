@@ -1,12 +1,24 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-	  <h3 class="panel-title">Recepten : <%= @filter %></h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-		<% @recepten.each do |recept| %>
-		<b><%= recept.naam.upcase %></b><br>
-		<%= simple_format(recept.ingredient) %>
-		<% end %>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Ingrediëntenlijst.&nbsp&nbsp <small></small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+				<table class="table">
+					<% @recepten.each do |recept| %>
+						<%= link_to recept.naam.upcase %><br>
+					<% end %>
+					<% @recepten.each do |recept| %>
+						<b><%= recept.naam.upcase %></b><br>
+						<%= simple_format(recept.ingredient) %>
+					<% end %>
+				</table>
+			</div>
+		</div>
+		<%= render 'recepten/menu' %>
+	</div>
 </div>
+

@@ -44,7 +44,7 @@ class DossiersController < ApplicationController
 				format.html { redirect_to dossiers_path, notice: 'Dossier weggeschreven' }
 				format.json { render action: 'show', status: :created, location: @dossier }
           else
-            format.html { render action: 'new' }
+				format.html { render action: 'new' }
 				format.json { render json: @dossier.errors, status: :unprocessable_entity }
           end
         end

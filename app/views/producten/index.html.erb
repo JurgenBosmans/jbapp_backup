@@ -1,54 +1,56 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">Producten</h3>
-  </div>
-  <div class="panel-body">
-    </div>
-<table class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      	<th>Naam</th>
-		<th>Soort</th>
-		<th>Score</th>
-		<th>Land</th>
-		<th>Winkel</th>
-		<th>Prijs</th>
-      	<th></th>
-      	<th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-	  <% @producten.each do |product| %>
-      <tr>
-		  <td><%= product.naam %></td>
-		  <td><%= product.soort %></td>
-		  <td><%= product.score %></td>
-		  <td><%= product.land %></td>
-		  <td><%= product.winkel %></td>
-		  <td><%= product.prijs %>&nbsp<%= product.eenheid %></td>
-		  <td width="5%"><div class="btn-group">
-			  <%= link_to  edit_product_path(product), :class => "btn-xs btn-info" do %>
-                    	<span class="glyphicon glyphicon-edit" title="Wijzig dit product"></span>
-                	<% end %>
-            	</div></td>
-            	<td width="5%"><div class="btn-group">
-					<%= link_to  product, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
-                    	<span class="glyphicon glyphicon-remove-sign" title="Verwijder dit product"></span>
-                	<% end %>
-            	</div></td> 
-      </tr>
-	  
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-	  <p align="center"><%= link_to 'Toevoegen', new_product_path, {class: "btn btn-sm btn-info"} %></p>
-  </div>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Producten.&nbsp&nbsp <small>Lijst met producten (ingrediënten).</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Naam</th>
+							<th>Soort</th>
+							<th>Score</th>
+							<th>Land</th>
+							<th>Winkel</th>
+							<th>Prijs</th>
+							<th></th>
+							<th></th>
+						</tr>
+				  	</thead>
+				  	<tbody>
+						<% @producten.each do |product| %>
+					  	<tr>
+							<td><%= product.naam %></td>
+						  	<td><%= product.soort %></td>
+						  	<td><%= product.score %></td>
+						  	<td><%= product.land %></td>
+						  	<td><%= product.winkel %></td>
+						  	<td><%= product.prijs %>&nbsp<%= product.eenheid %></td>
+						  	<td width="5%">
+								<div class="btn-group">
+									<%= link_to  edit_product_path(product), :class => "btn-sm btn-primary" do %>
+										<span class="glyphicon glyphicon-edit" title="Wijzig dit product"></span>
+									<% end %>
+								</div>
+							</td>
+							<td width="5%">
+								<div class="btn-group">
+									<%= link_to  product, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
+										<span class="glyphicon glyphicon-remove-sign" title="Verwijder dit product"></span>
+									<% end %>
+								</div>
+							</td>
+					  	</tr>
+					<% end %>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+		<%= render 'recepten/menu' %>
+	</div>
 </div>
-
 
 

@@ -3,13 +3,13 @@
         	<div class="list-group">
 				<p align="center"><%= link_to 'Culinair menu', recepten_path(:filter => "alle"), :class =>"list-group-item active" %>
 				<%= link_to 'Nieuw recept toevoegen', new_recept_path, :class =>"list-group-item" %>
-			  	<%= link_to "Beoordeling", bereidingen_path(:filter => "alle"), :class =>"list-group-item" %>
+				<%= link_to "Beoordelingen", bereidingen_path(:filter => "alle"), :class =>"list-group-item" %>
+				<%= link_to 'Beoordeling toevoegen', new_bereiding_path, :class =>"list-group-item" %>
 			  	<%= link_to "Ingrediëntenlijst", ingredient_recepten_path, :class =>"list-group-item" %>
 			  	<%= link_to "Culinaire tips", tips_path, :class =>"list-group-item" %>
-			  	<%= link_to 'Productkennis', producten_path(:filter => "alle"), :class =>"list-group-item" %>
-            	<%= link_to 'Beoordeling toevoegen', new_bereiding_path, :class =>"list-group-item" %>
 				<%= link_to 'Tip toevoegen', new_tip_path, :class =>"list-group-item" %>
-			    <%= link_to 'Productkennis toevoegen', new_product_path, :class =>"list-group-item" %>
+			  	<%= link_to 'Productkennis', producten_path(:filter => "alle"), :class =>"list-group-item" %>
+				<%= link_to 'Productkennis toevoegen', new_product_path, :class =>"list-group-item" %>
 				<p align="center"><strong><%= link_to "Terug naar het dashboard", inside_path, :class => "list-group-item active" %></strong>
           	</div>
         </div><!--/.sidebar-offcanvas-->
