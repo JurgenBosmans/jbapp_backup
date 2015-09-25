@@ -1,63 +1,90 @@
-<div class="row">
-  <div class="col-sm-6 ">
-    <h1>Edit your profile</h1>
+<% title("Wijzig profiel") %>
+<div class="site-wrapper">
+	<div class="site-wrapper-inner">
+    	<div class="cover-container">
+        	<div class="masthead clearfix">
+            	<div class="inner">
+              		<h3 class="masthead-brand">JBapp</h3>
+					<nav>
+                		<ul class="nav masthead-nav">
+               				<li><%= link_to "Home", home_path %></li>
+							<li><%= link_to "About", about_path %></li>
+               				<% if !user_signed_in? %>
+								<li><%= link_to "Log in", new_user_session_path %></li>
+               				<% else %>
+                  				<li><%= link_to "Dashboard", inside_path %></li>
+								<li><%= link_to "Afmelden (#{current_user.username})", destroy_user_session_path, data:{method: :delete} %></li>
+								<li><%= link_to "Profiel", edit_user_registration_path %></li>
+								<% if current_user.admin? %>
+  									<li>
+										<%= link_to  admin_root_path do %>
+        									<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        								<% end %>
+									</li>
+								<% end %>
+                  			<% end %>
+                		</ul>
+              		</nav>
+            	</div>
+          	</div>
+			<h1>Mijn profiel wijzigen</h1>
+			<div class="container">
+				<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, role: "form" }) do |f| %>
+					<%= devise_error_messages! %>
+					<div class="form-group">
+						<%= f.label :email,"E-mail" %>
+						<div class="row">
+							<div class="col-sm-2">
+								<%= f.email_field :email, :autofocus => true, class: "form-control" %>
+							</div>
+						</div>
+					</div>
+					<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+						<div class="row">
+							<div class="col-sm-2">
+								<p>Systeem wacht nog op confirmatie voor: <%= resource.unconfirmed_email %></p>
+							</div>
+						</div>
+					<% end %>
+					<div class="form-group">
+						<%= f.label :password,"Paswoord" %> <i><small>(laat open als je dit niet wil aanpassen)</small></i>
+						<div class="row">
+							<div class="col-sm-2">
+								<%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<%= f.label :password_confirmation,"Bevestiging paswoord" %>
+							<div class="row">
+								<div class="col-sm-2">
+									<%= f.password_field :password_confirmation, class: "form-control" %>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<%= f.label :current_password,"Huidig paswoord" %> <i><small>(we hebben je huidig paswoord nodig voor deze aanpassing)</small></i>
+						<div class="row">
+							<div class="col-sm-2">
+								<%= f.password_field :current_password, class: "form-control" %>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2">
+							<%= f.submit "Wijzig", class: "btn btn-primary" %> - <%= link_to "Annuleer", inside_path %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+			<br><br><br><br><br><br><br><br><br>
+			<div class="mastfoot">
+    			<div class="inner">
+        			<p align="center">Gemaakt door Jurgen Bosmans <a href="http://www.2004.be">2004.be</a>, &copy; 2015.</p>
+        		</div>
+    		</div>
+		</div>
+	</div>
+</div>
 
-    <%= form_for(resource, :as => resource_name, 
-    :url => registration_path(resource_name), 
-    :html => { :method => :put, role: "form" }) do |f| %>
-  
-      <%= devise_error_messages! %>
 
-      <div class="form-group">
-        <%= f.label :email %>
-        <div class="row">
-          <div class="col-sm-6">      
-            <%= f.email_field :email, :autofocus => true, class: "form-control" %>  
-          </div>
-        </div>
-      </div>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div class="row">
-        <div class="col-sm-6">     
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        </div>
-      </div>
-      <% end %>
-
-      <div class="form-group">
-            <%= f.label :password %> <i><small>(leave blank if you don't want to change it)</small></i>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-            <%= f.label :password_confirmation %>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= f.password_field :password_confirmation, class: "form-control" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-            <%= f.label :current_password %> <i><small>(we need your current password to confirm your changes)</small></i>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= f.password_field :current_password, class: "form-control" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.submit "Update", class: "btn btn-primary" %> - <%= link_to "Cancel", inside_path %>
-        </div>
-      </div>    
- 
-      <% end %>
-    </div>
-  </div>
