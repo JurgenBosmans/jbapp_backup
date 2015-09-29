@@ -7,20 +7,22 @@ body {
 }
 
 div.note {
-    width: 400px;
+    width: 500px;
 	height: auto;
 	padding: 15px;
 	margin: 20px;
+	margin-left: 250px;
     background-color: #FFFF99;
 	color: black;
 	box-shadow: 7px 7px 5px grey;
 }
 
 div.note-important {
-    width: 400px;
+    width: 500px;
 	height: auto;
 	padding: 15px;
 	margin: 20px;
+	margin-left: 150px;
     background-color: #FFCCCC;
 	color: black;
 	box-shadow: 7px 7px 5px grey;
