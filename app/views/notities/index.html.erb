@@ -16,9 +16,9 @@
 				</div>
 				<% @notities.each do |notitie| %>
 					<% if notitie.belangrijk %>
-						<div class="note">
-					<% else %>
 						<div class="note-important">
+					<% else %>
+						<div class="note">
 					<% end %>
 							<p align=right><%=notitie.created_at.strftime("%d/%m/%Y") %></p>
 							<p><%=simple_format(notitie.notitie) %></p>
