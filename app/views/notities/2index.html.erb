@@ -1,0 +1,57 @@
+<div class="container">  
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Notities.&nbsp&nbsp <small>Beheer je kleine notities.</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %> 
+				<div class="zoekformulier">
+					Zoek naar een notitie<br>				
+					<%= form_tag @notitie, method: 'get', html: {role: "form"} do %> 
+						<%= text_field_tag :zoek, params[:zoek], :size => 30 %> &nbsp&nbsp
+						<%= submit_tag "Zoek", :name => nil, class: "btn btn-sm btn-primary" %>
+					<% end %>	
+				</div>			
+				
+				<% i = 0 %>		
+				<table style="max-width: 100%;" >
+					<% @notities.each do |notitie| %>
+						<% if i == 0 %>
+	  						<tr>
+						<% end %>
+	    				<td>&nbsp&nbsp</td>
+		  				<td width="50%"><div class="alert alert-warning" role="warning">
+						<% if notitie.belangrijk %>
+							<img src="belangrijk.png" alt="belangrijk">
+						<% end %>
+						<p align=right><%=notitie.created_at.strftime("%d/%m/%Y") %></p>
+	        			<%-# zie application helper / normaal was dit simple_format maar dan werken de links niet-%>
+	        			<p><%=hyperlink(notitie.notitie) %></p>  <br>  
+						<div class="btn-group">
+                			<%= link_to  edit_notitie_path(notitie), :class => "btn-sm btn-primary" do %>
+                    			<span class="glyphicon glyphicon-edit" title="Wijzig deze notitie"></span>
+                			<% end %>
+            			</div>
+            			<div class="btn-group">
+                			<%= link_to  notitie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
+                    			<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze notitie"></span>
+                			<% end %>
+            			</div>  
+						</td>
+						<td>&nbsp&nbsp</td>
+						<% if i == 1 %>			
+		  					</tr>
+							<% i = 0 %>
+						<% else %>
+							<% i = 1 %>
+						<% end %>
+					<% end %>
+				</table>
+		
+			</div>
+		</div>     
+		<%= render 'notities/menu' %> 
+	</div>  
+</div>
