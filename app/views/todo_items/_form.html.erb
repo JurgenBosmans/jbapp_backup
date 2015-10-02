@@ -1,4 +1,4 @@
 <%= form_for([@todo, @todo.todo_items.build]) do |f| %>
-<%= f.text_field :item, placeholder: "Nieuw item" %>
-  <%= f.submit "Bevestig"%>
+	<%= f.text_field :item, placeholder: "Nieuw item" %>
+	<%= f.submit "Bevestig", class: "btn btn-primary" %>
 <% end %>

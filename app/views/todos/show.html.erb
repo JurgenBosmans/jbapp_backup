@@ -1,16 +1,21 @@
-<h2 class="todo_list_title"><%= @todo.naam %></h2>
-<p class="todo_list_sub_title"><%= @todo.beschrijving %></p>
-
-<div id="todo_items_wrapper">
-	<%= render @todo.todo_items %>
-	<div id="form">
-		<%= render "todo_items/form" %>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Todo lijstje <%= @todo.naam %>, <%= @todo.beschrijving %>.<small>&nbsp&nbsp Voeg items toe.</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+				<br>
+				<div id="todo_items_wrapper">
+					<%= render @todo.todo_items %>
+					<div id="form">
+						<%= render "todo_items/form" %>
+					</div>
+				</div>
+			</div>
+		</div>
+			<%= render 'todo_items/menu' %>
 	</div>
-</div>
-
-<div class="links">
-	<%= link_to 'Wijzig', edit_todo_path(@todo) %> |
-  <%= link_to 'Verwijder', todo_path(@todo), method: :delete, data: { confirm: "Zeker?" } %> |
-  <%= link_to 'Terug', todos_path %> |
-  <%= link_to 'Kopieer lijst', kopieer_todo_path(@todo), method: :patch %>
 </div>

@@ -32,14 +32,15 @@
 		<div class="row">
 			<div class="col-lg-4">
 				<% if not @website.nil? %>
-					<h3>Website&nbsp&nbsp<span class="badge"><%= @website_aantal %></span></h3>
+					<%= link_to websites_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @website_aantal %></span>&nbsp&nbspWebsite&nbsp&nbsp&raquo
+					<% end %>
 					<p>Laatste toegevoegde website is <%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %> van <%=@website.created_at.strftime("%d/%m/%Y") %>.<br>De meest populaire zijn 
-						<%  @websites_pop.each do |website| %>
+					<%  @websites_pop.each do |website| %>
 						<mark><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></mark>
 						<% if website != @websites_pop.last %> ,<% end %>
-						<%  end %>.
+					<%  end %>.
 					</p>
-				<%= link_to "Websites " "&raquo;".html_safe, websites_path, :class => "btn btn-sm btn-primary button-breed" %>
 				<% else %>
 					<h3>Website</h3>
 					<p>Je hebt nog geen websites aangemaakt.</p>
@@ -48,10 +49,11 @@
 			</div>
 			<div class="col-lg-4">
 				<% if not @notitie.nil? %>
-					<h3>Notitie&nbsp&nbsp<span class="badge"><%= @notitie_aantal %></span></h3>
+					<%= link_to notities_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @notitie_aantal %></span>&nbsp&nbspNotitie&nbsp&nbsp&raquo
+					<% end %>
 					<p>Laatste toegevoegde notitie is van <%= @notitie.created_at.strftime("%d/%m/%Y") %><br>
-						<%=simple_format(@notitie.notitie) %></p>
-						<%= link_to "Notities " "&raquo;".html_safe, notities_path(:filter => "alle"), :class => "btn btn-sm btn-primary button-breed" %>
+					<%=simple_format(@notitie.notitie) %></p>
 				<% else %>
 					<h3>Notitie</h3>
 					<p>Je hebt nog geen notities aangemaakt.</p>
@@ -60,22 +62,24 @@
 		   </div>
 			<div class="col-lg-4">
 				<% if not @todo.nil? %>
-					<h3>Todo&nbsp&nbsp<span class="badge"><%= @todo_aantal %></span></h3>
+					<%= link_to todos_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @todo_aantal %></span>&nbsp&nbspTodo&nbsp&nbsp&raquo
+					<% end %>
 					<p>De recentste todo is van <%= @todo.created_at.strftime("%d/%m/%Y") %> met als titel <%= @todo.naam %></p>
-					<%= link_to "Todo " "&raquo;".html_safe, todos_path, :class => "btn btn-sm btn-primary button-breed" %>
 				<% else %>
 					<h3>Todo</h3>
 					<p>Je hebt nog geen todo aangemaakt.</p>
-					<%= link_to "Nieuwe todo", new_todo_path, :class => "btn btn-warning" %>	
-				<% end %>					
-			</div>		
+					<%= link_to "Nieuwe todo", new_todo_path, :class => "btn btn-warning" %>
+				<% end %>
+			</div>
 		</div>
   		<div class="row">
         	<div class="col-lg-4">
 				<% if not @aankoop.nil? %>
-					<h3>Aankoop&nbsp&nbsp<span class="badge"><%= @aankoop_aantal %></span></h3>
+					<%= link_to aankopen_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @aankoop_aantal %></span>&nbsp&nbspAankoop&nbsp&nbsp&raquo
+					<% end %>
 					<p>De recenste aankoop is van <%= @aankoop.created_at.strftime("%d/%m/%Y") %> en betreft een <%= @aankoop.artikel %> met een prijs van <%=  number_to_currency(@aankoop.prijs, locale: :nl) %>.</p>
-					<%= link_to "Aankopen " "&raquo;".html_safe, aankopen_path, :class => "btn btn-sm btn-primary button-breed" %>
 				<% else %>
 					<h3>Aankoop</h3>
 					<p>Je hebt nog geen aankopen aangemaakt.</p>
@@ -84,9 +88,10 @@
 	        </div>
 			<div class="col-lg-4">
 				<% if not @onderhoud.nil? %>
-					<h3>Onderhoud&nbsp&nbsp<span class="badge"><%= @onderhoud_aantal %></span></h3>
+					<%= link_to onderhouden_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @onderhoud_aantal %></span>&nbsp&nbspOnderhoud&nbsp&nbsp&raquo
+					<% end %>
 					<p>Het recenste onderhoud is van <%= @onderhoud.created_at.strftime("%d/%m/%Y") %> op artikel <%= @onderhoud.aankoop.artikel %> met een kost van <%=  number_to_currency(@onderhoud.prijs, locale: :nl) %></b>.</p>
-					<%= link_to "Onderhouden " "&raquo;".html_safe, onderhouden_path, :class => "btn btn-sm btn-primary button-breed" %>
 				<% else %>
 					<h3>Onderhoud</h3>
 					<p>Je hebt nog geen onderhouden aangemaakt.</p>
@@ -95,9 +100,10 @@
 		   </div>
 			<div class="col-lg-4">
 				<% if not @meterstand.nil? %>
-					<h3>Meterstand&nbsp&nbsp<span class="badge"><%= @meterstand_aantal %></span></h3>
+					<%= link_to meterstanden_path(:filter => "alle"), :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @meterstand_aantal %></span>&nbsp&nbspMeterstand&nbsp&nbsp&raquo
+					<% end %>
 					<p>De recentste <%= @meterstand.meter %>-meterstand was op <%= @meterstand.created_at.strftime("%d/%m/%Y") %> met een stand van <%= @meterstand.stand.round %> en een verbruik van <%= @meterstand.verbruik.round %></b>.</p>
-					<%= link_to "Meterstanden " "&raquo;".html_safe, meterstanden_path(:filter => "alle"), :class => "btn btn-sm btn-primary button-breed" %>
 				<% else %>
 					<h3>Meterstand</h3>
 					<p>Je hebt nog geen meterstand aangemaakt.</p>
@@ -108,10 +114,11 @@
 		<div class="row">
 			<div class="col-lg-4">
 				<% if not @recept.nil? %>
-					<h3>Recept&nbsp&nbsp<span class="badge"><%= @recept_aantal %></span></h3>
+					<%= link_to recepten_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @recept_aantal %></span>&nbsp&nbspRecept&nbsp&nbsp&raquo
+					<% end %>
 					<p>Het recentste recept is van <%= @recept.created_at.strftime("%d/%m/%Y") %> en gaat over <%= @recept.naam %>.</p>
-					<%= link_to "Recepten " "&raquo;".html_safe, recepten_path, :class => "btn btn-sm btn-primary button-breed" %>
-					<div><br>
+					<div>
 					<%= link_to ingredient_recepten_path, :class => "btn btn-sm btn-success button-breed" do %>
 						Ingrediëntenlijst&nbsp&nbsp<span class="glyphicon glyphicon-cutlery"></span>
 					<% end %>
@@ -124,9 +131,10 @@
 			</div>
 			<div class="col-lg-4">
 				<% if not @prestatie.nil? %>
-					<h3>Prestatie&nbsp&nbsp<span class="badge"><%= @prestatie_aantal %></span></h3>
+					<%= link_to prestaties_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @prestatie_aantal %></span>&nbsp&nbspPrestatie&nbsp&nbsp&raquo
+					<% end %>
 					<p>De recentste prestatie was op <%= @prestatie.datum.strftime("%d/%m/%Y") %> door <%= @prestatie.persoon.voornaam %> met als doel <%= @prestatie.prestatie %>.</p>
-					<%= link_to "Prestatie " "&raquo;".html_safe, prestaties_path, :class => "btn btn-sm btn-primary button-breed" %>
 				<% else %>
 					<h3>Prestatie</h3>
 					<p>Je hebt nog geen prestatie aangemaakt.</p>
@@ -135,9 +143,10 @@
 		    </div>
 			<div class="col-lg-4">
 				<% if not @dossier.nil? %>
-					<h3>Raadpleging&nbsp&nbsp<span class="badge"><%= @dossier_aantal %></span></h3>
+					<%= link_to dossiers_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+						<span class="badge"><%= @dossier_aantal %></span>&nbsp&nbspRaadpleging&nbsp&nbsp&raquo
+					<% end %>
 					<p>Laatste toegevoegde raadpleging is van <%= @dossier.created_at.strftime("%d/%m/%Y") %> bij <%= @dossier.arts.naam %> en gaat over <%= @dossier.persoon.voornaam %>.</p>
-				<%= link_to "Raadplegingen " "&raquo;".html_safe, dossiers_path, :class => "btn btn-sm btn-primary button-breed" %>
 				<% else %>
 					<h3>Raadpleging</h3>
 					<p>Je hebt nog geen raadplegingen aangemaakt.</p>
