@@ -35,10 +35,10 @@
 					<%= link_to websites_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @website_aantal %></span>&nbsp&nbspWebsite&nbsp&nbsp&raquo
 					<% end %>
-					<p>Laatste toegevoegde website is <%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %> van <%=@website.created_at.strftime("%d/%m/%Y") %>.<br>De meest populaire zijn 
+					<p>Laatste toegevoegde website is "<%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %>" van <%=@website.created_at.strftime("%d/%m/%Y") %>.<br>De meest populaire zijn 
 					<%  @websites_pop.each do |website| %>
-						<mark><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></mark>
-						<% if website != @websites_pop.last %> ,<% end %>
+							"<%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %>"
+							<% if website != @websites_pop.last %> ,<% end %>
 					<%  end %>.
 					</p>
 				<% else %>
@@ -52,7 +52,7 @@
 					<%= link_to notities_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @notitie_aantal %></span>&nbsp&nbspNotitie&nbsp&nbsp&raquo
 					<% end %>
-					<p>Laatste toegevoegde notitie is van <%= @notitie.created_at.strftime("%d/%m/%Y") %><br>
+					<p>Laatste toegevoegde notitie is van <%= @notitie.created_at.strftime("%d/%m/%Y") %> :
 					<%=simple_format(@notitie.notitie) %></p>
 				<% else %>
 					<h3>Notitie</h3>
@@ -65,7 +65,7 @@
 					<%= link_to todos_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @todo_aantal %></span>&nbsp&nbspTodo&nbsp&nbsp&raquo
 					<% end %>
-					<p>De recentste todo is van <%= @todo.created_at.strftime("%d/%m/%Y") %> met als titel <%= @todo.naam %></p>
+					<p>De recentste todo is van <%= @todo.created_at.strftime("%d/%m/%Y") %> met als titel "<%= @todo.naam %>".</p>
 				<% else %>
 					<h3>Todo</h3>
 					<p>Je hebt nog geen todo aangemaakt.</p>
@@ -79,7 +79,7 @@
 					<%= link_to aankopen_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @aankoop_aantal %></span>&nbsp&nbspAankoop&nbsp&nbsp&raquo
 					<% end %>
-					<p>De recenste aankoop is van <%= @aankoop.created_at.strftime("%d/%m/%Y") %> en betreft een <%= @aankoop.artikel %> met een prijs van <%=  number_to_currency(@aankoop.prijs, locale: :nl) %>.</p>
+					<p>De recenste aankoop is van <%= @aankoop.created_at.strftime("%d/%m/%Y") %> en betreft een "<%= @aankoop.artikel %>" met een prijs van <%=  number_to_currency(@aankoop.prijs, locale: :nl) %>.</p>
 				<% else %>
 					<h3>Aankoop</h3>
 					<p>Je hebt nog geen aankopen aangemaakt.</p>
@@ -91,7 +91,7 @@
 					<%= link_to onderhouden_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @onderhoud_aantal %></span>&nbsp&nbspOnderhoud&nbsp&nbsp&raquo
 					<% end %>
-					<p>Het recenste onderhoud is van <%= @onderhoud.created_at.strftime("%d/%m/%Y") %> op artikel <%= @onderhoud.aankoop.artikel %> met een kost van <%=  number_to_currency(@onderhoud.prijs, locale: :nl) %></b>.</p>
+					<p>Het recenste onderhoud is van <%= @onderhoud.created_at.strftime("%d/%m/%Y") %> op artikel "<%= @onderhoud.aankoop.artikel %>" met een kost van <%=  number_to_currency(@onderhoud.prijs, locale: :nl) %></b>.</p>
 				<% else %>
 					<h3>Onderhoud</h3>
 					<p>Je hebt nog geen onderhouden aangemaakt.</p>
@@ -117,7 +117,7 @@
 					<%= link_to recepten_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @recept_aantal %></span>&nbsp&nbspRecept&nbsp&nbsp&raquo
 					<% end %>
-					<p>Het recentste recept is van <%= @recept.created_at.strftime("%d/%m/%Y") %> en gaat over <%= @recept.naam %>.</p>
+					<p>Het recentste recept is van <%= @recept.created_at.strftime("%d/%m/%Y") %> en gaat over "<%= @recept.naam %>".</p>
 					<div>
 					<%= link_to ingredient_recepten_path, :class => "btn btn-sm btn-success button-breed" do %>
 						Ingrediëntenlijst&nbsp&nbsp<span class="glyphicon glyphicon-cutlery"></span>
@@ -134,7 +134,7 @@
 					<%= link_to prestaties_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @prestatie_aantal %></span>&nbsp&nbspPrestatie&nbsp&nbsp&raquo
 					<% end %>
-					<p>De recentste prestatie was op <%= @prestatie.datum.strftime("%d/%m/%Y") %> door <%= @prestatie.persoon.voornaam %> met als doel <%= @prestatie.prestatie %>.</p>
+					<p>De recentste prestatie was op <%= @prestatie.datum.strftime("%d/%m/%Y") %> door <%= @prestatie.persoon.voornaam %> met als doel "<%= @prestatie.prestatie %>".</p>
 				<% else %>
 					<h3>Prestatie</h3>
 					<p>Je hebt nog geen prestatie aangemaakt.</p>
@@ -146,7 +146,7 @@
 					<%= link_to dossiers_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @dossier_aantal %></span>&nbsp&nbspRaadpleging&nbsp&nbsp&raquo
 					<% end %>
-					<p>Laatste toegevoegde raadpleging is van <%= @dossier.created_at.strftime("%d/%m/%Y") %> bij <%= @dossier.arts.naam %> en gaat over <%= @dossier.persoon.voornaam %>.</p>
+					<p>Laatste toegevoegde raadpleging is van <%= @dossier.created_at.strftime("%d/%m/%Y") %> bij <%= @dossier.arts.naam %> en gaat over "<%= @dossier.persoon.voornaam %>".</p>
 				<% else %>
 					<h3>Raadpleging</h3>
 					<p>Je hebt nog geen raadplegingen aangemaakt.</p>

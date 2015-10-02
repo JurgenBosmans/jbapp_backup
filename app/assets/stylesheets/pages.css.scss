@@ -3,11 +3,6 @@
  */
 
 /* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
 
 /* Custom default button */
 .btn-default,
@@ -20,8 +15,15 @@ a:hover {
 }
 
 p {
+
+
 	font-size: 1.2em;
 	margin: 25px 15px 25px 15px;
+
+
+	a {
+		text-decoration: none !important;
+	}
 }
 
 /*
@@ -166,5 +168,5 @@ body {
   }
 }
 .button-breed {
-    width: 175px ;
+    width: 200px ;
 }

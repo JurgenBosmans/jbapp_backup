@@ -21,17 +21,11 @@
   min-height:1px; //* or whatever height you require / WERKT maar kan de hoogte alleen maar groter maken
 }
 
-mark {
-  	background-color: green;
-	color: green;
-}
-
 .panel-body {
  //*    text-overflow: ellipsis;
  //*   overflow: hidden;
      word-wrap: break-word; //* om in de notitie woorden te breken als de notities buiten de panel komen, werkt niet
 }
-
 
 //* deze lijnen werden toegevoegd om beter op de HOME page css af te stemmen
 html,
