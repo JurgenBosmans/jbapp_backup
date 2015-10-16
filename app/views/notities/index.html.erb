@@ -21,7 +21,7 @@
 						<div class="note">
 					<% end %>
 							<p align=right><%=notitie.created_at.strftime("%d/%m/%Y") %></p>
-							<p><%=simple_format(notitie.notitie) %></p>
+							<p><%=simple_format(hyperlink(notitie.notitie)) %></p>
 							<div class="btn-group">
                 				<%= link_to  edit_notitie_path(notitie), :class => "btn-sm btn-primary" do %>
                     				<span class="glyphicon glyphicon-edit" title="Wijzig deze notitie"></span>

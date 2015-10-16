@@ -3,7 +3,7 @@
         	<div class="list-group">
 				<p align="center"><%= link_to 'Websites menu', websites_path, :class =>"list-group-item active" %>
 				<%= link_to 'Nieuwe toevoegen', new_website_path, :class =>"list-group-item" %>
-				<%= link_to "Categorie aanvullen", categories_path, :class =>"list-group-item" %>
+				<%= link_to "Categorie aanvullen", new_categorie_path, :class =>"list-group-item" %>
 				<%= link_to "Top 10", websites_path(:filter => "top"), :class =>"list-group-item" %>
 				<%= link_to "Laatste 5 bezocht", websites_path(:filter => "recent"), :class =>"list-group-item" %>
 				<%= link_to "Laatste 5 toegevoegd", websites_path(:filter => "toegevoegd"), :class =>"list-group-item" %>

@@ -9,8 +9,8 @@
 			  	<%= link_to "Sportprestaties per persoon", prestaties_path(:filter => "sport"), :class =>"list-group-item" %>
 			  	<%= link_to "Soort prestaties", soort_prestaties_path, :class =>"list-group-item" %>
 				<%= link_to 'Soort prestatie toevoegen', new_soort_prestatie_path , :class =>"list-group-item" %>
-			  	<%= link_to "Kinderen", personen_path(:filter => "kind"), :class =>"list-group-item" %>
-			  	<%= link_to "Kind toevoegen", new_persoon_path , :class =>"list-group-item" %>
+				<%= link_to "Personen", personen_path(:filter => "prestatie"), :class =>"list-group-item" %>
+				<%= link_to "Persoon toevoegen", new_persoon_path(:filter => "prestatie"), :class =>"list-group-item" %>
 				<p align="center"><strong><%= link_to "Terug naar het dashboard", inside_path, :class => "list-group-item active" %></strong>
           	</div>
         </div><!--/.sidebar-offcanvas-->

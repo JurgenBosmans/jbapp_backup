@@ -31,7 +31,7 @@
         </div>
 		<div class="row">
 			<div class="col-lg-4">
-				<% if not @website.nil? %>
+				<% if Website.exists? %>
 					<%= link_to websites_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @website_aantal %></span>&nbsp&nbspWebsite&nbsp&nbsp&raquo
 					<% end %>
@@ -49,7 +49,7 @@
 			</div>
 			<div class="col-lg-4">
 				<% if not @notitie.nil? %>
-					<%= link_to notities_path, :class => "btn btn-lg btn-primary button-breed" do  %>
+				<%= link_to notities_path(:filter => "recent"),  :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @notitie_aantal %></span>&nbsp&nbspNotitie&nbsp&nbsp&raquo
 					<% end %>
 					<p>Laatste toegevoegde notitie is van <%= @notitie.created_at.strftime("%d/%m/%Y") %> :

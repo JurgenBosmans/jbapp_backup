@@ -1,12 +1,12 @@
-<div class="container">  
+<div class="container">
 	<div class="row row-offcanvas row-offcanvas-right">
 		<div class="col-xs-12 col-sm-8">
           	<p class="pull-right visible-xs">
             	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           	</p>
-			<h3 class="masthead-brand">Patiënten.&nbsp&nbsp <small>Beheer je patiënten.</small></h3>
+			<h3 class="masthead-brand">Personen.&nbsp&nbsp <small>Beheer hier je personen.</small></h3>
 			<div class="row">
-				<%= render 'layouts/messages' %> 		
+				<%= render 'layouts/messages' %>
 				<table class="table">
   					<thead>
     					<tr>
@@ -38,13 +38,17 @@
                     						<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze persoon"></span>
                 						<% end %>
             						</div>
-								</td> 
+								</td>
       						</tr>
     					<% end %>
-  					</tbody>					
+  					</tbody>
 				</table>
 			</div>
-		</div>     
-		<%= render 'dossiers/menu' %> 
-	</div>  
+		</div>
+		<% if params[:filter] == "prestatie" then %>
+			<%= render 'prestaties/menu' %>
+		<% else %>
+			<%= render 'dossiers/menu' %>
+		<% end %>
+	</div>
 </div>

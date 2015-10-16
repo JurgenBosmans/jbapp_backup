@@ -1,45 +1,36 @@
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">Categorie</h3>
-  </div>
-  <div class="panel-body">
-   </div> 
-
-<table class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      <th>Omschrijving</th>
-      <th></th>
-      <th></th>
-      <th></th>
-		<th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |categorie| %>
-      <tr>
-        <td width="20%"><%= categorie.omschrijving %></td>
-		  <td width="5%"><div class="btn-group">
-                	<%= link_to  edit_categorie_path(categorie), :class => "btn-xs btn-info" do %>
-                    	<span class="glyphicon glyphicon-edit" title="Wijzig deze categorie"></span>
-                	<% end %>
-            	</div></td>
-            	<td width="5%"><div class="btn-group">
-					<%= link_to  categorie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-xs btn-info" do %>
-                    	<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze categorie"></span>
-                	<% end %>
-            	</div></td> 
-		  <td width="70%"></td>
-      </tr>
-	  
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-	  <p align="center"><%= link_to 'Toevoegen', new_categorie_path, {class: "btn btn-sm btn-info"} %></p>
-  </div>
+<div class="container">
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-xs-12 col-sm-8">
+          	<p class="pull-right visible-xs">
+            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          	</p>
+			<h3 class="masthead-brand">Categorie.&nbsp&nbsp <small>Een overzicht van alle categorieën.</small></h3>
+			<div class="row">
+				<%= render 'layouts/messages' %>
+				<table class="table">
+					<% @categories.each do |categorie| %>
+						<tr>
+							<td width="20%"><%= categorie.omschrijving %></td>
+						  	<td width="5%">
+								<div class="btn-group">
+									<%= link_to  edit_categorie_path(categorie), :class => "btn-sm btn-primary" do %>
+										<span class="glyphicon glyphicon-edit" title="Wijzig deze categorie"></span>
+									<% end %>
+								</div>
+							</td>
+							<td width="5%">
+								<div class="btn-group">
+									<%= link_to  categorie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
+										<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze categorie"></span>
+									<% end %>
+								</div>
+							</td>
+						  <td width="70%"></td>
+					  </tr>
+					<% end %>
+				</table>
+			</div>
+		</div>
+		<%= render 'websites/menu' %>
+	</div>
 </div>

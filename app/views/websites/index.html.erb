@@ -19,8 +19,8 @@
   				<thead>
     				<tr>
       					<th>Website</th>
-      					<th style="text-align:right">Aantal bezocht</th>
-      					<th style="text-align:center">Laatste<br>bezoek</th>
+      					<th style="text-align:right">Aantal x bezocht</th>
+      					<th style="text-align:center">Laatste<br>keer</th>
       					<th style="text-align:center">Categorie</th>
       					<th></th>
       					<th></th>
@@ -28,32 +28,32 @@
   				</thead>
   				<tbody>
 					<% @websites.each do |website| %>
-						<% case  %>
-	  						<% when website.count < 2 %>
-      							<tr class = "tr-warning">
+		  			<tr>
+						<td><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></td>
+						<td align="right" width=75px><%= website.count %></td>
+						<% case %>
+							<% when website.count < 2 %>
+								<td align="center" width=125px class="rood"><%= website.laatste_bezoek.try(:strftime, "%d/%m/%Y") %></td>
 							<% when website.count > 50 %>
-		  						<tr class= "tr-success">
-		  					<% else %>
-		  						<tr>
+								<td align="center" width=125px color="green"><%= website.laatste_bezoek.try(:strftime, "%d/%m/%Y") %></td>
+							<% else %>
+								<td align="center" width=125px><%= website.laatste_bezoek.try(:strftime, "%d/%m/%Y") %></td>
 						<% end %>
-					<td><%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %></td>
-        			<td align="right" width=75px><%= website.count %></td>
-        			<td align="center" width=125px><%= website.laatste_bezoek.try(:strftime, "%d/%m/%Y") %></td>
-        			<td align="center" width=125px><%= website.categorie.omschrijving unless website.categorie_id.nil? %></td>
-					<td width=50px>
-						<div class="btn-group">
-							<%= link_to  edit_website_path(website), :class => "btn-sm btn-primary" do %>
-            					<span class="glyphicon glyphicon-edit" title="Wijzig deze website"></span>
-            				<% end %>
-						</div>
-					</td>
-        			<td width=50px>
-						<div class="btn-group">
-							<%= link_to  website, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
-            					<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze website"></span>
-            				<% end %>
-						</div>
-					</td>
+						<td align="center" width=125px><%= website.categorie.omschrijving unless website.categorie_id.nil? %></td>
+						<td width=50px>
+							<div class="btn-group">
+								<%= link_to  edit_website_path(website), :class => "btn-sm btn-primary" do %>
+									<span class="glyphicon glyphicon-edit" title="Wijzig deze website"></span>
+								<% end %>
+							</div>
+						</td>
+						<td width=50px>
+							<div class="btn-group">
+								<%= link_to  website, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
+									<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze website"></span>
+								<% end %>
+							</div>
+						</td>
     				</tr>
     				<% end %>
   				</tbody>

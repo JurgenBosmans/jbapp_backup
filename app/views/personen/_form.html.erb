@@ -45,6 +45,10 @@
 				</div>
 			</div>
 		</div>
-		<%= render 'dossiers/menu' %>
+		<% if params[:filter] == "prestatie" then %>
+			<%= render 'prestaties/menu' %>
+		<% else %>
+			<%= render 'dossiers/menu' %>
+		<% end %>
 	</div>
 </div>
