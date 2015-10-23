@@ -64,24 +64,24 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<h3>Ingrediënten</h3>
+							<h3>Ingrediënten<span><small>&nbsp&nbsp(alles in kleine letters)</small></span></h3>
 							<div id="ingredients">
 								<%= f.simple_fields_for :ingredienten do |ingredient| %>
 									<%= render 'ingredient_fields', f: ingredient %>
 								<% end %>
 								<div class="links">
-									<%= link_to_add_association 'Voeg toe', f, :ingredienten, class: "btn btn-primary add-button" %>
+									<%= link_to_add_association 'Voeg ingrediënt toe', f, :ingredienten, class: "btn btn-primary add-button" %>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h3>Werkwijze</h3>
+							<h3>Werkwijze<span><small>&nbsp&nbsp(alles in kleine letters)</small></span></h3>
 							<div id="directions">
 								<%= f.simple_fields_for :werkwijzen do |werkwijze| %>
 									<%= render 'werkwijze_fields', f: werkwijze %>
 								<% end %>
 								<div class="links">
-									<%= link_to_add_association 'Voeg toe', f, :werkwijzen, class: "btn btn-primary add-button" %>
+									<%= link_to_add_association 'Voeg stap toe', f, :werkwijzen, class: "btn btn-primary add-button" %>
 								</div>
 							</div>
 						</div>
