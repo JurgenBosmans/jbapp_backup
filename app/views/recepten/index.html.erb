@@ -19,6 +19,8 @@
 					<thead>
 						<tr>
 					  		<th></th>
+							<th></th>
+							<th></th>
 					  		<th>Naam</th>
 					  		<th>Bron</th>
 					  		<th>Soort</th>
@@ -31,6 +33,16 @@
 				  	<tbody>
 						<% @recepten.each do |recept| %>
 					  		<tr>
+								<% if recept.ingredienten.blank? %>
+									<td></td>
+								<% else %>
+									<td><i class="icon-shopping-cart"></i></td>
+								<% end %>
+								<% if recept.werkwijzen.blank? %>
+									<td></td>
+								<% else %>
+									<td><i class="icon-cog"></i></td>
+								<% end %>
 					  			<td><i class="fa fa-thumbs-o-up"></i></td>
 						  		<td><%= recept.naam %></td>
 						  		<td><%= recept.bron %></td>
