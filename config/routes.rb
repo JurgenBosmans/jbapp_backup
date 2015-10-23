@@ -22,7 +22,8 @@ JbappV2::Application.routes.draw do
 		
 	resources :producten
 	resources :tips
-  
+	
+
 	resources :recepten do
 		resources :bereidingen
 		collection do

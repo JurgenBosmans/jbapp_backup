@@ -5,13 +5,14 @@
             	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           	</p>
 			<% if params[:action] == "new" then %>
-				<h3 class="masthead-brand">Recepten.&nbsp&nbsp <small>Maak een nieuwe recept aan.</small></h3>
+				<h3 class="masthead-brand">Recept.&nbsp&nbsp <small>Maak een nieuwe recept aan.</small></h3>
 			<% else %>
-				<h3 class="masthead-brand">Recepten.&nbsp&nbsp <small>Wijzig een bestaand recept.</small></h3>
+				<h3 class="masthead-brand">Recept.&nbsp&nbsp <small>Wijzig een bestaand recept.</small></h3>
 			<% end %>
-			<div class="row">
+
+			<%= simple_form_for @recept ,:html => { :class => "form-horizontal", :role => "form", multipart: true } do |f| %>
 				<div class="invulformulier">
-					<%= form_for @recept ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+					<div class="row">
 						<div class="form-group">
 					  		<%= f.label :naam, "Naam recept", class: "col-sm-2 control-label" %>
 							<div class="col-sm-7">
@@ -60,16 +61,39 @@
 								<%= f.text_area :werkwijze, size: "48x16", :autofocus => true, class: "form-control input-sm" %>
 							</div>
 					  	</div>
-					  	<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								<%= f.submit "Bevestig", class: "btn btn-primary" %>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h3>Ingrediënten</h3>
+							<div id="ingredients">
+								<%= f.simple_fields_for :ingredienten do |ingredient| %>
+									<%= render 'ingredient_fields', f: ingredient %>
+								<% end %>
+								<div class="links">
+									<%= link_to_add_association 'Voeg toe', f, :ingredienten, class: "btn btn-primary add-button" %>
+								</div>
 							</div>
-					  	</div>
-					<% end %>
+						</div>
+						<div class="col-md-6">
+							<h3>Werkwijze</h3>
+							<div id="directions">
+								<%= f.simple_fields_for :werkwijzen do |werkwijze| %>
+									<%= render 'werkwijze_fields', f: werkwijze %>
+								<% end %>
+								<div class="links">
+									<%= link_to_add_association 'Voeg toe', f, :werkwijzen, class: "btn btn-primary add-button" %>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+				<div class="row">
+					<div class="col-md-6">
+						<%= f.submit "Bevestig", class: "btn btn-primary" %>
+					</div>
+			  	</div>
+			<% end %>
 		</div>
 		<%= render 'recepten/menu' %>
 	</div>
 </div>
-

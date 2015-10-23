@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911093541) do
+ActiveRecord::Schema.define(version: 20151023093128) do
 
   create_table "aankopen", force: true do |t|
     t.integer  "user_id"
@@ -90,6 +90,15 @@ ActiveRecord::Schema.define(version: 20150911093541) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "ingredienten", force: true do |t|
+    t.string   "naam"
+    t.integer  "recept_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ingredienten", ["recept_id"], name: "index_ingredienten_on_recept_id"
 
   create_table "meterstanden", force: true do |t|
     t.integer  "user_id"
@@ -255,5 +264,14 @@ ActiveRecord::Schema.define(version: 20150911093541) do
     t.datetime "laatste_bezoek"
     t.integer  "categorie_id"
   end
+
+  create_table "werkwijzen", force: true do |t|
+    t.text     "stap"
+    t.integer  "recept_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "werkwijzen", ["recept_id"], name: "index_werkwijzen_on_recept_id"
 
 end

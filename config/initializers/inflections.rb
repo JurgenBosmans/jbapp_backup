@@ -21,7 +21,9 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'product', 'producten'
 	inflect.irregular 'prestatie', 'prestaties'
 	inflect.irregular 'soort_prestatie', 'soort_prestaties'
-		 
+	inflect.irregular 'ingredient', 'ingredienten'
+	inflect.irregular 'werkwijze', 'werkwijzen'
+
 #   inflect.uncountable %w( fish sheep )
  end
 

@@ -43,3 +43,7 @@ end
 
 gem 'bootstrap-sass', '3.0.3.0'
 
+# voor de nested forms
+gem 'cocoon', '~> 1.2', '>= 1.2.6'
+gem 'simple_form', '~> 3.2'
+
