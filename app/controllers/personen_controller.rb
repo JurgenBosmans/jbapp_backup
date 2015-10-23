@@ -30,7 +30,7 @@ class PersonenController < ApplicationController
 			format.html { redirect_to personen_path, notice: 'Nieuwe persoon aangemaakt' }
 			format.json { render action: 'show', status: :created, location: @persoon }
       else
-        format.html { render action: 'new' }
+        	format.html { render action: 'new' }
 			format.json { render json: @persoon.errors, status: :unprocessable_entity }
       end
     end

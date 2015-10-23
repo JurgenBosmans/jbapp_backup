@@ -7,10 +7,10 @@
 			  	<%= link_to 'Niet afgewerkte dossiers', dossiers_path(:filter => "niet"), :class =>"list-group-item" %>
 			  	<%= link_to 'Niet verzonden naar de mutualiteit', dossiers_path(:filter => "niet_mutualiteit"), :class =>"list-group-item" %>
 			  	<%= link_to 'Niet verzonden naar de verzekering', dossiers_path(:filter => "niet_verzekering"), :class =>"list-group-item" %>
-			  	<%= link_to "Patiënten", personen_path(:filter => "alle"), :class =>"list-group-item" %>
-			  	<%= link_to "Patiënt toevoegen", new_persoon_path, :class =>"list-group-item" %>
-				<%= link_to "Artsen", artsen_path(:filter => "raadpleging"), :class =>"list-group-item" %>
-				<%= link_to "Arts toevoegen", new_arts_path(:filter => "raadpleging"), :class =>"list-group-item" %>
+			  	<%= link_to "Patiënten", personen_path(:filter => "raadpleging"), :class =>"list-group-item" %>
+			  	<%= link_to "Patiënt toevoegen", new_persoon_path(:filter => "raadpleging"), :class =>"list-group-item" %>
+				<%= link_to "Artsen", artsen_path, :class =>"list-group-item" %>
+				<%= link_to "Arts toevoegen", new_arts_path, :class =>"list-group-item" %>
 				<p align="center"><strong><%= link_to "Terug naar het dashboard", inside_path, :class => "list-group-item active" %></strong>
           	</div>
         </div><!--/.sidebar-offcanvas-->
