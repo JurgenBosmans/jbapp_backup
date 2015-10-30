@@ -10,7 +10,7 @@
 				<h3 class="masthead-brand">Recept.&nbsp&nbsp <small>Wijzig een bestaand recept.</small></h3>
 			<% end %>
 
-			<%= simple_form_for @recept ,:html => { :class => "form-horizontal", :role => "form", multipart: true } do |f| %>
+			<%= form_for @recept ,:html => { :class => "form-horizontal", :role => "form", multipart: true } do |f| %>
 				<div class="invulformulier">
 					<div class="row">
 						<div class="form-group">

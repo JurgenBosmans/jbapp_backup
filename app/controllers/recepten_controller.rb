@@ -52,7 +52,7 @@ class ReceptenController < ApplicationController
   	def update
     	respond_to do |format|
 			if @recept.update(recept_params)
-				format.html { redirect_to recepten_path, notice: 'Recent geüpdate' }
+				format.html { redirect_to recepten_path, notice: 'Recept geüpdate' }
         		format.json { head :no_content }
       		else
         		format.html { render action: 'edit' }

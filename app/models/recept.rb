@@ -1,8 +1,8 @@
 class Recept < ActiveRecord::Base
 	belongs_to :user
-	has_many :ingredienten
-	has_many :werkwijzen
-	has_many :bereidingen
+	has_many :ingredienten , :dependent => :destroy
+	has_many :werkwijzen , :dependent => :destroy
+	has_many :bereidingen , :dependent => :destroy
 
 	#has_many :onderhouden , :dependent => :destroy
 
@@ -18,10 +18,9 @@ class Recept < ActiveRecord::Base
 
 	validates :naam, :presence => {:message => 'Naam van het gerecht moet aanwezig zijn'}
 	validates :moeilijkheidsgraad, :personen, :bereidingstijd, numericality: true
-  	validates :bereidingstijd, :moeilijkheidsgraad, :personen, numericality: true
 
 	BRON = ["ANDER","DAGELIJKSE KOST","WEBSITE","BOEK","MAGAZINE","INTERNET","CURSUS","TV","BOEK BIB"]
-	SOORT = ["ANDER","DRANK","SOEP","VOORGERECHT","HOOFDSCHOTEL","DESSERT","BIJGERECHT","GEBAK","AMUSE"]
+	SOORT = ["ANDER","DRANK","SOEP","VOORGERECHT","HOOFDSCHOTEL","DESSERT","BIJGERECHT","GEBAK","AMUSE","SAUS"]
 
   	# Include default devise modules. Others available are:
   	# :confirmable, :lockable, :timeoutable and :omniauthable
