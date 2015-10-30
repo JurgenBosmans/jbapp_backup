@@ -16,7 +16,7 @@
 					<hr>
 					<% @recepten.each do |recept| %>
 						<% if !recept.ingredient.empty? %>
-							<b><%= recept.naam.upcase %></b><br>
+							<div class="naam" id="<%=recept.naam %>"><b><%= recept.naam.upcase %></b></div>
 							<%= simple_format(recept.ingredient) %>
 						<% end %>
 					<% end %>

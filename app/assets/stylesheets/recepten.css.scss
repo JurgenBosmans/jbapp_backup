@@ -10,6 +10,11 @@ a:link {
 	text-decoration: none;
 }
 
+.naam{
+	font-size: 15px;
+	font-weight: normal;
+}
+
 @mixin box-shadow {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
 	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
