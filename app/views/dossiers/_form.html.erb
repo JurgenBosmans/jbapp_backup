@@ -80,13 +80,13 @@
 							</div>
 					  	</div>
 					  	<div class="form-group">
-							<%= f.label 'Bedrag' , class: "col-sm-3 control-label" %>
+							<%= f.label :te_betalen, 'Bedrag' , class: "col-sm-3 control-label" %>
 							<div class="col-sm-2">
 						  		<%= f.text_field :te_betalen, :placeholder => "0", class: "form-control input-sm" %>
 							</div>
 					  	</div>
 					  	<div class="form-group">
-							<%= f.label 'Betaald', class: "col-sm-3 control-label" %>
+							<%= f.label :betaald, 'Betaald', class: "col-sm-3 control-label" %>
 							<div class="col-sm-2">
 								<%= f.select(:betaald, Dossier::JANEE, {:include_blank => false}, {class: "form-control input-sm"}) %>
 							</div>
@@ -99,7 +99,7 @@
 							</div>
 					  	</div>
 					  	<div class="form-group">
-							<%= f.label 'Terugbetaling' , class: "col-sm-3 control-label" %>
+							<%= f.label :ziekenkas_terug_bedrag, 'Terugbetaling' , class: "col-sm-3 control-label" %>
 							<div class="col-sm-2">
 						  		<%= f.text_field :ziekenkas_terug_bedrag, :placeholder => "0", class: "form-control input-sm" %>
 							</div>
@@ -112,7 +112,7 @@
 							</div>
 					  	</div>
 					  	<div class="form-group">
-							<%= f.label 'Terugbetaling' , class: "col-sm-3 control-label" %>
+							<%= f.label :verzekering_terug_bedrag, 'Terugbetaling' , class: "col-sm-3 control-label" %>
 							<div class="col-sm-2">
 						  		<%= f.text_field :verzekering_terug_bedrag, :placeholder => "0", class: "form-control input-sm" %>
 							</div>

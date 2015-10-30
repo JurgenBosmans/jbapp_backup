@@ -9,11 +9,16 @@
 				<%= render 'layouts/messages' %>
 				<table class="table">
 					<% @recepten.each do |recept| %>
-						<%= link_to recept.naam.upcase %><br>
+						<% if !recept.ingredient.empty? %>
+							<%= link_to recept.naam.upcase, :anchor => recept.naam %><br>
+						<% end %>
 					<% end %>
+					<hr>
 					<% @recepten.each do |recept| %>
-						<b><%= recept.naam.upcase %></b><br>
-						<%= simple_format(recept.ingredient) %>
+						<% if !recept.ingredient.empty? %>
+							<b><%= recept.naam.upcase %></b><br>
+							<%= simple_format(recept.ingredient) %>
+						<% end %>
 					<% end %>
 				</table>
 			</div>
@@ -21,4 +26,3 @@
 		<%= render 'recepten/menu' %>
 	</div>
 </div>
-

@@ -120,7 +120,7 @@
 					<p>Het recentste recept is van <%= @recept.created_at.strftime("%d/%m/%Y") %> en gaat over "<%= @recept.naam %>".</p>
 					<div>
 					<%= link_to ingredient_recepten_path, :class => "btn btn-sm btn-success button-breed" do %>
-						Ingrediëntenlijst&nbsp&nbsp<span class="glyphicon glyphicon-cutlery"></span>
+						Ingrediëntenlijst&nbsp&nbsp<i class="icon-shopping-cart"></i>
 					<% end %>
 				</div>
 				<% else %>
