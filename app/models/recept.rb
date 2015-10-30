@@ -2,7 +2,8 @@ class Recept < ActiveRecord::Base
 	belongs_to :user
 	has_many :ingredienten
 	has_many :werkwijzen
-	
+	has_many :bereidingen
+
 	#has_many :onderhouden , :dependent => :destroy
 
 	default_scope { order('created_at DESC') } #let op sortering later is niet meer mogelijk

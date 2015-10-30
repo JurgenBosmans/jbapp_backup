@@ -22,7 +22,7 @@
 						<% @bereidingen.each do |bereiding| %>
 					  		<tr>
 								<td><%= bereiding.datum.strftime("%d/%m/%Y") %></td>
-								
+								<td><%= bereiding.recept.naam %></td>
 								<td width=50px align="right"><%= bereiding.score %></td>
 								<td><%= bereiding.opmerking %></td>
 								<td width=50px>
