@@ -3,19 +3,7 @@ class BereidingenController < ApplicationController
 	before_action :set_bereiding, only: [:show, :edit, :update, :destroy]
     
     def index
-      if params[:recept_id]
-        @recept = Recept.find(params[:recept_id])
-        @bereidingen = current_user.bereidingen.where("recept_id = ?", @recept)  
-      else
-        case params[:filter]
-	    		when "alle"
             @bereidingen = current_user.bereidingen.all.order("created_at DESC")
-				    @filter = "alle"
-			    else
-            @bereidingen = current_user.bereidingen.all.order("created_at DESC")
-				    @filter = "alle"			
-		    end
-      end
 	  end
 
     def show
