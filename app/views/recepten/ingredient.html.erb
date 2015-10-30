@@ -16,7 +16,13 @@
 					<hr>
 					<% @recepten.each do |recept| %>
 						<% if !recept.ingredient.empty? %>
-							<div class="naam" id="<%=recept.naam %>"><b><%= recept.naam.upcase %></b></div>
+
+							<div class="naam" id="<%=recept.naam %>">
+															<span><%= link_to ingredient_recepten_path do %>
+								<i class="fa fa-shopping-cart fa-lg"></i>&nbsp&nbsp
+								<% end %></span>
+								
+								<b><%= recept.naam.upcase %></b></div>
 							<%= simple_format(recept.ingredient) %>
 						<% end %>
 					<% end %>
