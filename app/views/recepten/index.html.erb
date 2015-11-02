@@ -33,6 +33,7 @@
 				  	<tbody>
 						<% @recepten.each do |recept| %>
 					  		<tr>
+								
 								<% if recept.ingredienten.blank? %>
 									<td></td>
 								<% else %>
@@ -43,7 +44,15 @@
 								<% else %>
 									<td><i class="icon-cog"></i></td>
 								<% end %>
-					  			<td><i class="fa fa-thumbs-o-up"></i></td>
+								<% if recept.bereidingen.blank? %>
+									<td></td>
+								<% else %>
+									<% if recept.bereidingen.average("score") > 6 %>
+										<td><i class="fa fa-thumbs-o-up"></i></td>
+									<% else %>
+										<td><i class="fa fa-thumbs-o-down"></i></td>
+									<% end %>
+								<% end %>
 						  		<td><%= recept.naam %></td>
 						  		<td><%= recept.bron %></td>
 						  		<td><%= recept.soort %></td>
