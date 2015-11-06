@@ -1,4 +1,5 @@
-	<% title("Dashboard") %>
+
+<% title("Dashboard") %>
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
@@ -29,8 +30,9 @@
           </div>
           <%= render 'layouts/messages' %>
         </div>
+		  <div class="container">
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="col-md-4 note">
 				<% if Website.exists? %>
 					<%= link_to websites_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @website_aantal %></span>&nbsp&nbspWebsite&nbsp&nbsp&raquo
@@ -47,7 +49,7 @@
 					<%= link_to "Nieuwe website", new_website_path, :class => "btn btn-warning" %>
 				<% end %>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-md-4 note">
 				<% if not @notitie.nil? %>
 				<%= link_to notities_path(:filter => "recent"),  :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @notitie_aantal %></span>&nbsp&nbspNotitie&nbsp&nbsp&raquo
@@ -60,7 +62,7 @@
 					<%= link_to "Nieuwe notitie", new_notitie_path, :class => "btn btn-warning" %>
 				<% end %>
 		   </div>
-			<div class="col-lg-4">
+			<div class="col-md-4 note">
 				<% if not @todo.nil? %>
 					<%= link_to todos_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @todo_aantal %></span>&nbsp&nbspTodo&nbsp&nbsp&raquo
@@ -74,7 +76,7 @@
 			</div>
 		</div>
   		<div class="row">
-        	<div class="col-lg-4">
+        	<div class="col-md-4 note">
 				<% if not @aankoop.nil? %>
 					<%= link_to aankopen_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @aankoop_aantal %></span>&nbsp&nbspAankoop&nbsp&nbsp&raquo
@@ -86,7 +88,7 @@
 					<%= link_to "Nieuwe aankoop", new_aankoop_path, :class => "btn btn-warning" %>	
 				<% end %>
 	        </div>
-			<div class="col-lg-4">
+			<div class="col-md-4 note">
 				<% if not @onderhoud.nil? %>
 					<%= link_to onderhouden_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @onderhoud_aantal %></span>&nbsp&nbspOnderhoud&nbsp&nbsp&raquo
@@ -98,7 +100,7 @@
 					<%= link_to "Nieuw onderhoud", new_onderhoud_path, :class => "btn btn-warning" %>	
 				<% end %>
 		   </div>
-			<div class="col-lg-4">
+			<div class="col-md-4 note">
 				<% if not @meterstand.nil? %>
 					<%= link_to meterstanden_path(:filter => "alle"), :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @meterstand_aantal %></span>&nbsp&nbspMeterstand&nbsp&nbsp&raquo
@@ -112,7 +114,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-4">
+			<div class="col-md-4 note">
 				<% if not @recept.nil? %>
 					<%= link_to recepten_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @recept_aantal %></span>&nbsp&nbspRecept&nbsp&nbsp&raquo
@@ -129,7 +131,7 @@
 					<%= link_to "Nieuw recept", new_recept_path, :class => "btn btn-warning" %>	
 				<% end %>			
 			</div>
-			<div class="col-lg-4">
+			<div class="col-md-4 note">
 				<% if not @prestatie.nil? %>
 					<%= link_to prestaties_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @prestatie_aantal %></span>&nbsp&nbspPrestatie&nbsp&nbsp&raquo
@@ -141,7 +143,7 @@
 					<%= link_to "Nieuwe prestatie", new_prestatie_path, :class => "btn btn-warning" %>	
 				<% end %>			
 		    </div>
-			<div class="col-lg-4">
+			<div class="col-md-4 note">
 				<% if not @dossier.nil? %>
 					<%= link_to dossiers_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @dossier_aantal %></span>&nbsp&nbspRaadpleging&nbsp&nbsp&raquo
@@ -154,6 +156,7 @@
 				<% end %>					
 			</div>
       	</div>        
+</div>
 		<div class="row">
 			<div class="col-lg-4">
 			  <p class="text-danger"></p>
@@ -165,5 +168,3 @@
       	</div>        		  
       </div>
     </div>
-
-

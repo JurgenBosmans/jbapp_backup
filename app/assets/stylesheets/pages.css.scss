@@ -4,6 +4,17 @@
 
 /* Links */
 
+.note {
+	background-color: #6E6E6E;
+	padding: 20px;
+	margin: 20px;
+	width: 450px;
+	height: 250px;
+	border-radius: 20px;
+	box-shadow: 10px 10px 5px #282626;
+}
+
+
 /* Custom default button */
 .btn-default,
 .btn-default:hover,
@@ -43,6 +54,7 @@ body {
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
+
   display: table;
   width: 100%;
   height: 100%; /* For at least Firefox */
@@ -51,10 +63,13 @@ body {
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
 .site-wrapper-inner {
+
   display: table-cell;
   vertical-align: top;
+
 }
 .cover-container {
+
   margin-right: auto;
   margin-left: auto;
 }
@@ -62,6 +77,8 @@ body {
 /* Padding for spacing */
 .inner {
   padding: 30px;
+
+
 }
 
 
@@ -71,6 +88,7 @@ body {
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
+
 }
 
 .masthead-nav > li {
@@ -131,6 +149,7 @@ body {
 .mastfoot {
   color: #999; /* IE8 proofing */
   color: rgba(255,255,255,.5);
+
 }
 
 
@@ -151,6 +170,9 @@ body {
   /* Start the vertical centering */
   .site-wrapper-inner {
     vertical-align: middle;
+
+
+
   }
   /* Handle the widths */
   .masthead,
