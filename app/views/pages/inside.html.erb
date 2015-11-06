@@ -55,7 +55,7 @@
 						<span class="badge"><%= @notitie_aantal %></span>&nbsp&nbspNotitie&nbsp&nbsp&raquo
 					<% end %>
 					<p>Laatste toegevoegde notitie is van <%= @notitie.created_at.strftime("%d/%m/%Y") %> :
-						<%=simple_format(truncate(@notitie.notitie, length: 160)) %></p>
+						<%=simple_format(truncate(@notitie.notitie, length: 60)) %></p>
 				<% else %>
 					<h3>Notitie</h3>
 					<p>Je hebt nog geen notitie aangemaakt.</p>
