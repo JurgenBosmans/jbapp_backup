@@ -22,7 +22,6 @@
 							<th></th>
 							<th></th>
 					  		<th>Naam</th>
-					  		<th>Bron</th>
 					  		<th>Soort</th>
 					  		<th>Datum</th>
 					  		<th></th>
@@ -53,8 +52,7 @@
 										<td><i class="fa fa-thumbs-o-down"></i></td>
 									<% end %>
 								<% end %>
-						  		<td><%= recept.naam %></td>
-						  		<td><%= recept.bron %></td>
+								<td><%= recept.naam.upcase %></td>
 						  		<td><%= recept.soort %></td>
 						  		<td><%= recept.created_at.strftime("%d/%m/%Y") %></td>
 								<td width=50px>

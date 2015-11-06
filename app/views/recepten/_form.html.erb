@@ -13,58 +13,55 @@
 			<%= form_for @recept ,:html => { :class => "form-horizontal", :role => "form", multipart: true } do |f| %>
 				<div class="invulformulier">
 					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+					  			<%= f.label :naam, "Naam recept", class: "col-sm-2 control-label" %>
+								<div class="col-sm-10">
+									<%= f.text_field :naam, class: "form-control input-sm"%>
+								</div>
+					  		</div>
+						</div>
+					</div>
+					<div class="row">
+					<div class="col-md-8">
 						<div class="form-group">
-					  		<%= f.label :naam, "Naam recept", class: "col-sm-2 control-label" %>
-							<div class="col-sm-7">
-								<%= f.text_field :naam, class: "form-control input-sm" %>
-							</div>
-					  	</div>
-						<div class="form-group">
-							<%= f.label  :bron, "Bron" ,class: "col-sm-2 control-label" %>
+							<%= f.label  :bron, "Bron" ,class: "col-sm-3 control-label" %>
 							<div class="col-sm-3">
 						  		<%= f.select(:bron, Recept::BRON.sort!, {:include_blank => true}, {class: "form-control input-sm"}) %>
 							</div>
 					  	</div>
 						<div class="form-group">
-						  	<%= f.label  :soort, "Soort gerecht"  ,class: "col-sm-2 control-label" %>
+						  	<%= f.label  :soort, "Soort gerecht"  ,class: "col-sm-3 control-label" %>
 							<div class="col-sm-3">
 								<%= f.select(:soort, Recept::SOORT.sort!, {:include_blank => true}, {class: "form-control input-sm"}) %>
 							</div>
 					    </div>
 					  	<div class="form-group">
-							<%= f.label :bereidingstijd, "Bereidingstijd (min)" , class: "col-sm-2 control-label" %>
-							<div class="col-sm-2">
+							<%= f.label :bereidingstijd, "Bereidingstijd (min)" , class: "col-sm-3 control-label" %>
+							<div class="col-sm-1">
 						  		<%= f.text_field :bereidingstijd, class: "form-control input-sm" %>
 							</div>
 					  	</div>
 					  	<div class="form-group">
-							<%= f.label :moeilijkheidsgraad, "Moeilijkheid 1-10" , class: "col-sm-2 control-label" %>
-							<div class="col-sm-2">
+							<%= f.label :moeilijkheidsgraad, "Moeilijkheid 1-10" , class: "col-sm-3 control-label" %>
+							<div class="col-sm-1">
 								<%= f.text_field :moeilijkheidsgraad, class: "form-control input-sm" %>
 							</div>
 					  	</div>
 					  	<div class="form-group">
-							<%= f.label :personen, "Aantal personen" , class: "col-sm-2 control-label" %>
-							<div class="col-sm-2">
+							<%= f.label :personen, "Aantal personen" , class: "col-sm-3 control-label" %>
+							<div class="col-sm-1">
 						  		<%= f.text_field :personen, class: "form-control input-sm" %>
 							</div>
 					  	</div>
-					  	<div class="form-group">
-							<%= f.label :ingredient, "Ingrediëntenlijst", class: "col-sm-2 control-label" %>
-							<div class="col-sm-4">
-								<%= f.text_area :ingredient, size: "24x18", :autofocus => true, class: "form-control input-sm" %>
-							</div>
+					</div>
+						<div class="col-md-4">
+							<%= image_tag("recipe.gif") %>
 						</div>
-					  	<div class="form-group">
-							<%= f.label :werkwijze, class: "col-sm-2 control-label" %>
-							<div class="col-sm-9">
-								<%= f.text_area :werkwijze, size: "48x16", :autofocus => true, class: "form-control input-sm" %>
-							</div>
-					  	</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<h3>Ingrediënten<span><small>&nbsp&nbsp(alles in kleine letters)</small></span></h3>
+							<h3>Ingrediënt<span><small>&nbsp&nbsp(alles in kleine letters)</small></span></h3>
 							<div id="ingredients">
 								<%= f.simple_fields_for :ingredienten do |ingredient| %>
 									<%= render 'ingredient_fields', f: ingredient %>
@@ -88,7 +85,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<%= f.submit "Bevestig", class: "btn btn-primary" %>
 					</div>
 			  	</div>

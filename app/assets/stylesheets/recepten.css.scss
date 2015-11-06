@@ -15,6 +15,11 @@ a:link {
 	font-weight: normal;
 }
 
+.img{
+	width: 100%;
+	height: auto;
+}
+
 @mixin box-shadow {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
 	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
@@ -69,6 +74,11 @@ $red: #DB6161;
 	min-height: 360px;
 	border-radius: 5px;
 	padding: 2em 8%;
+	width: 500px;
+}
+
+#directions {
+	width: 600px;
 }
 
 .recipe_image {
@@ -106,19 +116,21 @@ $red: #DB6161;
 .form-input {
 	float: left;
 	height: 2em;
+	width: 400px;
 }
 
 .form-textarea {
 	float: left;
-	height: 2em;
-	width: 400px;
+	min-height: 100px;
+	width: 500px;
 }
 
 .form-button {
-	float: left;
+	float: right;
 	margin-left: 25%;
 	height: 2em;
 }
+
 .add-button {
 	margin-top: 15px;
 }
