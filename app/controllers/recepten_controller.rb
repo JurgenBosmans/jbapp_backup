@@ -8,6 +8,9 @@ class ReceptenController < ApplicationController
 			@filter = "filter"
 		else
 			case params[:filter]
+				when "top10"
+					@recepten = current_user.recepten.order("created_at DESC").limit(2)
+					@filter = "Top 10"
 				when "recent"
 					@recepten = current_user.recepten.order("created_at DESC").limit(2)
 					@filter = "recenste 2"

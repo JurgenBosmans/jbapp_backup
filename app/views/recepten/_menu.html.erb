@@ -3,7 +3,7 @@
         	<div class="list-group">
 				<p align="center"><%= link_to 'Culinair menu', recepten_path(:filter => "alle"), :class =>"list-group-item active" %>
 				<%= link_to 'Nieuw recept toevoegen', new_recept_path, :class =>"list-group-item" %>
-				<%= link_to "Top 10 recepten", bereidingen_path(:filter => "alle"), :class =>"list-group-item" %>
+					<%= link_to "Top 10 recepten", recepten_path(:filter => "top10"), :class =>"list-group-item" %>
 				<%= link_to "Recepten met een score van +9", bereidingen_path(:filter => "alle"), :class =>"list-group-item" %>
 				<%= link_to "1 jaar niet gemaakt", bereidingen_path(:filter => "alle"), :class =>"list-group-item" %>
 				<%= link_to "Beoordelingen", bereidingen_path(:filter => "alle"), :class =>"list-group-item" %>

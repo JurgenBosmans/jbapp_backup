@@ -69,10 +69,10 @@
 										<% end %>
 									</div>
 								</td>
-								<td width=50px>
+								<td width=60px>
 									<div class="btn-group">
 						  				<%= link_to  recept_bereidingen_path(recept), method: :get, :class => "btn-sm btn-primary" do %>
-											<span class="glyphicon glyphicon-comment" title="Beoordelingen"></span>
+											<span class="glyphicon glyphicon-comment" title="Beoordelingen">&nbsp</span><%= recept.bereidingen.count %>
 										<% end %>
 									</div>
 								</td>

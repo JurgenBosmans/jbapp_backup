@@ -20,7 +20,7 @@ class Recept < ActiveRecord::Base
 	validates :moeilijkheidsgraad, :personen, :bereidingstijd, numericality: true
 
 	BRON = ["ANDER","DAGELIJKSE KOST","WEBSITE","BOEK","MAGAZINE","INTERNET","CURSUS","TV","BOEK BIB"]
-	SOORT = ["ANDER","DRANK","SOEP","VOORGERECHT","HOOFDSCHOTEL","DESSERT","BIJGERECHT","GEBAK","AMUSE","SAUS"]
+	SOORT = ["ANDER","DRANK","SOEP","VOORGERECHT","HOOFDSCHOTEL","DESSERT","BIJGERECHT","GEBAK","AMUSE","SAUS","CONFITUUR","FOND"]
 
   	# Include default devise modules. Others available are:
   	# :confirmable, :lockable, :timeoutable and :omniauthable
