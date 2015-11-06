@@ -37,15 +37,15 @@
 					<%= link_to websites_path, :class => "btn btn-lg btn-primary button-breed" do  %>
 						<span class="badge"><%= @website_aantal %></span>&nbsp&nbspWebsite&nbsp&nbsp&raquo
 					<% end %>
-					<p>Laatste toegevoegde website is "<%= link_to @website.sitenaam, websites_path(:teller => @website.id, :url => @website.url) %>" van <%=@website.created_at.strftime("%d/%m/%Y") %>.<br>De meest populaire zijn 
+				<p>Laatste toegevoegde website is <%= link_to @website.sitenaam.upcase, websites_path(:teller => @website.id, :url => @website.url) %> van <%=@website.created_at.strftime("%d/%m/%Y") %>.<br>De meest populaire zijn :<br>
 					<%  @websites_pop.each do |website| %>
-							"<%= link_to website.sitenaam, websites_path(:teller => website.id, :url => website.url) %>"
-							<% if website != @websites_pop.last %> ,<% end %>
-					<%  end %>.
+						<%= link_to website.sitenaam.upcase, websites_path(:teller => website.id, :url => website.url) %><br>
+
+					<%  end %>
 					</p>
 				<% else %>
 					<h3>Website</h3>
-					<p>Je hebt nog geen websites aangemaakt.</p>
+					<p>Je hebt nog geen website aangemaakt.</p>
 					<%= link_to "Nieuwe website", new_website_path, :class => "btn btn-warning" %>
 				<% end %>
 			</div>
@@ -55,10 +55,10 @@
 						<span class="badge"><%= @notitie_aantal %></span>&nbsp&nbspNotitie&nbsp&nbsp&raquo
 					<% end %>
 					<p>Laatste toegevoegde notitie is van <%= @notitie.created_at.strftime("%d/%m/%Y") %> :
-					<%=simple_format(@notitie.notitie) %></p>
+						<%=simple_format(truncate(@notitie.notitie, length: 160)) %></p>
 				<% else %>
 					<h3>Notitie</h3>
-					<p>Je hebt nog geen notities aangemaakt.</p>
+					<p>Je hebt nog geen notitie aangemaakt.</p>
 					<%= link_to "Nieuwe notitie", new_notitie_path, :class => "btn btn-warning" %>
 				<% end %>
 		   </div>
@@ -84,7 +84,7 @@
 					<p>De recenste aankoop is van <%= @aankoop.created_at.strftime("%d/%m/%Y") %> en betreft een "<%= @aankoop.artikel %>" met een prijs van <%=  number_to_currency(@aankoop.prijs, locale: :nl) %>.</p>
 				<% else %>
 					<h3>Aankoop</h3>
-					<p>Je hebt nog geen aankopen aangemaakt.</p>
+					<p>Je hebt nog geen aankoop aangemaakt.</p>
 					<%= link_to "Nieuwe aankoop", new_aankoop_path, :class => "btn btn-warning" %>	
 				<% end %>
 	        </div>
@@ -96,7 +96,7 @@
 					<p>Het recenste onderhoud is van <%= @onderhoud.created_at.strftime("%d/%m/%Y") %> op artikel "<%= @onderhoud.aankoop.artikel %>" met een kost van <%=  number_to_currency(@onderhoud.prijs, locale: :nl) %></b>.</p>
 				<% else %>
 					<h3>Onderhoud</h3>
-					<p>Je hebt nog geen onderhouden aangemaakt.</p>
+					<p>Je hebt nog geen onderhoud aangemaakt.</p>
 					<%= link_to "Nieuw onderhoud", new_onderhoud_path, :class => "btn btn-warning" %>	
 				<% end %>
 		   </div>
@@ -127,7 +127,7 @@
 				</div>
 				<% else %>
 					<h3>Recept</h3>
-					<p>Je hebt nog geen recepten aangemaakt.</p>
+					<p>Je hebt nog geen recept aangemaakt.</p>
 					<%= link_to "Nieuw recept", new_recept_path, :class => "btn btn-warning" %>	
 				<% end %>			
 			</div>
@@ -151,7 +151,7 @@
 					<p>Laatste toegevoegde raadpleging is van <%= @dossier.created_at.strftime("%d/%m/%Y") %> bij <%= @dossier.arts.naam %> en gaat over "<%= @dossier.persoon.voornaam %>".</p>
 				<% else %>
 					<h3>Raadpleging</h3>
-					<p>Je hebt nog geen raadplegingen aangemaakt.</p>
+					<p>Je hebt nog geen raadpleging aangemaakt.</p>
 					<%= link_to "Nieuwe raadpleging", new_dossier_path, :class => "btn btn-warning" %>
 				<% end %>					
 			</div>
