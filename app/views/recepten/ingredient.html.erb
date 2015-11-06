@@ -9,20 +9,23 @@
 				<%= render 'layouts/messages' %>
 				<table class="table">
 					<% @recepten.each do |recept| %>
-						<% if !recept.ingredient.empty? %>
+					<% if !recept.ingredienten.empty? %>
 							<%= link_to recept.naam.upcase, :anchor => recept.naam %><br>
 						<% end %>
 					<% end %>
 					<hr>
 					<% @recepten.each do |recept| %>
-						<% if !recept.ingredient.empty? %>
+					<% if !recept.ingredienten.empty? %>
 							<div class="naam" id="<%=recept.naam %>">
 								<span><%= link_to ingredient_recepten_path do %><i class="fa fa-shopping-cart fa-lg"></i>&nbsp&nbsp
 								<% end %></span>
 								<b><%= recept.naam.upcase %></b>
 							</div>
-						<%= simple_format(recept.ingredient) %>
+							<% recept.ingredienten.each do |ingredient| %>
+								<%= ingredient.naam %><br>
+							<% end %>
 						<% end %>
+					<br>
 					<% end %>
 				</table>
 			</div>
