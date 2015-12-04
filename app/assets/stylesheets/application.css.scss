@@ -17,36 +17,112 @@
 @import "font-awesome-sprockets.css";
 @import "font-awesome.css";
 
-.menu{
-  padding-left: 40px; //* om het menu wat meer ruimte te geven links
-}
-
-.navbar{
-  min-height:1px; //* or whatever height you require / WERKT maar kan de hoogte alleen maar groter maken
-}
-
-.panel-body {
- //*    text-overflow: ellipsis;
- //*   overflow: hidden;
-     word-wrap: break-word; //* om in de notitie woorden te breken als de notities buiten de panel komen, werkt niet
-}
-
-//* deze lijnen werden toegevoegd om beter op de HOME page css af te stemmen
+//* 9/11/2015 dit heeft te maken met de algemene stijl
 html,
 body {
-	height: 100%;
-  	background-color: #333;
-		  color: #fff;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
 }
-.masthead-brand {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+
 /* Padding for spacing */
 .inner {
   padding: 30px;
 }
 
+/*
+ * Top Menu
+ */
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 15px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/*
+ * Footer
+ */
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);  
+  position:fixed;
+  bottom:0;
+  left:0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+
+//* dit is om de alert box naar beneden te brengen onder de titel
+.bericht {
+  	padding-top: 10px;
+}
+
+/* Dit is de stijl van de titel op elke pagina */
+.note-titel {
+	background-color: #6E6E6E;
+	border-radius: 20px;
+	box-shadow: 10px 10px 5px #282626;
+}
+
+/* Kleur rood en groen voor de kleur van de icons */
+.rood {
+	color: red;
+}
+.groen {
+	color: green;
+}
+
+/* Dit is de kleur van de tabel titel */
+.tabel-titel {
+	color: #6E6E6E;
+}
+
+/* Bij de formulieren moet dit anders te dicht bij de titel */
+.input-formulier {
+	margin-top: 5%;
+}
+
+
+
+
+//* het onderstaande nog nazien
 table {
   	background-color: #333;
 }
@@ -69,7 +145,6 @@ thead {
 .zoekformulier {
   margin-top: 20px;
   margin-bottom: 20px;
-	padding-left: 25%;
 }
 
 //* deze lijnen werden toegevoegd omdat de container anders te smal was maar werkt het nu nog mobiel

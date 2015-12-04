@@ -1,13 +1,21 @@
-<div class="container">  
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Artsen & geneesheren.&nbsp&nbsp <small>Beheer hier.</small></h3>
+<% title("Websites") %>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+	<div class="row">
+		<div class="col-md-9"><!-- Main -->
 			<div class="row">
-				<%= render 'layouts/messages' %> 
-				<table class="table">
+				<h3 class="masthead-brand">Specialisten&nbsp&nbsp&nbsp<small>>> beheer hier alle specialisten</small></h3>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+
+			<!-- De tabel -->
+			<div class="row">
+				<table class="table table-condensed">
 					<thead>
     					<tr>
       						<th>Naam</th>
@@ -29,24 +37,26 @@
 		  						<td width="40%"><%= arts.beschrijving %></td>
 		  						<td width="5%">
 									<div class="btn-group">
-			  							<%= link_to  edit_arts_path(arts), :class => "btn-sm btn-primary" do %>
+			  							<%= link_to  edit_arts_path(arts) do %>
                     						<span class="glyphicon glyphicon-edit" title="Wijzig deze arts"></span>
-                						<% end %>	
+                						<% end %>
             						</div>
 								</td>
             					<td width="5%">
 									<div class="btn-group">
-										<%= link_to  arts, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
-                    						<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze arts"></span>
+										<%= link_to  arts, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
+                    						<span class="glyphicon glyphicon-trash" title="Verwijder deze arts"></span>
                 						<% end %>
             						</div>
-								</td> 
+								</td>
       						</tr>
     					<% end %>
   					</tbody>
 				</table>
 			</div>
-		</div>     
-		<%= render 'dossiers/menu' %> 
-	</div>  
+		</div>
+
+		<!-- Menu -->
+		<%= render 'dossiers/menu' %>
+	</div>
 </div>

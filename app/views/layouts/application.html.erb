@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <title><%= @title || "JbappV2 (beta)" %></title>
+
   <%= favicon_link_tag 'favicon.ico' %>
   <%#= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag "application", params[:controller], :media => "all", "data-turbolinks-track" => true %>
@@ -13,9 +16,14 @@
   <!--	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
+
 <body>
+	<%= yield %>
 
-		<%= yield %>
-
+	<!-- Dit is de footer -->
+	<div class="mastfoot inner">
+		<p class="text-center">Gemaakt door Jurgen Bosmans <a href="http://www.2004.be">2004.be</a>, &copy; 2015.</p>
+	</div>
 </body>
+
 </html>

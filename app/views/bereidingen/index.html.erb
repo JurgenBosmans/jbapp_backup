@@ -1,13 +1,21 @@
-<div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Beoordelingen.&nbsp&nbsp <small>Ziehier de beoordeling over je recepten.</small></h3>
+<% title("Beoordelingen") %>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+	<div class="row">
+		<div class="col-md-9"><!-- Main -->
 			<div class="row">
-				<%= render 'layouts/messages' %>
-				<table class="table">
+				<h3 class="masthead-brand">Beoordelingen&nbsp&nbsp&nbsp<small>>> hier kan je alle beoordelingen terugvinden</small></h3>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+
+			<!-- De tabel -->
+			<div class="row">
+				<table class="table table-condensed">
 					<thead>
 						<tr>
 							<th>Datum</th>
@@ -27,15 +35,15 @@
 								<td><%= bereiding.opmerking %></td>
 								<td width=50px>
 									<div class="btn-group">
-										<%= link_to  edit_bereiding_path(bereiding), :class => "btn-sm btn-primary" do %>
+										<%= link_to  edit_bereiding_path(bereiding) do %>
 											<span class="glyphicon glyphicon-edit" title="Wijzig deze bereiding"></span>
 										<% end %>
 									</div>
 								</td>
 								<td width=50px>
 									<div class="btn-group">
-										<%= link_to  bereiding, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
-											<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze bereiding"></span>
+										<%= link_to  bereiding, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
+											<span class="glyphicon glyphicon-trash" title="Verwijder deze bereiding"></span>
 										<% end %>
 									</div>
 								</td>
@@ -45,6 +53,8 @@
 				</table>
 			</div>
 		</div>
+
+		<!-- Menu -->
 		<%= render 'recepten/menu' %>
 	</div>
 </div>

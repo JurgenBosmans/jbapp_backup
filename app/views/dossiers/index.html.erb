@@ -1,21 +1,34 @@
-<div class="container">  
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Raadplegingen.&nbsp&nbsp <small>Beheer hier uw medisch dossier.</small></h3>
+<% title("Raadplegingen") %>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+	<div class="row">
+		<div class="col-md-9"><!-- Main -->
 			<div class="row">
-				<%= render 'layouts/messages' %> 
-				<div class="zoekformulier">
-					Zoek naar een raadpleging<br>				
-					<%= form_tag dossiers_path, method: 'get', html: {role: "form"} do %>
-    					<%= text_field_tag :search, params[:search], :size => 30 %>&nbsp&nbsp
-						<%= submit_tag "Zoek", :name => nil, class: "btn btn-sm btn-primary" %>
-	  					<%= link_to "Toon alles", dossiers_path, {class: "btn btn-sm btn-link"} %>
+				<h3 class="masthead-brand">Raadplegingen&nbsp&nbsp&nbsp<small>>> beheer hier al je raadplegingen</small></h3>
+			</div>
+
+			<!-- Zoekformulier -->
+			<div class="row">
+				<div class="col-md-9 col-md-offset-3">
+					<%= form_tag @dossier, method: 'get', html: {role: "form"}, class: 'navbar-form navbar-left' do %>
+						<div class="form-group">
+							<%= text_field_tag :search, params[:search], :size => 30, :placeholder => "Zoek naar ...", :class => "form-control" %>
+						</div>
+						<%= submit_tag "Zoek", :name => nil, class: "btn btn-default" %>
 					<% end %>
-				</div>			
-				<table class="table">
+				</div>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+
+			<!-- De tabel -->
+			<div class="row">
+
+				<table class="table table-condensed">
   				<thead>
 					<tr>
 	  					<th>Afgehandeld</th>
@@ -41,24 +54,26 @@
 						<td><%= dossier.verzekering_verzonden %></td>
 						<td width=50px>
 							<div class="btn-group">
-								<%= link_to  edit_dossier_path(dossier), :class => "btn-sm btn-primary" do %>
+								<%= link_to  edit_dossier_path(dossier) do %>
 									<span class="glyphicon glyphicon-edit" title="Wijzig dit dossier"></span>
 								<% end %>
 							</div>
 						</td>
 						<td width=50px>
 							<div class="btn-group">
-								<%= link_to  dossier, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
-									<span class="glyphicon glyphicon-remove-sign" title="Verwijder dit dossier"></span>
+								<%= link_to  dossier, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
+									<span class="glyphicon glyphicon-trash" title="Verwijder dit dossier"></span>
 								<% end %>
 							</div>
-						</td>  		
+						</td>
 					</tr>
 					<% end %>
   				</tbody>
 			</table>
 			</div>
-		</div>     
-		<%= render 'dossiers/menu' %> 
-	</div>  
+		</div>
+
+		<!-- Menu -->
+		<%= render 'dossiers/menu' %>
+	</div>
 </div>

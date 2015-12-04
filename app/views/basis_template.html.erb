@@ -1,4 +1,4 @@
-<% title("Home") %>
+<% title("Titel") %>
 <div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
 		<!-- De eerste rij met titel en topmenu -->
 		<div class="row">
@@ -7,7 +7,9 @@
 					<div class="col-md-3">
 						<h3 class="masthead-brand">JBapp</h3>
 					</div>
-					<div class="col-md-9"> <!-- Top Menu -->
+					<div class="col-md-6">
+					</div>
+					<div class="col-md-3"> <!-- Top Menu -->
 						<nav>
 							<ul class="nav masthead-nav">
                   				<li class="active"><a href="#">Home</a></li>
@@ -32,20 +34,33 @@
 				</div>
 			</div>
 		</div>
-		  
-		<!-- De tweede rij met de content en het menu -->
-		<div class="row input-formulier">
-			<div class="col-md-6 col-md-offset-3"> <!-- Main -->
-            	<div align="center">
-              		<img src="pro.jpg" alt="ronde afbeelding" class="img-circle">
-            	</div>
-            	<h1 class="cover-heading">Snips in de cloud.</h1>
-            	<p class="lead">Gebruik deze website om allerhande snips bij te houden.&nbsp&nbspVanaf nu niet meer zoeken waar deze informatie is gebleven dankzij deze app en de cloud heb je ze altijd bij de hand.
-				&nbsp&nbspMomenteel zijn er 9 snips ter beschikking voor meer info zie de "About" pagina.&nbsp&nbspVia het dashboard heb je steeds een overzicht van de meest recente informatie.&nbsp&nbspJe kan dit programma met
-				meerdere gebruikers instellen zodat ieder enkel zijn informatie ter beschikking heeft.</p>
-            	<p class="lead">
-              		<%= link_to "Registreer", new_user_registration_path, :class => "btn btn-lg btn-default" %>
-            	</p>
-          	</div>
+
+		<!-- Dit zijn de alert messages -->
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3"> 
+				<%= render 'layouts/messages' %>
+			</div>
 		</div>
+
+		<!-- De tweede rij met de content en het menu -->
+		<div class="row">
+			<div class="col-md-9 inner"> <!-- Main -->
+
+
+
+			</div>
+			<div class="col-md-3"> <!-- Menu -->
+				<div class="panel panel-default">
+					<div class="panel-body">Panel content</div>
+					<div class="panel-footer">Panel footer</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Dit is de footer -->
+        <div class="mastfoot inner">
+			<p>Gemaakt door Jurgen Bosmans <a href="http://www.2004.be">2004.be</a>, &copy; 2015.</p>
+        </div>
 	</div>
+
+<div style="background-color:green;">test</div>

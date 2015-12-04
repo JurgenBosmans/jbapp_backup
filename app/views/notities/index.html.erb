@@ -1,19 +1,32 @@
-<div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Notities.&nbsp&nbsp <small>Beheer je kleine notities.</small></h3>
+<% title("Notities") %>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+	<div class="row">
+		<div class="col-md-9"><!-- Main -->
 			<div class="row">
-				<%= render 'layouts/messages' %>
-				<div class="zoekformulier">
-					Zoek naar een notitie<br>
-					<%= form_tag @notitie, method: 'get', html: {role: "form"} do %>
-						<%= text_field_tag :zoek, params[:zoek], :size => 30 %> &nbsp&nbsp
-						<%= submit_tag "Zoek", :name => nil, class: "btn btn-sm btn-primary" %>
+				<h3 class="masthead-brand">Notities&nbsp&nbsp&nbsp<small>>> beheer hier je kleine notities</small></h3>
+			</div>
+
+			<!-- Zoekformulier -->
+			<div class="row">
+				<div class="col-md-9 col-md-offset-3">
+					<%= form_tag @notitie, method: 'get', html: {role: "form"}, class: 'navbar-form navbar-left' do %>
+						<div class="form-group">
+							<%= text_field_tag :zoek, params[:zoek], :size => 30, :placeholder => "Zoek naar ...", :class => "form-control" %>
+						</div>
+						<%= submit_tag "Zoek", :name => nil, class: "btn btn-default" %>
 					<% end %>
 				</div>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+
+			<!-- De tabel -->
+			<div class="row">
 				<% @notities.each do |notitie| %>
 					<% if notitie.belangrijk %>
 						<div class="note-important">
@@ -23,27 +36,21 @@
 							<p align=right><%=notitie.created_at.strftime("%d/%m/%Y") %></p>
 							<p><%=simple_format(hyperlink(notitie.notitie)) %></p>
 							<div class="btn-group">
-                				<%= link_to  edit_notitie_path(notitie), :class => "btn-sm btn-primary" do %>
+                				<%= link_to  edit_notitie_path(notitie) do %>
                     				<span class="glyphicon glyphicon-edit" title="Wijzig deze notitie"></span>
                 				<% end %>
             				</div>
             				<div class="btn-group">
-                				<%= link_to  notitie, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
-                    				<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze notitie"></span>
+                				<%= link_to  notitie, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
+                    				<span class="glyphicon glyphicon-trash" title="Verwijder deze notitie"></span>
                 				<% end %>
             				</div>
 						</div>
 				<% end %>
 			</div>
 		</div>
+
+		<!-- Menu -->
 		<%= render 'notities/menu' %>
 	</div>
 </div>
-
-
-<table>
-	<tr>
-		<td></td>
-		<td></td>
-	</tr>
-</table>

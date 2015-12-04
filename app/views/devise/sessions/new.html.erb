@@ -1,11 +1,14 @@
 <% title("Log in") %>
-<div class="site-wrapper">
-	<div class="site-wrapper-inner">
-    	<div class="cover-container">
-        	<div class="masthead clearfix">
-            	<div class="inner">
-              		<h3 class="masthead-brand">JBapp</h3>
-					<nav>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+		<!-- De eerste rij met titel en topmenu -->
+		<div class="row">
+			<div class="masthead clearfix">
+				<div class="inner">
+					<div class="col-md-3">
+						<h3 class="masthead-brand">JBapp</h3>
+					</div>
+					<div class="col-md-9">
+						<nav>
                 		<ul class="nav masthead-nav">
                				<li><%= link_to "Home", home_path %></li>
 							<li><%= link_to "About", about_path %></li>
@@ -24,50 +27,55 @@
 								<% end %>
                   			<% end %>
                 		</ul>
-              		</nav>
-            	</div>
-          	</div>
-			<h1>Log in</h1>
-				<div class="container">
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Dit zijn de alert messages -->
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3"> 
+				<%= render 'layouts/messages' %>
+			</div>
+		</div>
+
+		<!-- De tweede rij met de content en het menu -->
+		<div class="row">
+			<div class="col-md-12 col-md-offset-3 inner text-left"> <!-- Main -->
+				<h3>Log in om verder te gaan.</h3><br><br>
 				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), role: "form", :html => {:class => 'form-horizontal'}) do |f| %>
       				<div class="form-group">
-						<%= f.label :username, 'Gebruikersnaam' %>
-        				<div class="row">
-          					<div class="col-sm-2">
-            					<%= f.text_field :username, :autofocus => true, class: "form-control" %>  
-          					</div>
-        				</div>
+						<%= f.label :username, 'Gebruikersnaam', class: "col-sm-2" %>
+						<div class="col-sm-4">
+            				<%= f.text_field :username, :autofocus => true, class: "form-control" %>  
+						</div>
       				</div>
       				<div class="form-group">
-        				<%= f.label :password, 'Paswoord' %>
-        				<div class="row">
-          					<div class="col-sm-2">
-            					<%= f.password_field :password, class: "form-control" %>
-          					</div>
-        				</div>
+        				<%= f.label :password, 'Paswoord', class: "col-sm-2" %>
+          				<div class="col-sm-4">
+            				<%= f.password_field :password, class: "form-control" %>
+          				</div>
       				</div>
       				<% if devise_mapping.rememberable? -%>
-      					<div class="checkbox">
+				<div class="form-group">
+      					<div class="col-sm-4 col-sm-offset-2 ">
           					<%= f.check_box :remember_me %> <%= f.label :remember_me ,'mij onthouden'%>
       					</div>
+					</div>
       				<% end -%>
 					<br>
       				<div class="form-group">
-        				<div class="col-sm-2">
+        				<div class="col-sm-4 col-sm-offset-2 ">
           					<%= f.submit "Log in", class: "btn btn-primary" %>
         				</div>
       				</div>
       			<% end %>
-				</div>
-			<%= render "devise/shared/links" %>
-			<br><br><br><br><br><br><br><br><br><br>
-			<div class="mastfoot">
-    			<div class="inner">
-        			<p align="center">Gemaakt door Jurgen Bosmans <a href="http://www.2004.be">2004.be</a>, &copy; 2015.</p>
-        		</div>
-    		</div>
+				<br><br>
+				<%= render "devise/shared/links" %>
+			</div>
 		</div>
 	</div>
-</div>
+
 
 

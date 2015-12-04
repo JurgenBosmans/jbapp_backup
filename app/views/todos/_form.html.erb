@@ -1,46 +1,53 @@
+<% title("Todo's") %>
 <div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<% if params[:action] == "new" then %>
-				<h3 class="masthead-brand">Todos.&nbsp&nbsp <small>Maak een nieuwe todo aan.</small></h3>
-			<% else %>
-				<h3 class="masthead-brand">Todos.&nbsp&nbsp <small>Wijzig een bestaande todo.</small></h3>
-			<% end %>
+	<div class="row">
+		<div class="col-md-9">
 			<div class="row">
-				<div class="invulformulier">
-					<%= form_for @todo ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
-						<% if @todo.errors.any? %>
-							<div id="error_explanation">
-								<h2><%= pluralize(@todo.errors.count, "error") %> waardoor Todo niet kan weggeschreven worden:</h2>
-								<ul>
-									<% @todo.errors.full_messages.each do |message| %>
-										<li><%= message %></li>
-									<% end %>
-								</ul>
-							</div>
-						<% end %>
-						<div class="form-group">
-							<%= f.label :naam, "Geef een naam aan deze todo-lijst", class: "col-sm-4 control-label" %>
-							<div class="col-sm-4">
-								<%= f.text_field :naam, :autofocus => true, class: "form-control input-sm" %>
-							</div>
-						</div>
-						<div class="form-group">
-							<%= f.label :beschrijving, "Beschrijving", class: "col-sm-4 control-label" %>
-							<div class="col-sm-6">
-								<%= f.text_area :beschrijving, class: "form-control input-sm" %>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-4 col-sm-10">
-								<%= f.submit "Bevestig", class: "btn btn-primary" %>
-							</div>
-					  	</div>
-					<% end %>
+				<% if params[:action] == "new" then %>
+					<h3 class="masthead-brand">Todo's&nbsp&nbsp&nbsp<small>>> maak een nieuwe todo aan</small></h3>
+				<% else %>
+					<h3 class="masthead-brand">Todo's&nbsp&nbsp&nbsp<small>>> wijzig een bestaande todo</small></h3>
+				<% end %>
+			</div>
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<%= render 'layouts/messages' %>
 				</div>
+			</div>
+
+			<!-- Main -->
+			<div class="row input-formulier">
+				<%= form_for @todo ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
+					<% if @todo.errors.any? %>
+						<div id="error_explanation">
+							<h2><%= pluralize(@todo.errors.count, "error") %> waardoor Todo niet kan weggeschreven worden:</h2>
+							<ul>
+								<% @todo.errors.full_messages.each do |message| %>
+									<li><%= message %></li>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+
+					<div class="form-group">
+						<%= f.label :naam, "Geef een naam aan deze todo-lijst", class: "col-sm-4 control-label" %>
+						<div class="col-sm-4">
+							<%= f.text_field :naam, :autofocus => true, class: "form-control input-sm" %>
+						</div>
+					</div>
+					<div class="form-group">
+						<%= f.label :beschrijving, "Beschrijving", class: "col-sm-4 control-label" %>
+						<div class="col-sm-6">
+							<%= f.text_area :beschrijving, class: "form-control input-sm" %>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-10">
+							<%= f.submit "Bevestig", class: "btn btn-primary" %>
+						</div>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<%= render 'todos/menu' %>

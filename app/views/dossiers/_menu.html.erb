@@ -1,5 +1,4 @@
-		<div class="col-xs-12 col-sm-1"></div><!--/om ruimte te laten tussen tabel en menu-->
-		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+		<div class="col-sm-2 col-sm-offset-1">
         	<div class="list-group">
 				<p align="center"><%= link_to 'Raadplegingen menu', dossiers_path(:filter => "alle") , :class =>"list-group-item active" %>
 				<%= link_to 'Nieuwe toevoegen', new_dossier_path, :class =>"list-group-item" %>
@@ -11,7 +10,9 @@
 			  	<%= link_to "Patiënt toevoegen", new_persoon_path(:filter => "raadpleging"), :class =>"list-group-item" %>
 				<%= link_to "Artsen", artsen_path, :class =>"list-group-item" %>
 				<%= link_to "Arts toevoegen", new_arts_path, :class =>"list-group-item" %>
-				<p align="center"><strong><%= link_to "Terug naar het dashboard", inside_path, :class => "list-group-item active" %></strong>
-          	</div>
-        </div><!--/.sidebar-offcanvas-->
+				<p align="center"><strong><%= link_to inside_path, :class => "list-group-item active" do %>
+					<i class="glyphicon glyphicon-th"></i>&nbsp; Dashboard
+				<% end %></strong></p>
+			</div>
+		</div>
 

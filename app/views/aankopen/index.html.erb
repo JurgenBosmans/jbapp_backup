@@ -1,14 +1,22 @@
-<div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Aankopen.&nbsp&nbsp <small>Beheer je aankopen.</small></h3>
+<% title("Aankopen") %>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+	<div class="row">
+		<div class="col-md-9"><!-- Main -->
 			<div class="row">
-				<%= render 'layouts/messages' %> 
-				<table class="table">
-  					<thead>
+				<h3 class="masthead-brand">Aankopen&nbsp&nbsp&nbsp<small>>> beheer hier al je aankopen</small></h3>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+
+			<!-- De tabel -->
+			<div class="row">
+				<table class="table table-condensed">
+  					<thead class="tabel-titel">
     					<tr>
       						<th>Datum</th>
       						<th>Soort</th>
@@ -31,25 +39,27 @@
 		  						<td align="right"><%= aankoop.garantie_maanden %></td>
 								<td width=50px>
 									<div class="btn-group">
-										<%= link_to  edit_aankoop_path(aankoop), :class => "btn-sm btn-primary" do %>
+										<%= link_to  edit_aankoop_path(aankoop) do %>
             								<span class="glyphicon glyphicon-edit" title="Wijzig deze aankoop"></span>
             							<% end %>
 									</div>
 								</td>
         						<td width=50px>
 									<div class="btn-group">
-										<%= link_to  aankoop, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
-            								<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze aankoop"></span>
+										<%= link_to  aankoop, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
+            								<span class="glyphicon glyphicon-trash" title="Verwijder deze aankoop"></span>
             							<% end %>
 									</div>
-								</td>  		
+								</td>
     						</tr>
     					<% end %>
-  					</tbody>					
+  					</tbody>
 				</table>
 			</div>
-		</div>     
-		<%= render 'aankopen/menu' %> 
-	</div>  
+		</div>
+
+		<!-- Menu -->
+		<%= render 'aankopen/menu' %>
+	</div>
 </div>
 

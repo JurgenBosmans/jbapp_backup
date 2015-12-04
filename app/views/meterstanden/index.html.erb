@@ -1,13 +1,21 @@
-<div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Meterstanden.&nbsp&nbsp <small>Beheer hier je meterstand.</small></h3>
+<% title("Meterstanden") %>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+	<div class="row">
+		<div class="col-md-9"><!-- Main -->
 			<div class="row">
-				<%= render 'layouts/messages' %>
-				<table class="table">
+				<h3 class="masthead-brand">Meterstanden&nbsp&nbsp&nbsp<small>>> beheer hier je meterstand</small></h3>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+
+			<!-- De tabel -->
+			<div class="row">
+				<table class="table table-condensed">
 					<thead>
 						<tr>
 							<th>Meter</th>
@@ -27,15 +35,15 @@
 							<td align="right" width=10%><%= meterstand.verbruik %></td>
 							<td width=10% align="center">
 								<div class="btn-group">
-									<%= link_to  edit_meterstand_path(meterstand), :class => "btn-sm btn-primary" do %>
+									<%= link_to  edit_meterstand_path(meterstand) do %>
 										<span class="glyphicon glyphicon-edit" title="Wijzig deze meterstand"></span>
 									<% end %>
 								</div>
 							</td>
 							<td width=10%>
 								<div class="btn-group">
-									<%= link_to  meterstand, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
-										<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze aankoop"></span>
+									<%= link_to  meterstand, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
+										<span class="glyphicon glyphicon-trash" title="Verwijder deze aankoop"></span>
 									<% end %>
 								</div>
 							</td>
@@ -45,6 +53,8 @@
 			</table>
 			</div>
 		</div>
+
+		<!-- Menu -->
 		<%= render 'meterstanden/menu' %>
 	</div>
 </div>

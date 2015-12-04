@@ -4,6 +4,8 @@ class Recept < ActiveRecord::Base
 	has_many :werkwijzen , :dependent => :destroy
 	has_many :bereidingen , :dependent => :destroy
 
+	
+	before_save  {self.naam = naam.upcase}
 	#has_many :onderhouden , :dependent => :destroy
 
 	default_scope { order('created_at DESC') } #let op sortering later is niet meer mogelijk
@@ -26,6 +28,7 @@ class Recept < ActiveRecord::Base
   	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable
 
+		
   #def defaults
    # self.bereidingstijd = "0"
     #self.moeilijkheidsgraad = "0"

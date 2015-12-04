@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 $dark: darken(#428bca, 6.5%);
@@ -17,14 +17,14 @@ $dark: darken(#428bca, 6.5%);
 
 .todo_list_title {
 	text-align: center;
-	font-weight: 700;
-	font-size: 2.5rem;
+	font-weight: 600;
+	font-size: 2.9rem;
 	text-transform: uppercase;
-	color: white;
+	color: $dark;
 	margin: 0;
 	a {
 		text-decoration: none;
-		color: white;
+		color: $dark;
 		transition: all .4s ease-in-out;
 		&:hover {
 			opacity: 0.4;
@@ -36,14 +36,15 @@ $dark: darken(#428bca, 6.5%);
 	margin: 0 0 3em 0;
 	text-align: center;
 	font-size: 0.9em;
-	color: $dark;
+	color: white;
 	font-weight: 100;
 }
 
 .index_row {
 	padding: 1em;
-	width: 65%;
-	border-bottom: 1px solid rgba(250,250,250, .3);
+	margin: 1em;
+	width: 45%;
+	border: 1px solid rgba(250,250,250, .3);
 	.todo_list_sub_title {
 		margin-bottom: 0;
 	}

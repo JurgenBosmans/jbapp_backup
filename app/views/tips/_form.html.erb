@@ -1,16 +1,21 @@
+<% title("Tips") %>
 <div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<% if params[:action] == "new" then %>
-				<h3 class="masthead-brand">Tips.&nbsp&nbsp <small>Geef een nieuwe culinaire tip in.</small></h3>
-			<% else %>
-				<h3 class="masthead-brand">Tips.&nbsp&nbsp <small>Wijzig een bestaande tip.</small></h3>
-			<% end %>
+	<div class="row">
+		<div class="col-md-9">
 			<div class="row">
-				<div class="invulformulier">
+				<% if params[:action] == "new" then %>
+					<h3 class="masthead-brand">Tips&nbsp&nbsp&nbsp<small>>> geef een nieuwe culinaire tip in</small></h3>
+				<% else %>
+					<h3 class="masthead-brand">Tips&nbsp&nbsp&nbsp<small>>> wijzig een bestaande tip</small></h3>
+				<% end %>
+			</div>
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+			<div class="row input-formulier">
 					<%= form_for @tip ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
 						<div class="form-group">
 							<%= f.label :tip, class: "col-sm-2 control-label" %>
@@ -24,7 +29,6 @@
 							</div>
 					  	</div>
 					<% end %>
-				</div>
 			</div>
 		</div>
 		<%= render 'recepten/menu' %>

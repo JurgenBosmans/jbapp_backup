@@ -1,20 +1,33 @@
-<div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Todo lijstjes.&nbsp&nbsp <small>Beheer hier je todos.</small></h3>
+<% title("todo's") %>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+	<div class="row">
+		<div class="col-md-9"><!-- Main -->
 			<div class="row">
-				<%= render 'layouts/messages' %>
-					<% @todos.each do |todo| %>
-					  <div class="index_row clearfix">
+				<h3 class="masthead-brand">Todo's&nbsp&nbsp&nbsp<small>>> beheer hier al je favoriete todo's</small></h3>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+			<br><br><br>
+
+			<!-- De tabel -->
+			<div class="row">
+				<div class="col-md-10 col-md-offset-2">
+				<% @todos.each do |todo| %>
+					<div class="index_row">
 						<h2 class="todo_list_title"><%= link_to todo.naam, todo %></h2>
 						<p class="todo_list_sub_title"><%= todo.beschrijving %></p>
-					  </div>
-					<% end %>
+					</div>
+				<% end %>
+				</div>
 			</div>
 		</div>
-			<%= render 'todos/menu' %>
+
+		<!-- Menu -->
+		<%= render 'todos/menu' %>
 	</div>
 </div>

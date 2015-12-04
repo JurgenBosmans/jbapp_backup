@@ -9,7 +9,14 @@ class ReceptenController < ApplicationController
 		else
 			case params[:filter]
 				when "top10"
-					@recepten = current_user.recepten.order("created_at DESC").limit(2)
+
+				#@bereidingen = Bereiding.find(18,19)
+				#@recepten  = Recept_ids=(@bereidingen.recept_id)
+				#@recepten = Recept_ids=(Bereiding.where('score > 1').pluck(:recept_id))
+				#@recepten = Recept.bereiding_ids(@bereidingen)
+				#@recepten=Recept.includes(:bereidingen).where('bereidingen.score > 1').references(:bereidingen)
+
+					
 					@filter = "Top 10"
 				when "recent"
 					@recepten = current_user.recepten.order("created_at DESC").limit(2)

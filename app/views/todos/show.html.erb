@@ -1,13 +1,20 @@
+<% title("Todo's") %>
 <div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Todo lijstje "<%= @todo.naam %>" , <small> <%= @todo.beschrijving %>.&nbsp&nbsp Voeg items toe.</small></h3>
+	<div class="row">
+		<div class="col-md-9">
 			<div class="row">
-				<%= render 'layouts/messages' %>
-				<br>
+				<h3 class="masthead-brand">Todo lijstje "<%= @todo.naam %>" , <small> <%= @todo.beschrijving %>.&nbsp&nbsp Voeg items toe.</small></h3>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+
+			<!-- Main -->
+			<div class="row">
 				<div id="todo_items_wrapper">
 					<%= render @todo.todo_items %>
 					<div id="form">
@@ -16,6 +23,6 @@
 				</div>
 			</div>
 		</div>
-			<%= render 'todo_items/menu' %>
+		<%= render 'todo_items/menu' %>
 	</div>
 </div>

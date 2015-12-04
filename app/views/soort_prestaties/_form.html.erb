@@ -1,16 +1,21 @@
+<% title("Soort prestatie") %>
 <div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<% if params[:action] == "new" then %>
-				<h3 class="masthead-brand">Soort prestaties.&nbsp&nbsp <small>Maak een soort prestatie aan.</small></h3>
-			<% else %>
-				<h3 class="masthead-brand">Soort prestatie.&nbsp&nbsp <small>Wijzig een bestaande soort prestatie.</small></h3>
-			<% end %>
+	<div class="row">
+		<div class="col-md-9">
 			<div class="row">
-				<div class="invulformulier">
+				<% if params[:action] == "new" then %>
+					<h3 class="masthead-brand">Soort prestatie&nbsp&nbsp&nbsp<small>>> maak een nieuwe aan</small></h3>
+				<% else %>
+					<h3 class="masthead-brand">Soort prestatie&nbsp&nbsp&nbsp<small>>> wijzig een bestaande</small></h3>
+				<% end %>
+			</div>
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+			<div class="row input-formulier">
 					<%= form_for @soort_prestatie ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
 						<div class="form-group">
 							<%= f.label :soort, class: "col-sm-2 control-label" %>
@@ -30,7 +35,6 @@
 							</div>
 					  	</div>
 					<% end %>
-				</div>
 			</div>
 		</div>
 		<%= render 'prestaties/menu' %>

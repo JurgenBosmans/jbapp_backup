@@ -1,16 +1,21 @@
+<% title("Meterstanden") %>
 <div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<% if params[:action] == "new" then %>
-				<h3 class="masthead-brand">Meterstanden.&nbsp&nbsp <small>Geef een nieuwe meterstand in.</small></h3>
-			<% else %>
-				<h3 class="masthead-brand">Meterstanden.&nbsp&nbsp <small>Wijzig een meterstand.</small></h3>
-			<% end %>
+	<div class="row">
+		<div class="col-md-9">
 			<div class="row">
-				<div class="invulformulier">
+				<% if params[:action] == "new" then %>
+					<h3 class="masthead-brand">Meterstanden&nbsp&nbsp&nbsp<small>>> geef een nieuwe meterstand in</small></h3>
+				<% else %>
+					<h3 class="masthead-brand">Websites&nbsp&nbsp&nbsp<small>>> wijzig een bestaande meterstand</small></h3>
+				<% end %>
+			</div>
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+			<div class="row input-formulier">
 					<% if not @meterstand_vorig.nil? %>
 						<div class="alert alert-warning" role="alert" align="center">
 							De <b>vorige stand</b> op <%= @meterstand_vorig.datum.try(:strftime, "%d/%m/%Y") %> was <b><%= @meterstand_vorig.stand %></b> met een verbruik van <%= @meterstand_vorig.verbruik %>
@@ -18,7 +23,7 @@
 					<% end %>
 					<%= form_for @meterstand ,:html => { :class => "form-horizontal", :role => "form"} do |f| %>
 						<div class="form-group">
-							<%= f.label  :meter , "Meter" ,class: "col-sm-2 control-label" %>   
+							<%= f.label  :meter , "Meter" ,class: "col-sm-2 control-label" %>
 							<div class="col-sm-3">
 								<%= f.select(:meter, Meterstand::METER, {:include_blank => true}, {class: "form-control input-sm"}) %>
 							</div>
@@ -26,19 +31,19 @@
 						<div class="form-group">
 							<%= f.label :datum, class: "col-sm-2 control-label" %>
 							<div class="col-sm-4">
-								<%= f.date_select(:datum, {class: "date-select"}) %>  
+								<%= f.date_select(:datum, {class: "date-select"}) %>
 							</div>
 					  	</div>
 					  	<div class="form-group">
 							<%= f.label :stand, "Meterstand" , class: "col-sm-2 control-label" %>
 							<div class="col-sm-4">
-						  		<%= f.text_field :stand, class: "form-control input-sm" %>  
+						  		<%= f.text_field :stand, class: "form-control input-sm" %>
 							</div>
 					  	</div>
 					  	<div class="form-group">
 							<%= f.label :verbruik , class: "col-sm-2 control-label" %>
 							<div class="col-sm-4">
-						  		<%= f.text_field :verbruik, class: "form-control input-sm" %>  
+						  		<%= f.text_field :verbruik, class: "form-control input-sm" %>
 							</div>
 					  	</div>
 					  	<div class="form-group">
@@ -47,7 +52,6 @@
 							</div>
 					  	</div>
 					<% end %>
-				</div>
 			</div>
 		</div>
 		<%= render 'meterstanden/menu' %>

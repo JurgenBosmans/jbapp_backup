@@ -1,28 +1,36 @@
-<div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-12 col-sm-8">
-          	<p class="pull-right visible-xs">
-            	<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          	</p>
-			<h3 class="masthead-brand">Tips.&nbsp&nbsp <small>Noteer hier je culinaire tips.</small></h3>
+<% title("Tips") %>
+<div class="container">	<!-- container-fluid is ook mogelijk over de ganse breedte -->
+	<div class="row">
+		<div class="col-md-9"><!-- Main -->
 			<div class="row">
-				<%= render 'layouts/messages' %>
-				<table class="table">
+				<h3 class="masthead-brand">Tips&nbsp&nbsp&nbsp<small>>> noteer hier je culinaire tips</small></h3>
+			</div>
+
+			<!-- Dit zijn de alert messages -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3"> <!-- Main -->
+					<%= render 'layouts/messages' %>
+				</div>
+			</div>
+
+			<!-- De tabel -->
+			<div class="row">
+				<table class="table table-condensed">
 					<% @tips.each do |tip| %>
 						<tr>
 							<td width="20%"><%= tip.created_at.strftime("%d/%m/%Y") %></td>
 							<td width="20%"><%= tip.tip %></td>
 							<td width="5%">
 								<div class="btn-group">
-									<%= link_to  edit_tip_path(tip), :class => "btn-sm btn-primary" do %>
+									<%= link_to  edit_tip_path(tip) do %>
 										<span class="glyphicon glyphicon-edit" title="Wijzig deze tip"></span>
 									<% end %>
 								</div>
 							</td>
 							<td width="5%">
 								<div class="btn-group">
-									<%= link_to  tip, method: :delete, data: { confirm: 'Bent u zeker?' }, :class => "btn-sm btn-primary" do %>
-										<span class="glyphicon glyphicon-remove-sign" title="Verwijder deze tip"></span>
+									<%= link_to  tip, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
+										<span class="glyphicon glyphicon-trash" title="Verwijder deze tip"></span>
 									<% end %>
 								</div>
 							</td>
@@ -31,6 +39,8 @@
 				</table>
 			</div>
 		</div>
+
+		<!-- Menu -->
 		<%= render 'recepten/menu' %>
 	</div>
 </div>
