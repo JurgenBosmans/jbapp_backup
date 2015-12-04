@@ -22,8 +22,8 @@
       						<th>Soort</th>
       						<th>Winkel</th>
       						<th>Artikel</th>
-	  						<th>Prijs</th>
-							<th>Garantie</th>
+	  						<th style="text-align:right">Prijs</th>
+							<th style="text-align:right">Garantie</th>
       						<th></th>
       						<th></th>
     					</tr>
@@ -37,14 +37,14 @@
 		  						<td><%= aankoop.artikel %></td>
 		  						<td align="right"><%= number_to_currency(aankoop.prijs, locale: :nl) %></td>
 		  						<td align="right"><%= aankoop.garantie_maanden %></td>
-								<td width=50px>
+								<td width=50px align="center">
 									<div class="btn-group">
 										<%= link_to  edit_aankoop_path(aankoop) do %>
             								<span class="glyphicon glyphicon-edit" title="Wijzig deze aankoop"></span>
             							<% end %>
 									</div>
 								</td>
-        						<td width=50px>
+        						<td width=50px align="center">
 									<div class="btn-group">
 										<%= link_to  aankoop, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
             								<span class="glyphicon glyphicon-trash" title="Verwijder deze aankoop"></span>

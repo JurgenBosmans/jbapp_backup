@@ -37,14 +37,14 @@
 						  	<td><%= product.land %></td>
 						  	<td><%= product.winkel %></td>
 						  	<td style="text-align: right"><%= product.prijs %>&nbsp<%= product.eenheid %></td>
-						  	<td width="5%" align="center">
+						  	<td align="center">
 								<div class="btn-group">
 									<%= link_to  edit_product_path(product) do %>
 										<span class="glyphicon glyphicon-edit" title="Wijzig dit product"></span>
 									<% end %>
 								</div>
 							</td>
-							<td width="5%" align="center">
+							<td align="center">
 								<div class="btn-group">
 									<%= link_to  product, method: :delete, data: { confirm: 'Bent u zeker?' } do %>
 										<span class="glyphicon glyphicon-trash" title="Verwijder dit product"></span>
