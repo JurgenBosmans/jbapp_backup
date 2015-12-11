@@ -20,10 +20,12 @@
 <body>
 	<%= yield %>
 
-	<!-- Dit is de footer -->
-	<div class="mastfoot inner">
-		<p class="text-center">Gemaakt door Jurgen Bosmans <a href="http://www.2004.be">2004.be</a>, &copy; 2015.</p>
-	</div>
+	<% if controller_name == "pages" or controller_name == "sessions" %>
+		<!-- Dit is de footer -->
+ 		<div class="mastfoot">
+   			<p class="text-center">Gemaakt door Jurgen Bosmans <a href="http://www.2004.be">2004.be</a>, &copy; 2015.</p>
+ 		</div>
+	<% end %>
 </body>
 
 </html>

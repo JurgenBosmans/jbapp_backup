@@ -2,3 +2,42 @@
 a:link, a:visited { 
     text-decoration: none;
 }
+
+/* Dit heeft met de dasgboard tabs te maken */
+
+body {
+  text-align: center;
+}
+
+.note {
+	background-color: #6E6E6E;
+	padding: 20px;
+	margin: 20px;
+	width: 450px;
+	height: 260px;
+	border-radius: 20px;
+	box-shadow: 10px 10px 5px #282626;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+/* Omdat soms de content zoals bij Home niet zo breed moet zijn gebruik dan volgende class samen met .smal
+<div class="col-md-6 col-md-offset-3">
+*/
+.smal {
+	padding-top: 15%;
+}
+
+/* Dit is van de tekst in de note */
+
+p {
+	font-size: 1.2em;
+	margin: 25px 15px 25px 15px;
+	a {
+		text-decoration: none !important;
+		font-size: 14px;
+	}
+}
+
+.button-breed {
+    width: 200px ;
+}
