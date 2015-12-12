@@ -79,7 +79,7 @@ $red: #DB6161;
 .recipe_image {
 	max-width: 100%;
 	border-radius: 5px;
-	@include box-shadow;
+	float: right;
 }
 
 #recipe_info {
