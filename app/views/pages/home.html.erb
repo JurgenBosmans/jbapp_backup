@@ -35,20 +35,21 @@
 				</div>
 			</div>
 		</div>
-		  
+</div>
 		<!-- De tweede rij met de content en het menu -->
-		<div class="row input-formulier">
-			<div class="col-md-6 col-md-offset-3"> <!-- Main -->
-            	<div align="center">
-					<%= image_tag("pro.jpg", :class => "img-circle") %>
-            	</div>
-            	<h1 class="cover-heading">Snips in de cloud.</h1>
-            	<p class="lead">Gebruik deze website om allerhande snips bij te houden.&nbsp&nbspVanaf nu niet meer zoeken waar deze informatie is gebleven dankzij deze app en de cloud heb je ze altijd bij de hand.
+		<%= render 'layouts/messages' %>
+		<div class="row">
+			<!-- Main -->
+			<div class="banner">
+				<h1 class="banner_content_h1">Snips in de cloud</h1>
+				<p class="banner_content_p" align="center">Gebruik deze website om allerhande snips bij te houden.&nbsp&nbspVanaf nu niet meer zoeken waar deze informatie is gebleven dankzij deze app en de cloud heb je ze altijd bij de hand.
 				&nbsp&nbspMomenteel zijn er 9 snips ter beschikking voor meer info zie de "About" pagina.&nbsp&nbspVia het dashboard heb je steeds een overzicht van de meest recente informatie.&nbsp&nbspJe kan dit programma met
 				meerdere gebruikers instellen zodat ieder enkel zijn informatie ter beschikking heeft.</p>
-            	<p class="lead">
-              		<%= link_to "Registreer", new_user_registration_path, :class => "btn btn-lg btn-default" %>
+			</div>
+			<div class="avatar" align="center">
+				<%= image_tag("pro.jpg", :class => "img-circle border") %>
+			</div>
+			            	<p class="lead">
+								<%= link_to "Registreer", new_user_registration_path, :class => "btn btn-lg btn-default knop" %>
             	</p>
-          	</div>
 		</div>
-	</div>
