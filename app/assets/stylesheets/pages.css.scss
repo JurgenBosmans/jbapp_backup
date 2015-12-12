@@ -36,3 +36,39 @@ p {
 .button-breed {
     width: 200px ;
 }
+
+.banner {
+	margin-top: 5%;
+	background-image: url(image_path("home.jpg"));
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+	width: 100%;
+	min-height: 600px;
+	display: table;
+}
+
+.banner_content_h1 {
+		vertical-align: middle;
+		text-align: center;
+		color: white;
+		font-size: 5rem;
+		margin: 50px;
+
+}
+
+.banner_content_p {
+	margin: 1% 25% 1% 25%;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 2.5rem;
+		color: white;
+	font-weight: 1500;
+}
+.avatar{
+	margin-top: -75px;
+}
+
+.border{
+	border: 5px solid #333;
+}
